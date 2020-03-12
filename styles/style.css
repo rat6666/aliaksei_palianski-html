@@ -4,8 +4,16 @@ body {
   background-image: url(../images/first_bg.jpg);
   background-color: #c7b39b;
   background-repeat: repeat;
-  /* font-family: sans-serif; */
 }
+
+p {
+  margin-top: 0em;
+  margin-bottom: 1em;
+ }
+
+h5 {
+  margin-bottom: 0em;
+ }
 
 .document {
   text-align: justify;
