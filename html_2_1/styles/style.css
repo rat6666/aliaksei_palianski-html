@@ -2,6 +2,7 @@
   font-family: Pompadur;
   src: url(../fonts/AnotherWetShabbyTrial.ttf);
 }
+
 body {
   margin: 0;
 }
@@ -89,11 +90,13 @@ div.main {
   transform: rotate(-4deg);
   position: relative;
   top: -30px;
+  background: rgb(241, 241, 241);
 }
 div.first-block {
   display: table-cell;
   position: relative;
   top: -80px;
+  background: rgb(241, 241, 241);
 }
 div.third-block {
   display: table-cell;
@@ -101,7 +104,8 @@ div.third-block {
 div.second-block {
   display: table-cell;
   position: relative;
-  top: -20px;
+  top: -27px;
+  background: rgb(241, 241, 241);
 }
 
 [class^="row"] * {
