@@ -2,12 +2,15 @@
   font-family: Pompadur;
   src: url(../fonts/AnotherWetShabbyTrial.ttf);
 }
+
 body {
   margin: 0;
+  background-color: white;
 }
 
 .bigbanner {
   position: absolute;
+  z-index: 1;
   top: 140px;
   right: 700px;
   height: 120px;
@@ -15,35 +18,35 @@ body {
   outline: 6px solid black;
   outline-offset: -12px;
   background: white;
-  z-index: 1;
   opacity: 97%;
   text-align: center;
   line-height: 120px;
-  font-family: "Pompadur";
+  font-family: "Pompadur", sans-serif;
   font-size: 60px;
   color: rgb(146, 145, 145);
 }
 
-.dark,
-.light {
+.dark-button-block,
+.light-button-block {
   position: relative;
   margin-top: 10px;
   background-color: white;
   top: -150px;
   border-color: rgb(255, 255, 255);
-  padding: 30px 0px 20px 40px;
+  padding: 30px 0 20px 40px;
 }
 
-.dark {
+.dark-button-block {
   margin-top: 15px;
   background-color: rgb(75, 71, 71);
 }
+
 button {
   margin-bottom: 14px;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
   color: white;
-  border: 0px;
+  border: 0;
 }
 
 .border {
@@ -53,33 +56,29 @@ button {
   top: -140px;
 }
 
-.Pink-Button {
+.pink-button {
   font-size: 30px;
   background-color: rgb(245, 89, 193);
 }
 
-.Green-Button {
+.green-button {
   background-color: rgb(175, 228, 69);
 }
 
-.Blue-Button {
+.blue-button {
   background-color: rgb(0, 183, 255);
 }
 
-.Red-Button {
+.red-button {
   background-color: rgb(255, 0, 85);
 }
 
-.Orange-Button {
+.orange-button {
   background-color: rgb(255, 123, 0);
 }
 
-.Yellow-Button {
+.yellow-button {
   background-color: rgb(255, 196, 0);
-}
-
-body {
-  background-color: white;
 }
 
 div.main {
@@ -91,15 +90,18 @@ div.main {
   top: -30px;
   background: rgb(241, 241, 241);
 }
+
 div.first-block {
   display: table-cell;
   position: relative;
   top: -80px;
   background: rgb(241, 241, 241);
 }
+
 div.third-block {
   display: table-cell;
 }
+
 div.second-block {
   display: table-cell;
   position: relative;
@@ -119,390 +121,519 @@ div.second-block {
 .d1 {
   background-position: -32px -23px;
 }
+
 .d2 {
   background-position: -108px -22px;
 }
+
 .d3 {
   background-position: -32px -107px;
 }
+
 .d4 {
   background-position: -108px -107px;
 }
+
 .d5 {
   background-position: -32px -192px;
 }
+
 .d6 {
   background-position: -108px -192px;
 }
+
 .d7 {
   background-position: -32px -277px;
 }
+
 .d8 {
   background-position: -106px -277px;
 }
+
 .d9 {
   background-position: -33px -365px;
 }
+
 .d10 {
   background-position: -109px -365px;
 }
+
 .d11 {
   background-position: -184px -23px;
 }
+
 .d12 {
   background-position: -182px -108px;
 }
+
 .d13 {
   background-position: -184px -193px;
 }
+
 .d14 {
   background-position: -182px -278px;
 }
+
 .d15 {
   background-position: -185px -365px;
 }
+
 .d16 {
   background-position: -261px -23px;
 }
+
 .d17 {
   background-position: -261px -107px;
 }
+
 .d18 {
   background-position: -260px -192px;
 }
+
 .d19 {
   background-position: -261px -277px;
 }
+
 .d20 {
   background-position: -261px -365px;
 }
+
 .d21 {
   background-position: -337px -23px;
 }
+
 .d22 {
   background-position: -337px -107px;
 }
+
 .d23 {
   background-position: -337px -193px;
 }
+
 .d24 {
   background-position: -335px -277px;
 }
+
 .d25 {
   background-position: -339px -365px;
 }
+
 .d26 {
   background-position: -413px -23px;
 }
+
 .d27 {
   background-position: -413px -107px;
 }
+
 .d28 {
   background-position: -412px -192px;
 }
+
 .d29 {
   background-position: -413px -277px;
 }
+
 .d30 {
   background-position: -415px -365px;
 }
+
 .d31 {
   background-position: -490px -23px;
 }
+
 .d32 {
   background-position: -490px -107px;
 }
+
 .d33 {
   background-position: -490px -192px;
 }
+
 .d34 {
   background-position: -490px -277px;
 }
+
 .d35 {
   background-position: -491px -365px;
 }
+
 .d36 {
   background-position: -566px -23px;
 }
+
 .d37 {
   background-position: -566px -107px;
 }
+
 .d38 {
   background-position: -566px -192px;
 }
+
 .d39 {
   background-position: -566px -277px;
 }
+
 .d40 {
   background-position: -568px -365px;
 }
+
 .d41 {
   background-position: -643px -23px;
 }
+
 .d42 {
   background-position: -643px -107px;
 }
+
 .d43 {
   background-position: -643px -192px;
 }
+
 .d44 {
   background-position: -643px -277px;
 }
+
 .d45 {
   background-position: -643px -365px;
 }
+
 .d46 {
   background-position: -33px -449px;
 }
+
 .d47 {
   background-position: -33px -534px;
 }
+
 .d48 {
   background-position: -32px -619px;
 }
+
 .d49 {
   background-position: -32px -705px;
 }
+
 .d50 {
   background-position: -32px -790px;
 }
+
 .d51 {
   background-position: -109px -449px;
 }
+
 .d52 {
   background-position: -109px -534px;
 }
+
 .d53 {
   background-position: -109px -619px;
 }
+
 .d54 {
   background-position: -109px -705px;
 }
+
 .d55 {
   background-position: -109px -790px;
 }
+
 .d56 {
   background-position: -185px -449px;
 }
+
 .d57 {
   background-position: -185px -534px;
 }
+
 .d58 {
   background-position: -185px -619px;
 }
+
 .d59 {
   background-position: -186px -705px;
 }
+
 .d60 {
   background-position: -186px -791px;
 }
+
 .d61 {
   background-position: -261px -449px;
 }
+
 .d62 {
   background-position: -261px -534px;
 }
+
 .d63 {
   background-position: -262px -619px;
 }
+
 .d64 {
   background-position: -261px -705px;
 }
+
 .d65 {
   background-position: -261px -790px;
 }
+
 .d66 {
   background-position: -339px -449px;
 }
+
 .d67 {
   background-position: -339px -534px;
 }
+
 .d68 {
   background-position: -339px -619px;
 }
+
 .d69 {
   background-position: -338px -705px;
 }
+
 .d70 {
   background-position: -338px -791px;
 }
+
 .d71 {
   background-position: -415px -449px;
 }
+
 .d72 {
   background-position: -415px -534px;
 }
+
 .d73 {
   background-position: -415px -619px;
 }
+
 .d74 {
   background-position: -415px -705px;
 }
+
 .d75 {
   background-position: -415px -791px;
 }
+
 .d76 {
   background-position: -491px -449px;
 }
+
 .d77 {
   background-position: -491px -534px;
 }
+
 .d78 {
   background-position: -491px -619px;
 }
+
 .d79 {
   background-position: -492px -705px;
 }
+
 .d80 {
   background-position: -492px -791px;
 }
+
 .d81 {
   background-position: -568px -449px;
 }
+
 .d82 {
   background-position: -568px -533px;
 }
+
 .d83 {
   background-position: -568px -619px;
 }
+
 .d84 {
   background-position: -569px -705px;
 }
+
 .d85 {
   background-position: -569px -791px;
 }
+
 .d86 {
   background-position: -643px -449px;
 }
+
 .d87 {
   background-position: -643px -534px;
 }
+
 .d88 {
   background-position: -643px -619px;
 }
+
 .d89 {
   background-position: -644px -705px;
 }
+
 .d90 {
   background-position: -644px -790px;
 }
+
 .d91 {
   background-position: -32px -23px;
 }
+
 .d92 {
   background-position: -108px -22px;
 }
+
 .d93 {
   background-position: -32px -107px;
 }
+
 .d94 {
   background-position: -108px -107px;
 }
+
 .d95 {
   background-position: -32px -192px;
 }
+
 .d96 {
   background-position: -108px -192px;
 }
+
 .d97 {
   background-position: -32px -277px;
 }
+
 .d98 {
   background-position: -106px -277px;
 }
+
 .d99 {
   background-position: -33px -365px;
 }
+
 .d100 {
   background-position: -109px -365px;
 }
+
 .d101 {
   background-position: -184px -23px;
 }
+
 .d102 {
   background-position: -182px -108px;
 }
+
 .d103 {
   background-position: -184px -193px;
 }
+
 .d104 {
   background-position: -182px -278px;
 }
+
 .d105 {
   background-position: -185px -365px;
 }
+
 .d106 {
   background-position: -261px -23px;
 }
+
 .d107 {
   background-position: -261px -107px;
 }
+
 .d108 {
   background-position: -260px -192px;
 }
+
 .d109 {
   background-position: -261px -277px;
 }
+
 .d110 {
   background-position: -261px -365px;
 }
+
 .d111 {
   background-position: -337px -23px;
 }
+
 .d112 {
   background-position: -337px -107px;
 }
+
 .d113 {
   background-position: -337px -193px;
 }
+
 .d114 {
   background-position: -335px -277px;
 }
+
 .d115 {
   background-position: -339px -365px;
 }
+
 .d116 {
   background-position: -413px -23px;
 }
+
 .d117 {
   background-position: -413px -107px;
 }
+
 .d118 {
   background-position: -412px -192px;
 }
+
 .d119 {
   background-position: -413px -277px;
 }
+
 .d120 {
   background-position: -415px -365px;
 }
+
 .d121 {
   background-position: -490px -23px;
 }
+
 .d122 {
   background-position: -490px -107px;
 }
+
 .d123 {
   background-position: -490px -192px;
 }
+
 .d124 {
   background-position: -490px -277px;
 }
+
 .d125 {
   background-position: -491px -365px;
 }
+
 .d126 {
   background-position: -566px -23px;
 }
+
 .d127 {
   background-position: -566px -107px;
 }
+
 .d128 {
   background-position: -566px -192px;
 }
+
 .d129 {
   background-position: -566px -277px;
 }
+
 .d130 {
   background-position: -568px -365px;
 }

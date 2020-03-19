@@ -1,15 +1,28 @@
+.checkbox {
+  display: none;
+}
+
+.checkbox + label::before {
+  content: "\2714";
+  color: transparent;
+  border: 1px solid rgb(209, 209, 209);
+  font-weight: 900;
+  line-height: 22px;
+  margin: -5px 5px 0 0;
+  height: 15px;
+  width: 15px;
+}
+
 select {
   height: 25px;
   width: 120px;
   border-radius: 6px;
   padding-left: 10px;
-
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAxNiAyOCI+PGcgaWQ9Imljb21vb24taWdub3JlIj48L2c+PHBhdGggZD0iTTE2IDE3cTAgMC40MDYtMC4yOTcgMC43MDNsLTcgN3EtMC4yOTcgMC4yOTctMC43MDMgMC4yOTd0LTAuNzAzLTAuMjk3bC03LTdxLTAuMjk3LTAuMjk3LTAuMjk3LTAuNzAzdDAuMjk3LTAuNzAzIDAuNzAzLTAuMjk3aDE0cTAuNDA2IDAgMC43MDMgMC4yOTd0MC4yOTcgMC43MDN6TTE2IDExcTAgMC40MDYtMC4yOTcgMC43MDN0LTAuNzAzIDAuMjk3aC0xNHEtMC40MDYgMC0wLjcwMy0wLjI5N3QtMC4yOTctMC43MDMgMC4yOTctMC43MDNsNy03cTAuMjk3LTAuMjk3IDAuNzAzLTAuMjk3dDAuNzAzIDAuMjk3bDcgN3EwLjI5NyAwLjI5NyAwLjI5NyAwLjcwM3oiIGZpbGw9IiMwMDAwMDAiPjwvcGF0aD48L3N2Zz4=);
-  background-size: 10px 45px;
+  background-image: url(../36874.png);
+  background-size: 14px 18px;
   background-repeat: no-repeat;
   background-position: 100px;
 }
@@ -32,7 +45,6 @@ h4 {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
-  color: rgb(209, 209, 209);
 }
 
 .radio {
@@ -48,7 +60,7 @@ h4 {
   cursor: pointer;
 }
 
-.radio + label:before {
+.radio + label::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -60,7 +72,12 @@ h4 {
   background: rgb(209, 209, 209);
 }
 
-.radio + label:after {
+.checkbox:checked + label::before {
+  color: rgb(39, 137, 194);
+  border-color: rgb(209, 209, 209);
+}
+
+.radio + label::after {
   content: "";
   position: absolute;
   top: 6px;
@@ -73,37 +90,17 @@ h4 {
   opacity: 0;
 }
 
-.radio:checked + label:after {
+.radio:checked + label::after {
   opacity: 1;
 }
 
-.radio:focus + label:before {
+.radio:focus + label::before {
   box-shadow: 0 0 0 3px rgb(39, 137, 194);
 }
 
 .subscribe .delete {
   position: relative;
   right: 16px;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-input[type="checkbox"] + label:before {
-  content: "\2714";
-  color: transparent;
-  border: 1px solid rgb(209, 209, 209);
-  font-weight: 900;
-  line-height: 22px;
-  margin: -5px 5px 0 0;
-  height: 15px;
-  width: 15px;
-}
-
-input[type="checkbox"]:checked + label:before {
-  color: rgb(39, 137, 194);
-  border-color: rgb(209, 209, 209);
 }
 
 .add-button {
