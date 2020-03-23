@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import "/html_3/common.blocks/row-block.css" all;
+@import "/html_3/common.blocks/photo-block.css" all;
+@import "/html_3/common.blocks/menu-block.css" all;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}

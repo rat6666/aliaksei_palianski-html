@@ -1,0 +1,16 @@
+.photo-block--home {
+  background: url(../images/home-img.jpg) no-repeat;
+  background-size: 175%;
+  background-position: center;
+  height: 820px;
+  width: 740px;
+}
+
+.home-photo-text {
+  display: block;
+  font-weight: bold;
+  font-size: 21px;
+  padding: 30px 200px;
+  color: #242e26;
+  text-shadow: 1px 1px 1px white;
+}

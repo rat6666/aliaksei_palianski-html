@@ -1,0 +1,25 @@
+@import url(//db.onlinewebfonts.com/c/a42742734c37eb4f2f788149fcac854c?family=SirichanaW31-Regular);
+
+.icon-block {
+  display: flex;
+  height: 280px;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  margin: 20px 10px 20px 10px;
+  width: 320px;
+  font-family: "SirichanaW31-Regular", sans-serif;
+}
+
+.icon-block__header {
+  font-size: 35px;
+}
+
+.icon-block__text {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.icon-block__icon {
+  font-size: 30px;
+}

@@ -1,0 +1,13 @@
+.column-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-block-first {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  height: 820px;
+}
