@@ -25,6 +25,7 @@ nav,
 }
 
 .button--menu {
+  font-weight: bold;
   color: #6d5e57;
   font-size: 14px;
 }
