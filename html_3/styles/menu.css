@@ -92,7 +92,7 @@ li a:hover {
 
   .stimulus-menu {
     right: 0;
-    background: #fff url(../images/icon-menu.png) no-repeat 97% 10px;
+    background: #fff url(/html_3/images/icon-menu.png) no-repeat 97% 10px;
     padding-top: 100px;
   }
 }

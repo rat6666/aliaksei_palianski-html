@@ -1,6 +1,7 @@
-@import "../styles/menu.css";
-@import "../styles/progress-bar.css";
-@import "../common.blocks/texts-block.css";
+@import "/html_3/styles/menu.css";
+@import "/html_3/styles/progress-bar.css";
+@import "/html_3/common.blocks/texts-block.css";
+@import "/html_3/common.blocks/row-blocks.css";
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 
 * {
@@ -15,46 +16,17 @@ strong {
   font-weight: 700;
 }
 
-h4 {
-  color: rgb(145, 145, 145);
+h4,
+.h4 {
+  color: #999;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
-}
-
-.color-yellow {
-  color: #e3ae57;
+  padding: 0 0 20px 0;
 }
 
 /* first row flex */
-
-.home-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  background-color: #f1e2d7;
-}
-
-.image-block-first {
-  height: 100%;
-  object-fit: none;
-  min-width: 450px;
-  flex: 1 1 33.33%;
-}
-
-.home-text-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex: 1 1 33.33%;
-  height: auto;
-  min-height: 270px;
-  min-width: 450px;
-  padding: 35px;
-}
 
 .get-started-button {
   margin-top: 40px;
@@ -73,58 +45,15 @@ h4 {
   background-color: #e3ae57;
 }
 
+.double-row {
+  min-width: 400px;
+}
+
 /* second row flex */
 
 /* about block */
 
-.about-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.about-article {
-  flex: 1 1 33.33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 280px;
-  width: 50%;
-  min-width: 450px;
-  padding-left: 35px;
-  padding-right: 35px;
-  margin: 15px 0 10px 0;
-}
-
 /* skill block */
-
-.skills-block {
-  flex: 1 1 33.33%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  /* justify-content: space-around; */
-  height: 280px;
-  min-width: 450px;
-}
-
-.image-block-second {
-  flex: 1 1 33.33%;
-  height: 280px;
-  object-fit: cover;
-  min-width: 225px;
-}
-
-.skills-progress {
-  padding: 25px;
-  height: 280px;
-  flex: 1 1 33.33%;
-  min-width: 225px;
-  background-color: #e3a357;
-  color: #fff;
-  line-height: 40px;
-}
 
 .progress-list {
   color: #232b2b;
@@ -147,14 +76,33 @@ h4 {
 
 /* media queries  */
 
+/* @media (max-width: 1296px) {
+  .skills-block {
+    flex-wrap: nowrap;
+  } */
+
+/* .progress-list {
+    width: 250px;
+  } */
+
+/* @media (max-width: 640px) {
+  .skills-block {
+    flex-wrap: wrap;
+  }
+
+  .progress-list {
+    width: 150px;
+  }
+}
+
 @media (max-width: 500px) {
-  .image-block-first,
+  .row,
+  .image-block,
   .skills-block,
   .home-text-block,
   .about-article,
   .immage-skill-block,
-  .skills-progress,
-  .image-block-second {
+  .skills-progress, {
     min-width: 375px;
     object-fit: cover;
     width: 500px;
@@ -162,13 +110,13 @@ h4 {
 }
 
 @media (max-width: 375px) {
-  .image-block-first,
+  .row,
+  .image-block,
   .skills-block,
   .home-text-block,
   .about-article,
   .immage-skill-block,
-  .skills-progress,
-  .image-block-second {
+  .skills-progress, {
     min-width: 320px;
     width: 375px;
     object-fit: cover;
@@ -176,15 +124,16 @@ h4 {
 }
 
 @media (max-width: 320px) {
-  .image-block-first,
+  .row,
+  .image-block,
   .skills-block,
   .home-text-block,
   .about-article,
   .immage-skill-block,
-  .skills-progress,
-  .image-block-second {
+  .skills-progress, {
     flex: 0 0;
     object-fit: cover;
     width: 320px;
+    min-width: 320px;
   }
-}
+} */
