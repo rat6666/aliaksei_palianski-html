@@ -1,0 +1,32 @@
+/* h1 block  */
+h1 {
+  font-weight: 100;
+  font-size: 33px;
+  letter-spacing: 1px;
+}
+
+.h1--dark {
+  color: #232b2b;
+}
+
+.h1--white {
+  color: #fff;
+}
+
+/* p block  */
+p {
+  font-size: 13px;
+  letter-spacing: 1.6px;
+}
+
+.p--dark {
+  color: #888;
+}
+
+.p--white {
+  color: #fff;
+}
+
+.p--gold {
+  color: #e3ae57;
+}

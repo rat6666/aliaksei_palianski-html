@@ -2,152 +2,112 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/html_3/styles/normalize.css" />
-    <link rel="stylesheet" href="/html_3/styles/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../fonts/font-awesome.min.css" />
+
     <title>Document</title>
   </head>
   <body>
-    <div class="wraper">
-      <div class="column-block">
-        <!-- first row -->
-        <div class="row-block-first">
-          <div class="photo-block">
-            <div class="photo-block--home">
-              <span class="home-photo-text">Stimulus</span>
+    <div class="column-block">
+      <!-- Navigation Section -->
+      <nav class="nav">
+        <ul class="navbar-right-list">
+          <a href="#" class="stimulus-menu">Stimulus</a>
+          <li><a href="#home" class="current-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#experience" class="nav-link">Experiences</a></li>
+          <li><a href="#quotes" class="nav-link">Testimonial</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Home Section -->
+      <section class="home">
+        <div class="container">
+          <!-- first row -->
+          <div class="home-row">
+            <img
+              src="../images/home-img.jpg"
+              alt="home image"
+              class="image-block-first"
+            />
+            <div class="home-text-block">
+              <h4 class="text-h4">
+                welcome to my website
+              </h4>
+              <h1 class="h1--dark">
+                Hello, I am <strong>Stimulus</strong> currently based in New
+                York city.
+              </h1>
+              <p class="p--dark">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint
+                provident, iste, dolor neque molestias velit ipsa quaerat in a
+                veritatis maiores eveniet non. Culpa veniam ut quas repellendus,
+                tempore eius.
+              </p>
+              <a href="#about" class="get-started-button">Get Started</a>
             </div>
           </div>
-          <div class="menu-block">
-              <nav>
-                <button type="button" class="button button--menu">HOME</button>
-                <button type="button" class="button button--menu">ABOUT ME</button>
-                <button type="button" class="button button--menu">EXPERIENCES</button>
-                <button type="button" class="button button--menu">TESTIMONIAL</button>
-                <button type="button" class="button button--menu">CONTACT</button>
-              </nav>
-              <div class="text-block">
-                <p class="first-line">WELLCOME TO MY WEBSITE</p>
-                <p class="second-line">Hello, I am Stimulus currently based in New York city.</p>
-                <p class="third-line">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus perspiciatis commodi, veniam repellat maxime ratione modi aliquid alias libero quibusdam ex. Nostrum hic neque et minima, quam tempore maxime eum?</p>
-              </div>
-              <div class="round-button">
-                <button type="button" class="button button--round">GET STARTED</button>
-            </div>
-          </div>
-        <!-- end of first row -->
-      </div>
-    </div>
+          <!-- end of first row -->
+        </div>
+      </section>
+      <!-- end of home section -->
 
-    <!-- <div class="main-column">
-      <div class="skills-row">
-        <div class="text-block">
-          <h3 class="skills-header">Donec auctor</h3>
-          <span class="skills-underheader">Lorem ipsum dolor sit amet consectetur.</span>
-          <span class="skills-text">
-            <p class="skill-text-first">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae consectetur quos maiores odio fugit! Eum!</p>
-            <p class="skill-text-second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore voluptatem velit accusantium accusamus similique!</p>
-          </span>
-        </div>
-        <div class="skills-block">
-          <div class="skills-photo"></div>
-          <div class="skills-progress">
-            <p class="my-skills-title">My Skills</p>
-            <p class="my-skills-text">Photoshop.HTML CSS JS. Web Design</p>
-            <div class="progress-list">
-              <div class="header-progress">
-                <div class="header-progress-text">
-                  <p class="header-progress-text-left">Frontent design</p>
-                  <p class="header-progress-text-right">90%</p>
+      <!-- About Section -->
+      <section class="about">
+        <div class="container">
+          <!-- second row -->
+          <div class="about-row">
+            <div class="about-article">
+              <h1>Donec auctor</h1>
+              <p class="p--gold">
+                Lorem ipsum dolor sit amet consectetur.
+              </p>
+              <p class="p--dark">
+                Phasellus vulputate tellus nec tortor varius elementum.
+                Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis
+                eu, iaculis congue sem. Mauris convallis eros massa.
+              </p>
+              <p class="p--dark">
+                Quisque viverra iaculis aliquam. Etiam volutpat, justo non
+                aliquam bibendum, sem nibh mollis erat, quis porta odio odio at
+                velit.
+              </p>
+            </div>
+            <div class="skills-block">
+              <img
+                src="../images/about-img.jpg"
+                alt="home image"
+                class="image-block-second"
+              />
+              <div class="skills-progress">
+                <h1 class="h1--white">My Skills</h1>
+                <p class="p--white">Photoshop.HTML CSS JS. Web Design</p>
+                <div class="progress-list">
+                  <div class="progress-text">
+                    <p>Frontent design</p>
+                    <p class="p--white">90%</p>
+                  </div>
+                  <progress class="progress" max="100" value="90"></progress>
+                  <div class="progress-text">
+                    <p>Backend processing</p>
+                    <p class="p--white">70%</p>
+                  </div>
+                  <progress class="progress" max="100" value="70"></progress>
+                  <div class="progress-text">
+                    <p>HTML5&CSS3</p>
+                    <p class="p--white">80%</p>
+                  </div>
+                  <progress class="progress" max="100" value="80"></progress>
                 </div>
               </div>
-              <progress class="progress" max="100" value="90"></progress>
-              <div class="header-progress">
-                <div class="header-progress-text">
-                  <p class="header-progress-text-left">Backend processing</p>
-                  <p class="header-progress-text-right">70%</p>
-                </div>
-              </div>
-              <progress class="progress" max="100" value="70"></progress>
-              <div class="header-progress">
-                <div class="header-progress-text">
-                  <p class="header-progress-text-left">HTML5&CSS3</p>
-                  <p class="header-progress-text-right">80%</p>
-                </div>
-              </div>
-              <progress class="progress" max="100" value="80"></progress>
-          </div>
-        </div>
-      </div>
-      <div class="icon-row">
-        <div class="desktop-icon">
-          <div class="icon-block">
-            <div class="icon-block__icon">
-              <i class="fa fa-desktop"></i>
-            </div>
-            <div class="icon-block__header">
-              <span>Interface Design</span>
-            </div>
-            <div class="icon-block__text">
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
-                praesentium unde?
-              </span>
             </div>
           </div>
         </div>
-        <div class="fly-icon">
-          <div class="icon-block">
-            <div class="icon-block__icon">
-              <i class="fa fa-paper-plane"></i>
-            </div>
-            <div class="icon-block__header">
-              <span>Media Strategy</span>
-            </div>
-            <div class="icon-block__text">
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolores, saepe dignissimos.
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="calendar-icon">
-          <div class="icon-block">
-            <div class="icon-block__icon">
-              <i class="fa fa-table"></i>
-            </div>
-            <div class="icon-block__header">
-              <span>Mobile App</span>
-            </div>
-            <div class="icon-block__text">
-              <span>
-                Ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                debitis ab delectus?
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="html-icon">
-          <div class="icon-block">
-            <div class="icon-block__icon">
-              <i class="fa fa-html5"></i>
-            </div>
-            <div class="icon-block__header">
-              <span>Coding</span>
-            </div>
-            <div class="icon-block__text">
-              <span>
-                Sit amet consectetur, elit. Accusamus consectetur perspiciatis
-                rerum cumque illum.
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+      </section>
+    </div>
   </body>
 </html>
