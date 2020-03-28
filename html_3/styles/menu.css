@@ -40,7 +40,7 @@ li a:hover {
   text-shadow: 1px 1px 2px #fff;
 }
 
-@media (max-width: 915px) {
+@media (max-width: 820px) {
   .nav {
     position: fixed;
     overflow: visible;

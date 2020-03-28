@@ -5,6 +5,10 @@ h1 {
   letter-spacing: 1px;
 }
 
+.text-w {
+  color: #fff;
+}
+
 .h1--dark {
   color: #232b2b;
 }
@@ -15,8 +19,8 @@ h1 {
 
 /* p block  */
 p {
-  font-size: 13px;
-  letter-spacing: 1.6px;
+  font-size: 14px;
+  letter-spacing: 0.5 px;
 }
 
 .p--dark {
