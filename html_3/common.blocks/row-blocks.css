@@ -37,8 +37,6 @@
     url("/html_3/images/quotes-bg.jpg");
   background-position: center;
   background-size: cover;
-
-  /* position: relative; */
 }
 
 .row__text--full {
@@ -70,8 +68,6 @@
 
 .skills-progress {
   padding: 25px;
-
-  /* height: 300px; */
   flex: 1 1 25%;
   width: 100%;
   color: #fff;
@@ -164,12 +160,22 @@
     height: auto;
   }
 
-  h2 {
-    font-size: 28px;
-  }
-
   .row__text--full-w-bg {
     height: auto;
     width: 100%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: inherit;
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: inherit;
   }
 }
