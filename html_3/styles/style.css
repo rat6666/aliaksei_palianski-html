@@ -6,9 +6,9 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: unset;
 }
@@ -23,9 +23,9 @@ a:visited {
 }
 
 .progress-list {
-  color: #232b2b;
   display: flex;
   flex-direction: column;
+  color: #232b2b;
 }
 
 .progress-text {
@@ -35,10 +35,10 @@ a:visited {
 }
 
 .progress-text p {
+  height: 35px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0;
-  font-size: 14px;
-  height: 35px;
 }
 
 /* fifth row */
@@ -54,16 +54,16 @@ a:visited {
 
 /* contact form  */
 .contact-form .form-control {
-  box-shadow: none;
-  font-size: 18px;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 25px;
+  font-size: 18px;
   background: transparent;
   border-style: none none solid;
-  border-image: initial;
   border-bottom: 1px solid #e3a357;
   border-radius: 0;
-  width: 100%;
+  border-image: initial;
+  box-shadow: none;
 }
 
 .form-control::placeholder {

@@ -4,8 +4,8 @@
 }
 
 .progress::-webkit-progress-value {
-  border-radius: 20px;
   background-color: #000;
+  border-radius: 20px;
 }
 
 .progress {

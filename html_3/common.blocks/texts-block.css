@@ -10,30 +10,30 @@ h6 {
 }
 
 h1 {
-  font-size: 42px;
   padding-bottom: 14px;
   margin-bottom: 0;
+  font-size: 42px;
 }
 
 h2 {
+  margin-top: 0;
   font-size: 42px;
   line-height: 52px;
-  margin-top: 0;
 }
 
 h3 {
+  padding-bottom: 6px;
   font-size: 26px;
   line-height: 32px;
-  padding-bottom: 6px;
 }
 
 h4 {
-  color: #999;
+  padding-top: 6px;
   font-size: 12px;
   font-weight: normal;
-  letter-spacing: 2px;
+  color: #999;
   text-transform: uppercase;
-  padding-top: 6px;
+  letter-spacing: 2px;
 }
 
 h5 {
@@ -41,8 +41,8 @@ h5 {
 }
 
 strong {
-  color: #232b2b;
   font-weight: normal;
+  color: #232b2b;
 }
 
 p {
@@ -53,10 +53,10 @@ p {
 }
 
 small {
-  letter-spacing: 0;
   font-size: 17px;
   font-weight: bold;
   color: #633;
+  letter-spacing: 0;
 }
 
 .text-w {
@@ -93,9 +93,7 @@ small {
   color: #fff;
 }
 
-.p--gold {
-  color: #e3ae57;
-}
+.p--gold { color: #e3ae57; }
 
 .line-high {
   line-height: 30px;

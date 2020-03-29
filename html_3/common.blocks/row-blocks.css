@@ -1,31 +1,31 @@
 .row {
   display: flex;
-  flex-direction: row;
   flex: 1 1 25%;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
 .row__img--half {
+  flex: 1 1 25%;
+  min-width: 50%;
   height: 820px;
   object-fit: cover;
-  min-width: 50%;
-  flex: 1 1 25%;
 }
 
 .row__text--half {
   display: flex;
+  flex: 1 1 25%;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1 1 25%;
   height: auto;
   padding: 35px;
 }
 
 .row__text--full-w-bg {
   display: flex;
+  flex: 1 1 100%;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1 1 100%;
   height: 450px;
   padding: 35px;
   background: 50% 0 repeat-y fixed;
@@ -40,13 +40,13 @@
 }
 
 .row__text--full {
-  color: #888;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   flex: 1 1 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   padding: 35px;
+  color: #888;
 }
 
 .row__img--quater {
@@ -57,37 +57,37 @@
 
 .row__text--quater {
   display: flex;
+  flex: 1 1 25%;
   flex-direction: column;
   align-items: stretch;
-  flex: 1 1 25%;
+  width: 50%;
   height: 300px;
   min-height: auto;
   padding: 35px;
-  width: 50%;
 }
 
 .skills-progress {
-  padding: 25px;
   flex: 1 1 25%;
   width: 100%;
-  color: #fff;
+  padding: 25px;
   line-height: 40px;
+  color: #fff;
 }
 
 .footer-icon {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   width: 50%;
   list-style-type: none;
 }
 
 .contact-details {
-  padding: 45px 25px 0 40px;
   flex: 1 1 25%;
-  color: #fff;
+  padding: 45px 25px 0 40px;
   line-height: 40px;
+  color: #fff;
 }
 
 .contact-text i {
@@ -115,8 +115,8 @@
 }
 
 .content-space-center {
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
 }
 
 .content-center {
@@ -156,13 +156,13 @@
   }
 
   .row__text--half {
-    min-height: 250px;
     height: auto;
+    min-height: 250px;
   }
 
   .row__text--full-w-bg {
-    height: auto;
     width: 100%;
+    height: auto;
   }
 
   h1 {
