@@ -47,7 +47,7 @@ small {
 }
 
 .text-black {
-  color: #888;
+  color: #888 !important;
 }
 
 .text-gold {

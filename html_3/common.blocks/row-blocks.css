@@ -37,7 +37,8 @@
     url("/html_3/images/quotes-bg.jpg");
   background-position: center;
   background-size: cover;
-  position: relative;
+
+  /* position: relative; */
 }
 
 .row__text--full {
