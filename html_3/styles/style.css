@@ -2,6 +2,7 @@
 @import "/html_3/styles/progress-bar.css";
 @import "/html_3/common.blocks/texts-block.css";
 @import "/html_3/common.blocks/row-blocks.css";
+@import "/html_3/common.blocks/button.css";
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 
 * {
@@ -22,23 +23,6 @@ a:visited {
 }
 
 /* first row flex */
-
-.get-started-button {
-  margin-top: 40px;
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 1.6px;
-  color: #232b2b;
-  text-transform: uppercase;
-  border: 2px solid #232b2b;
-  padding: 10px 30px 10px 30px;
-  border-radius: 100px;
-  text-decoration: none;
-}
-
-.get-started-button:hover {
-  background-color: #e3ae57;
-}
 
 .double-row {
   min-width: 400px;
@@ -80,19 +64,29 @@ a:visited {
   padding-left: 50px;
 }
 
+/* contact form  */
+.contact-form .form-control {
+  box-shadow: none;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  background: transparent;
+  border-style: none none solid;
+  border-image: initial;
+  border-bottom: 1px solid rgb(227, 174, 87);
+  border-radius: 0;
+  width: 100%;
+}
+
+.form-control::placeholder {
+  color: #fff;
+}
+
+
+/* footer  */
 .footer-icon {
   position: relative;
   padding: 0;
   margin: 0;
   text-align: center;
-}
-
-ul {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-  padding-inline-start: 40px;
 }
