@@ -5,8 +5,53 @@ h1 {
   letter-spacing: 1px;
 }
 
+h2 {
+  font-size: 42px;
+  line-height: 52px;
+  margin-top: 0;
+  font-weight: 300;
+  font-style: normal;
+  padding: 0 15% 0 15%;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 100;
+  font-size: 26px;
+  letter-spacing: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+h4,
+.h4 {
+  color: #999;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 0 0 20px 0;
+}
+
+small {
+  letter-spacing: 0;
+  font-size: 17px;
+  font-weight: bold;
+  color: #633;
+}
+
 .text-w {
   color: #fff;
+}
+
+.text-gold {
+  color: #e3ae57;
+}
+
+.text-bronze {
+  color: #886d1e;
 }
 
 .h1--dark {
@@ -19,8 +64,10 @@ h1 {
 
 /* p block  */
 p {
-  font-size: 14px;
-  letter-spacing: 0.5 px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  letter-spacing: 0.2px;
 }
 
 .p--dark {
@@ -33,4 +80,8 @@ p {
 
 .p--gold {
   color: #e3ae57;
+}
+
+.line-high {
+  line-height: 30px;
 }
