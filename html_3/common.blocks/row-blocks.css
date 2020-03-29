@@ -70,7 +70,8 @@
 
 .skills-progress {
   padding: 25px;
-  height: 300px;
+
+  /* height: 300px; */
   flex: 1 1 25%;
   width: 100%;
   color: #fff;
@@ -87,7 +88,7 @@
 }
 
 .contact-details {
-  padding: 45px 25px 0 50px;
+  padding: 45px 25px 0 40px;
   flex: 1 1 25%;
   color: #fff;
   line-height: 40px;
