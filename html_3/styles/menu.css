@@ -31,6 +31,10 @@ li a:hover {
   color: #e3a357;
 }
 
+li a:active {
+  color: #fff;
+}
+
 .stimulus-menu {
   position: relative;
   right: 250px;

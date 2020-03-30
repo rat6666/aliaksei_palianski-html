@@ -15,11 +15,16 @@
 
 a,
 .fa {
+  color: unset;
   text-decoration: none;
 }
 
-a:visited {
+.a:visited {
   color: unset;
+}
+
+.fa:active {
+  color: #000;
 }
 
 .progress-list {
@@ -70,10 +75,28 @@ a:visited {
   color: #fff;
 }
 
+.contact-form .form-control:focus {
+  border-bottom-color: #fff;
+  outline: none;
+}
+
 /* footer  */
 .footer-icon {
   position: relative;
   padding: 0;
   margin: 0;
   text-align: center;
+}
+
+.footer-link:hover {
+  color: #000;
+}
+
+/* star fill  */
+.fa-star {
+  transition: 1s linear;
+}
+
+.fa-star:hover {
+  color: #e3a357;
 }

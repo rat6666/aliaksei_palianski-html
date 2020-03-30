@@ -20,3 +20,7 @@
 .button:hover {
   background-color: #e3ae57;
 }
+
+.button:active {
+  border: 2px solid red;
+}
