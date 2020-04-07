@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+
+    <!-- Include Mocha CSS styles -->
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+
+    <!-- Add the Chai assertion library -->
+    <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+
+    <!-- Add the Mocha test library -->
+    <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+
+    <script>
+      // Set chai.expect as a global variable
+      var expect = chai.expect;
+      var assert = chai.assert;
+      // Setup Mocha to use the BDD interface
+      mocha.setup("bdd");
+    </script>
+
+    <!-- Import the sum function -->
+    <script src="./sum-function.js"></script>
+
+    <!-- Import the tests for the sum function -->
+    <script src="./test.sum.js"></script>
+
+    <script>
+      // Run the tests with Mocha
+      mocha.run();
+    </script>
+  </body>
+</html>
