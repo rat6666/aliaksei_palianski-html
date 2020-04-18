@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <h3>Form Action <span>_mc4wp_action</span></h3>
+  </header>
+  <div>
+    <p>
+      This field will allow your visitors to choose whether they would like to
+      subscribe or unsubscribe
+    </p>
+  </div>
+  
+  <div>
+    <h4>Field Label</h4>
+    <div class="input-label-field">
+      <input size="100" value="Form Action" class="action" />
+    </div>
+  </div>
+
+    
+    <h4>Choice type</h4>
+    <div class="select-drop-list">
+      <select>
+        <option>Radio Buttons</option>
+        <option>Radio Buttons</option>
+      </select>
+    </div>
+    
+    <h4>Choices</h4>
+    <fieldset class="field-radio-buttons">
+        <input type="radio" class="radio"/> 
+        <label for="radio">
+          <input size="50" value="subscribe" class="subscribe" id="radio"/>
+        </label>
+        <button class="reset" type="reset">&#10006;</button>
+      <div>
+        <input type="radio" class="radio"/> 
+        <label for="radio1">
+          <input size="50" value="unsubscribe" class="subscribe" id="radio1"/>
+        </label>
+        <button class="reset" type="reset">&#10006;</button>
+      </div>
+    </fieldset>
+    
+    <div>
+      <input class="checkbox" type="checkbox" id="checkbox" checked="checked">
+      <label for="checkbox"> Wrap in paragraph tags?
+      </label>
+    </div>
+    <button class="add-button" type="button">Add to form</button>
+</body>
+
+</html>
