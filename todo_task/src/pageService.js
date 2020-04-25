@@ -15,7 +15,7 @@ export class PageService {
 
   renderContent(contentRootNode) {
     const inProgressTasksSectionRoot = contentRootNode;
-    const taskInProgress = this.taskList[0].task;
+    const taskInProgress = this.taskList[0];
     console.log(taskInProgress, this.rootNode);
     this.contentRenderer.renderTaskInprogressSection(inProgressTasksSectionRoot, taskInProgress);
   }
