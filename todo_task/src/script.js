@@ -11,7 +11,7 @@ const classNames = {
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
 const taskRenderer = new TaskRenderer();
-const conentRenderer = new ContentRenderer(taskRenderer);
+const contentRenderer = new ContentRenderer(taskRenderer);
 const rootNode = document.getElementsByTagName(classNames.body)[0];
-const pageService = new PageService(taskRepository, rootNode, conentRenderer);
+const pageService = new PageService(taskRepository, rootNode, contentRenderer);
 pageService.renderPage();
