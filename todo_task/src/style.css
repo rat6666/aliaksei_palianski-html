@@ -1,13 +1,28 @@
+.body {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.input-add {
+  width: 85%;
+}
+
 .todo-task {
   display: flex;
-  flex: 1 1 100%;
+  justify-content: space-between;
   border: 1px solid black;
-  margin: 10px;
   padding: 10px;
+  margin: 10px 20px 10px 20px;
 }
 
 .input-todo {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin: 0 10px 0 10px;
   border: none;
@@ -17,4 +32,15 @@
 .button {
   margin: 0 5px 0 5px;
   background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 0 10px 0 10px;
+}
+
+.section {
+  padding-left: 10px;
 }
