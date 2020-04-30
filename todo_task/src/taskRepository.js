@@ -8,5 +8,8 @@ export class TasksRepository {
     return await this.httpSerivce.request(this.apiHost);
   }
   // editTask(task, newData)...
-  // removeTask(id);
+
+  async removeTask(id) {
+    await this.httpSerivce.request(`${this.apiHost}/${id}`, '', 'DELETE');
+  }
 }

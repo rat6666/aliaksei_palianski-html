@@ -4,6 +4,12 @@ export class PageService {
     this.rootNode = rootNode;
     this.contentRenderer = contentRenderer;
     this.headerRenderer = headerRenderer;
+    this.button = {
+      add: 'add',
+      done: 'done',
+      edit: 'edit',
+      delete: 'button delete',
+    };
   }
 
   async renderPage() {
@@ -29,5 +35,9 @@ export class PageService {
     this.contentRenderer.renderTaskDoneSection(contentRootNode, this.taskList);
     this.contentRenderer.renderTaskInprogressSection(contentRootNode, this.taskList);
     this.contentRenderer.renderAddSection(contentRootNode);
+  }
+
+  getRemoveButtons() {
+    return document.getElementsByClassName(this.button.delete);
   }
 }
