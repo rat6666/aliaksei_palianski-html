@@ -16,7 +16,7 @@ body {
 .todo-task {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   padding: 10px;
   margin: 10px 20px 10px 20px;
 }

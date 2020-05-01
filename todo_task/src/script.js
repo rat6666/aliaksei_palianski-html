@@ -1,9 +1,9 @@
-import { HTTPService } from './services/httpService.js';
 import { TasksRepository } from './repository/taskRepository.js';
+import { HTTPService } from './services/httpService.js';
 import { PageService } from './services/pageService.js';
-import { TaskRenderer } from './render/taskRenderer.js';
 import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
+import { TaskRenderer } from './render/taskRenderer.js';
 import { TaskRemoveAction } from './actions/taskRemoveAction.js';
 import { TaskPostAction } from './actions/taskPostAction.js';
 import { TaskDoneAction } from './actions/taskDoneAction.js';
