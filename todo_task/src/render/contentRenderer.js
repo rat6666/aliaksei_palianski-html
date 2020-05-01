@@ -28,7 +28,7 @@ export class ContentRenderer {
     );
     const taskNode = document.getElementsByClassName(this.section.done)[0];
     task.forEach((element) => {
-      if (element.done) {
+      if (!element.done) {
         this.taskRenderer.renderTask(taskNode, element);
       }
     });
@@ -43,7 +43,7 @@ export class ContentRenderer {
     );
     const taskNode = document.getElementsByClassName(this.section.todo)[0];
     task.forEach((element) => {
-      if (!element.done) {
+      if (element.done) {
         this.taskRenderer.renderTask(taskNode, element);
         document.getElementsByClassName(`button done ${element.id}`)[0].remove();
       }

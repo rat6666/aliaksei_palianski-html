@@ -23,7 +23,7 @@ export class PageService {
   renderHeader(headerRootNode) {
     let doneTasksCount = 0;
     this.taskList.forEach((element) => {
-      if (element.done) {
+      if (!element.done) {
         doneTasksCount++;
       }
     });

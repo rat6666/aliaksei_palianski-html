@@ -1,11 +1,11 @@
-import { HTTPService } from './httpService.js';
-import { TasksRepository } from './taskRepository.js';
-import { PageService } from './pageService.js';
+import { HTTPService } from './services/httpService.js';
+import { TasksRepository } from './repository/taskRepository.js';
+import { PageService } from './services/pageService.js';
 import { TaskRenderer } from './render/taskRenderer.js';
 import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
-import { TaskRemoveAction } from './taskRemoveAction.js';
-import { TaskPostAction } from './taskPostAction.js';
+import { TaskRemoveAction } from './actions/taskRemoveAction.js';
+import { TaskPostAction } from './actions/taskPostAction.js';
 
 const classNames = {
   body: 'body',
