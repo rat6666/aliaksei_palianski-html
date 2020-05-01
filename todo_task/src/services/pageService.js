@@ -1,9 +1,10 @@
 export class PageService {
-  constructor(tasksRepository, rootNode, contentRenderer, headerRenderer) {
+  constructor(tasksRepository, rootNode, contentRenderer, headerRenderer, footerRenderer) {
     this.tasksRepository = tasksRepository;
     this.rootNode = rootNode;
     this.contentRenderer = contentRenderer;
     this.headerRenderer = headerRenderer;
+    this.footerRenderer = footerRenderer;
     this.button = {
       add: 'add',
       done: 'done',
@@ -12,12 +13,18 @@ export class PageService {
     };
   }
 
-  async renderPage() {
+  async renderPage(footerText) {
     await this.tasksRepository.getTasks().then((tasks) => {
       this.taskList = tasks;
+      localStorage.setItem('footer', 'loaded');
+      this.renderFooter(this.rootNode, footerText);
       this.renderContent(this.rootNode);
       this.renderHeader(this.rootNode);
     });
+  }
+
+  renderFooter(footerRootNode, footerText) {
+    this.footerRenderer.renderFooter(footerRootNode, footerText);
   }
 
   renderHeader(headerRootNode) {
