@@ -44,4 +44,8 @@ export class PageService {
   getDoneButtons() {
     return document.getElementsByClassName(this.button.done);
   }
+
+  getEditButtons() {
+    return document.getElementsByClassName(this.button.edit);
+  }
 }

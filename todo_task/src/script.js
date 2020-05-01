@@ -7,6 +7,7 @@ import { HeaderRenderer } from './render/headerRenderer.js';
 import { TaskRemoveAction } from './actions/taskRemoveAction.js';
 import { TaskPostAction } from './actions/taskPostAction.js';
 import { TaskDoneAction } from './actions/taskDoneAction.js';
+import { TaskEditAction } from './actions/taskEditAction.js';
 
 const classNames = {
   body: 'body',
@@ -39,4 +40,11 @@ pageService.renderPage().then(() => {
   );
   const doneButtons = pageService.getDoneButtons();
   taskDoneAction.applyTo(doneButtons);
+
+  const taskEditAction = new TaskEditAction(
+    taskRepository,
+    pageService.renderPage.bind(pageService)
+  );
+  const editButtons = pageService.getEditButtons();
+  taskEditAction.applyTo(editButtons);
 });

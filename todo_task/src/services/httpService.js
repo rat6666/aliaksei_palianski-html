@@ -12,11 +12,7 @@ export class HTTPService {
       }
     }
     const response = await fetch(url, options);
-    if (response.status < 200) {
-      return {
-        status: 'error',
-      };
-    }
+
     const result = await response.json();
 
     return result;
