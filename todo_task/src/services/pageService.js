@@ -40,4 +40,8 @@ export class PageService {
   getRemoveButtons() {
     return document.getElementsByClassName(this.button.delete);
   }
+
+  getDoneButtons() {
+    return document.getElementsByClassName(this.button.done);
+  }
 }

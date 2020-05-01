@@ -11,7 +11,7 @@ export class TaskPostAction {
 
   onTaskPosting() {
     const newTask = document.querySelector('[class="input-add"]').value;
-    this.tasksRepository.postTasks(newTask).then(() => {
+    this.tasksRepository.postTasks({ task: newTask }).then(() => {
       location.reload();
       this.onChange();
     });

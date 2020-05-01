@@ -8,7 +8,7 @@ export class HTTPService {
     };
     if (params) {
       if (method !== 'GET') {
-        options.body = JSON.stringify({ task: params });
+        options.body = JSON.stringify(params);
       }
     }
     const response = await fetch(url, options);

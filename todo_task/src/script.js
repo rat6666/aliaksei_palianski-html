@@ -6,6 +6,7 @@ import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
 import { TaskRemoveAction } from './actions/taskRemoveAction.js';
 import { TaskPostAction } from './actions/taskPostAction.js';
+import { TaskDoneAction } from './actions/taskDoneAction.js';
 
 const classNames = {
   body: 'body',
@@ -31,4 +32,11 @@ pageService.renderPage().then(() => {
     pageService.renderPage.bind(pageService)
   );
   taskPostAction.applyTo();
+
+  const taskDoneAction = new TaskDoneAction(
+    taskRepository,
+    pageService.renderPage.bind(pageService)
+  );
+  const doneButtons = pageService.getDoneButtons();
+  taskDoneAction.applyTo(doneButtons);
 });
