@@ -2,7 +2,10 @@ export class TaskEditAction {
   constructor(tasksRepository, onChange) {
     this.tasksRepository = tasksRepository;
     this.onChange = onChange;
-    this.footerText = 'edited';
+    this.storage = {
+      key: 'footer',
+      value: 'edited',
+    };
   }
 
   applyTo(nodes) {
@@ -24,7 +27,7 @@ export class TaskEditAction {
           inputTask.disabled = true;
           inputTask.style.border = 'none';
           location.reload();
-          localStorage.setItem('footer', this.footerText);
+          localStorage.setItem(this.storage.key, this.storage.value);
           this.onChange();
         });
       }

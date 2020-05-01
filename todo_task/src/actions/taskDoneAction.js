@@ -2,7 +2,10 @@ export class TaskDoneAction {
   constructor(tasksRepository, onChange) {
     this.tasksRepository = tasksRepository;
     this.onChange = onChange;
-    this.footerText = 'task done';
+    this.storage = {
+      key: 'footer',
+      value: 'Done',
+    };
   }
 
   applyTo(nodes) {
@@ -15,7 +18,7 @@ export class TaskDoneAction {
     const taskId = event.target.classList[2];
     this.tasksRepository.doneTasks(taskId).then(() => {
       location.reload();
-      localStorage.setItem('footer', this.footerText);
+      localStorage.setItem(this.storage.key, this.storage.value);
       this.onChange();
     });
   }

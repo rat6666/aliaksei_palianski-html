@@ -2,7 +2,10 @@ export class TaskPostAction {
   constructor(tasksRepository, onChange) {
     this.tasksRepository = tasksRepository;
     this.onChange = onChange;
-    this.footerText = 'added';
+    this.storage = {
+      key: 'footer',
+      value: 'added',
+    };
   }
 
   applyTo() {
@@ -14,7 +17,7 @@ export class TaskPostAction {
     const newTask = document.querySelector('[class="input-add"]').value;
     this.tasksRepository.postTasks({ task: newTask }).then(() => {
       location.reload();
-      localStorage.setItem('footer', this.footerText);
+      localStorage.setItem(this.storage.key, this.storage.value);
       this.onChange();
     });
   }

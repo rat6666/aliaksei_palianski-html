@@ -11,12 +11,16 @@ export class PageService {
       edit: 'edit',
       delete: 'button delete',
     };
+    this.storage = {
+      key: 'footer',
+      value: 'Loaded',
+    };
   }
 
   async renderPage(footerText) {
     await this.tasksRepository.getTasks().then((tasks) => {
       this.taskList = tasks;
-      localStorage.setItem('footer', 'loaded');
+      localStorage.setItem(this.storage.key, this.storage.value);
       this.renderFooter(this.rootNode, footerText);
       this.renderContent(this.rootNode);
       this.renderHeader(this.rootNode);

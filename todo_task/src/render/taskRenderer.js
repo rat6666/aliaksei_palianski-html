@@ -1,4 +1,10 @@
 export class TaskRenderer {
+  constructor() {
+    this.taskPosition = {
+      afterEnd: 'afterend',
+    };
+  }
+
   renderTask(rootNode, task) {
     const markup = `<div class="todo-task ${task.id}">
     <input class="input-todo ${task.id}" disabled placeholder="${task.task}">
@@ -7,6 +13,6 @@ export class TaskRenderer {
     <button class="button delete ${task.id}">Delete</button>
     </div>
     `;
-    rootNode.insertAdjacentHTML('afterend', markup);
+    rootNode.insertAdjacentHTML(this.taskPosition.afterEnd, markup);
   }
 }

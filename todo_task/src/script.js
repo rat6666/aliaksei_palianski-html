@@ -14,6 +14,10 @@ const classNames = {
   body: 'body',
 };
 
+const storageKey = {
+  footerBlockTextKey: 'footer',
+};
+
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
 const taskRenderer = new TaskRenderer();
@@ -29,7 +33,7 @@ const pageService = new PageService(
   footerRenderer
 );
 
-pageService.renderPage(localStorage.getItem('footer')).then(() => {
+pageService.renderPage(localStorage.getItem(storageKey.footerBlockTextKey)).then(() => {
   const taskRemoveAction = new TaskRemoveAction(
     taskRepository,
     pageService.renderPage.bind(pageService)
