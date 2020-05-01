@@ -8,11 +8,11 @@ export class HTTPService {
     };
     if (params) {
       if (method !== 'GET') {
-        options.body = JSON.stringify(params);
+        options.body = JSON.stringify({ task: params });
       }
     }
     const response = await fetch(url, options);
-    if (response.status !== 200) {
+    if (response.status < 200) {
       return {
         status: 'error',
       };

@@ -1,23 +1,20 @@
 export class TaskRemoveAction {
-  constructor(tasksRepository) {
+  constructor(tasksRepository, onChange) {
     this.tasksRepository = tasksRepository;
+    this.onChange = onChange;
   }
 
   applyTo(nodes) {
     for (const element of nodes) {
-      element.addEventListener('click', () => {
-        this.onTaskRemoving(this.tasksRepository);
-      });
+      element.addEventListener('click', this.onTaskRemoving.bind(this));
     }
   }
 
-  onTaskRemoving(tasksRepository) {
+  onTaskRemoving() {
     const taskId = event.target.classList[2];
-    tasksRepository.removeTask(taskId).then(() => {
-      const htmlElementsForDelete = document.getElementsByClassName(taskId);
-      for (let i = 0; i < htmlElementsForDelete.length; i++) {
-        htmlElementsForDelete[i].remove();
-      }
+    this.tasksRepository.removeTask(taskId).then(() => {
+      location.reload();
+      this.onChange();
     });
   }
 }

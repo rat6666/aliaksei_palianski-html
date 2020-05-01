@@ -5,6 +5,7 @@ import { TaskRenderer } from './render/taskRenderer.js';
 import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
 import { TaskRemoveAction } from './taskRemoveAction.js';
+import { TaskPostAction } from './taskPostAction.js';
 
 const classNames = {
   body: 'body',
@@ -18,7 +19,16 @@ const rootNode = document.getElementsByTagName(classNames.body)[0];
 const pageService = new PageService(taskRepository, rootNode, contentRenderer, headerRenderer);
 
 pageService.renderPage().then(() => {
-  const taskRemoveAction = new TaskRemoveAction(taskRepository);
+  const taskRemoveAction = new TaskRemoveAction(
+    taskRepository,
+    pageService.renderPage.bind(pageService)
+  );
   const removeButtons = pageService.getRemoveButtons();
   taskRemoveAction.applyTo(removeButtons);
+
+  const taskPostAction = new TaskPostAction(
+    taskRepository,
+    pageService.renderPage.bind(pageService)
+  );
+  taskPostAction.applyTo();
 });

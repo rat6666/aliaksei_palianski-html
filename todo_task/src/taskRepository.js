@@ -7,6 +7,10 @@ export class TasksRepository {
   async getTasks() {
     return await this.httpSerivce.request(this.apiHost);
   }
+
+  async postTasks(task) {
+    return await this.httpSerivce.request(this.apiHost, task, 'POST');
+  }
   // editTask(task, newData)...
 
   async removeTask(id) {
