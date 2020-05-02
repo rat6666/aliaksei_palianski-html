@@ -18,6 +18,13 @@ const storageKey = {
   footerBlockTextKey: 'footer',
 };
 
+const button = {
+  done: 'button-done',
+  edit: 'button-edit',
+  add: 'button-add',
+  delete: 'button-delete',
+};
+
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
 const taskRenderer = new TaskRenderer();
@@ -43,16 +50,16 @@ const taskDoneAction = new TaskDoneAction(taskRepository, pageService.renderPage
 pageService.renderPage(localStorage.getItem(storageKey.footerBlockTextKey)).then(() => {
   rootNode.addEventListener('click', () => {
     switch (event.target.classList[0]) {
-      case 'button-delete':
+      case button.delete:
         taskRemoveAction.onTaskRemove(event.target.classList[1]);
         break;
-      case 'button-done':
+      case button.done:
         taskDoneAction.onTaskDone(event.target.classList[1]);
         break;
-      case 'button-edit':
+      case button.edit:
         taskEditAction.onTaskEdit(event.target.classList[1]);
         break;
-      case 'button-add':
+      case button.add:
         taskPostAction.onTaskPosting();
         break;
     }
