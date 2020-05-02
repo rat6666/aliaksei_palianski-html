@@ -2,15 +2,18 @@ body {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .add-section {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  height: 40px;
 }
+
 .input-add {
-  width: 85%;
+  width: 90%;
 }
 
 .todo-task {
@@ -21,7 +24,23 @@ body {
   margin: 10px 20px 10px 20px;
 }
 
+.button-block {
+  display: flex;
+}
+
+.button-block > * {
+  margin: 0 5px 0 5px;
+}
+
+.done-section,
+.todo-section {
+  padding-left: 20px;
+  font-weight: 900;
+  font-size: large;
+}
+
 .input-todo {
+  display: flex;
   width: 80%;
   padding: 10px;
   margin: 0 10px 0 10px;
@@ -30,11 +49,6 @@ body {
 
 .input-todo:disabled {
   border: none;
-}
-
-.button {
-  margin: 0 5px 0 5px;
-  background-color: #fff;
 }
 
 .header {
@@ -46,4 +60,12 @@ body {
 
 .section {
   padding-left: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 70%;
+  background: red;
 }
