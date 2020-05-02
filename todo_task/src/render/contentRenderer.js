@@ -6,26 +6,28 @@ export class ContentRenderer {
       done: 'done-section',
       todo: 'todo-section',
     };
+    this.taskPosition = {
+      afterBegin: 'afterbegin',
+    };
   }
 
   renderAddSection(rootNode) {
-    rootNode.insertAdjacentHTML(
-      'afterbegin',
-      `<div class="${this.section.add}">
-    <input class="input-add" placeholder="input new task">
-    <button class="button-add">Add</button>
+    const markUp = `
+    <div class="${this.section.add}">
+      <input class="input-add" placeholder="input new task">
+      <button class="button-add">Add</button>
     </div>
-    `
-    );
+    `;
+    rootNode.insertAdjacentHTML(this.taskPosition.afterBegin, markUp);
   }
 
   renderTaskInprogressSection(rootNode, task) {
-    rootNode.insertAdjacentHTML(
-      'afterbegin',
-      `<div>
-          <p class="${this.section.done}">ToDoList</p>
-       </div>`
-    );
+    const markUp = `
+    <div>
+      <p class="${this.section.done}">ToDoList</p>
+    </div>
+    `;
+    rootNode.insertAdjacentHTML(this.taskPosition.afterBegin, markUp);
     const taskNode = document.getElementsByClassName(this.section.done)[0];
     task.forEach((element) => {
       if (!element.done) {
@@ -35,12 +37,12 @@ export class ContentRenderer {
   }
 
   renderTaskDoneSection(rootNode, task) {
-    rootNode.insertAdjacentHTML(
-      'afterbegin',
-      `<div>
-        <p class="${this.section.todo}">Done</p>
-      </div>`
-    );
+    const markUp = `
+    <div>
+      <p class="${this.section.todo}">Done</p>
+    </div>
+    `;
+    rootNode.insertAdjacentHTML(this.taskPosition.afterBegin, markUp);
     const taskNode = document.getElementsByClassName(this.section.todo)[0];
     task.forEach((element) => {
       if (element.done) {
