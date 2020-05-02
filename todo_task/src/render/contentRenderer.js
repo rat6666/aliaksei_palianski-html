@@ -3,8 +3,8 @@ export class ContentRenderer {
     this.taskRenderer = taskRenderer;
     this.section = {
       add: 'add-section',
-      done: 'Done section',
-      todo: 'ToDo section',
+      done: 'done-section',
+      todo: 'todo-section',
     };
   }
 
@@ -13,7 +13,7 @@ export class ContentRenderer {
       'afterbegin',
       `<div class="${this.section.add}">
     <input class="input-add" placeholder="input new task">
-    <button class="button add">Add</button>
+    <button class="button-add">Add</button>
     </div>
     `
     );
@@ -45,7 +45,7 @@ export class ContentRenderer {
     task.forEach((element) => {
       if (element.done) {
         this.taskRenderer.renderTask(taskNode, element);
-        document.getElementsByClassName(`button done ${element.id}`)[0].remove();
+        document.getElementsByClassName(`button-done ${element.id}`)[0].remove();
       }
     });
   }

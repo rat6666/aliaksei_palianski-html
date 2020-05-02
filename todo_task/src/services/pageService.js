@@ -47,16 +47,4 @@ export class PageService {
     this.contentRenderer.renderTaskInprogressSection(contentRootNode, this.taskList);
     this.contentRenderer.renderAddSection(contentRootNode);
   }
-
-  getRemoveButtons() {
-    return document.getElementsByClassName(this.button.delete);
-  }
-
-  getDoneButtons() {
-    return document.getElementsByClassName(this.button.done);
-  }
-
-  getEditButtons() {
-    return document.getElementsByClassName(this.button.edit);
-  }
 }

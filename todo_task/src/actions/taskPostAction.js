@@ -8,11 +8,6 @@ export class TaskPostAction {
     };
   }
 
-  applyTo() {
-    const addButton = document.querySelector('[class="button add"]');
-    addButton.addEventListener('click', this.onTaskPosting.bind(this));
-  }
-
   onTaskPosting() {
     const newTask = document.querySelector('[class="input-add"]').value;
     this.tasksRepository.postTasks({ task: newTask }).then(() => {

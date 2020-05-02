@@ -8,15 +8,8 @@ export class TaskRemoveAction {
     };
   }
 
-  applyTo(nodes) {
-    for (const element of nodes) {
-      element.addEventListener('click', this.onTaskRemoving.bind(this));
-    }
-  }
-
-  onTaskRemoving() {
-    const taskId = event.target.classList[2];
-    this.tasksRepository.removeTask(taskId).then(() => {
+  onTaskRemove(taskID) {
+    this.tasksRepository.removeTask(taskID).then(() => {
       location.reload();
       localStorage.setItem(this.storage.key, this.storage.value);
       this.onChange();

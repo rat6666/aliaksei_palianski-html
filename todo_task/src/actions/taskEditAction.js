@@ -8,14 +8,7 @@ export class TaskEditAction {
     };
   }
 
-  applyTo(nodes) {
-    for (const element of nodes) {
-      element.addEventListener('click', this.onTaskEdit.bind(this));
-    }
-  }
-
-  onTaskEdit() {
-    const taskId = event.target.classList[2];
+  onTaskEdit(taskId) {
     const inputTask = document.querySelector(`[class="input-todo ${taskId}"]`);
     inputTask.disabled = false;
     inputTask.value = inputTask.placeholder;

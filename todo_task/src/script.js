@@ -32,32 +32,29 @@ const pageService = new PageService(
   headerRenderer,
   footerRenderer
 );
+const taskRemoveAction = new TaskRemoveAction(
+  taskRepository,
+  pageService.renderPage.bind(pageService)
+);
+const taskPostAction = new TaskPostAction(taskRepository, pageService.renderPage.bind(pageService));
+const taskEditAction = new TaskEditAction(taskRepository, pageService.renderPage.bind(pageService));
+const taskDoneAction = new TaskDoneAction(taskRepository, pageService.renderPage.bind(pageService));
 
 pageService.renderPage(localStorage.getItem(storageKey.footerBlockTextKey)).then(() => {
-  const taskRemoveAction = new TaskRemoveAction(
-    taskRepository,
-    pageService.renderPage.bind(pageService)
-  );
-  const removeButtons = pageService.getRemoveButtons();
-  taskRemoveAction.applyTo(removeButtons);
-
-  const taskPostAction = new TaskPostAction(
-    taskRepository,
-    pageService.renderPage.bind(pageService)
-  );
-  taskPostAction.applyTo();
-
-  const taskDoneAction = new TaskDoneAction(
-    taskRepository,
-    pageService.renderPage.bind(pageService)
-  );
-  const doneButtons = pageService.getDoneButtons();
-  taskDoneAction.applyTo(doneButtons);
-
-  const taskEditAction = new TaskEditAction(
-    taskRepository,
-    pageService.renderPage.bind(pageService)
-  );
-  const editButtons = pageService.getEditButtons();
-  taskEditAction.applyTo(editButtons);
+  rootNode.addEventListener('click', () => {
+    switch (event.target.classList[0]) {
+      case 'button-delete':
+        taskRemoveAction.onTaskRemove(event.target.classList[1]);
+        break;
+      case 'button-done':
+        taskDoneAction.onTaskDone(event.target.classList[1]);
+        break;
+      case 'button-edit':
+        taskEditAction.onTaskEdit(event.target.classList[1]);
+        break;
+      case 'button-add':
+        taskPostAction.onTaskPosting();
+        break;
+    }
+  });
 });
