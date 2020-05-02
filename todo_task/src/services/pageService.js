@@ -5,12 +5,6 @@ export class PageService {
     this.contentRenderer = contentRenderer;
     this.headerRenderer = headerRenderer;
     this.footerRenderer = footerRenderer;
-    this.button = {
-      add: 'add',
-      done: 'done',
-      edit: 'edit',
-      delete: 'button delete',
-    };
     this.storage = {
       key: 'footer',
       value: 'Loaded',
