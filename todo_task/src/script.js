@@ -1,7 +1,7 @@
 import { TasksRepository } from './repository/taskRepository.js';
-import { EventsHandlerService } from './services/eventsHandlerService.js';
-import { HTTPService } from './services/httpService.js';
-import { PageService } from './services/pageService.js';
+import { EventsHandlerService } from './actions/eventsHandlerService.js';
+import { HTTPService } from './repository/httpService.js';
+import { PageService } from './render/pageService.js';
 import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
 import { FoterRenderer } from './render/footerRenderer.js';
@@ -38,5 +38,5 @@ const eventsHandlerService = new EventsHandlerService(
 );
 
 pageService.renderPage(footerText).then(() => {
-  eventsHandlerService.onInit();
+  eventsHandlerService.onAction();
 });
