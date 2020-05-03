@@ -36,8 +36,7 @@ export class TaskAction {
     inputTask.value = inputTask.placeholder;
     inputTask.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        const newTask = document.querySelector(`[class="input-todo ${taskId}"]`).value;
-        this.tasksRepository.editTasks(taskId, { task: newTask }).then(() => {
+        this.tasksRepository.editTasks(taskId, { task: inputTask.value }).then(() => {
           inputTask.disabled = true;
           this.onDone(this.storage.valueEdit);
         });
