@@ -1,11 +1,11 @@
 import { TasksRepository } from './repository/taskRepository.js';
+import { EventsHandlerService } from './services/eventsHandlerService.js';
 import { HTTPService } from './services/httpService.js';
 import { PageService } from './services/pageService.js';
-import { EventsHandlerService } from './services/eventsHandlerService.js';
 import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
-import { TaskRenderer } from './render/taskRenderer.js';
 import { FoterRenderer } from './render/footerRenderer.js';
+import { TaskRenderer } from './render/taskRenderer.js';
 
 const classNames = {
   body: 'body',

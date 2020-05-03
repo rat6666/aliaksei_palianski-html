@@ -13,8 +13,6 @@ const button = {
 export class EventsHandlerService {
   constructor(rootNode, taskRepository, renderPage) {
     this.rootNode = rootNode;
-    // this.taskRepository = taskRepository;
-    // this.renderPage = renderPage;
     this.taskRemoveAction = new TaskRemoveAction(taskRepository, renderPage);
     this.taskPostAction = new TaskPostAction(taskRepository, renderPage);
     this.taskEditAction = new TaskEditAction(taskRepository, renderPage);
