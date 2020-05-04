@@ -4,7 +4,7 @@ export class TaskRenderer {
   renderTask(rootNode, task) {
     const markup = `
     <div class="todo-task ${task.id}">
-      <input class="input-todo ${task.id}" disabled placeholder="${task.task}">
+      <input class="input-todo-${task.id}" disabled placeholder="${task.task}">
       <div class="button-block">
         <button class="button-done ${task.id}">Done</button>
         <button class="button-edit ${task.id}">Edit</button>

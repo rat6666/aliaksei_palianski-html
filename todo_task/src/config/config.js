@@ -25,3 +25,9 @@ export const taskPosition = {
   beforeEnd: 'beforeend',
   afterEnd: 'afterend',
 };
+
+export const selector = {
+  footer: '.footer',
+  inputAdd: '.input-add',
+  inputTodo: '.input-todo-',
+};

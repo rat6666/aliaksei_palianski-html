@@ -1,4 +1,4 @@
-import { section, taskPosition } from '../config/config.js';
+import { section, taskPosition, button } from '../config/config.js';
 
 export class ContentRenderer {
   constructor(taskRenderer) {
@@ -9,7 +9,7 @@ export class ContentRenderer {
     const markUp = `
     <div class="${section.add}">
       <input class="input-add" placeholder="input new task">
-      <button class="button-add">Add</button>
+      <button class="${button.add}">Add</button>
     </div>
     `;
     rootNode.insertAdjacentHTML(taskPosition.afterBegin, markUp);
@@ -41,7 +41,7 @@ export class ContentRenderer {
     task.forEach((element) => {
       if (element.done) {
         this.taskRenderer.renderTask(taskNode, element);
-        document.getElementsByClassName(`button-done ${element.id}`)[0].remove();
+        document.getElementsByClassName(`${button.done} ${element.id}`)[0].remove();
       }
     });
   }

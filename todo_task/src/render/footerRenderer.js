@@ -1,4 +1,4 @@
-import { taskPosition } from '../config/config.js';
+import { taskPosition, selector } from '../config/config.js';
 
 export class FoterRenderer {
   renderFooter(rootNode, text) {
@@ -7,7 +7,7 @@ export class FoterRenderer {
     `;
     rootNode.insertAdjacentHTML(taskPosition.beforeEnd, markUp);
     setTimeout(() => {
-      document.querySelector('[class=footer]').remove();
+      document.querySelector(selector.footer).remove();
     }, 2000);
   }
 }
