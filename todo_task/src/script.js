@@ -6,16 +6,13 @@ import { ContentRenderer } from './render/contentRenderer.js';
 import { HeaderRenderer } from './render/headerRenderer.js';
 import { FoterRenderer } from './render/footerRenderer.js';
 import { TaskRenderer } from './render/taskRenderer.js';
+import { storage } from './config/config.js';
 
 const classNames = {
   body: 'body',
 };
 
-const storageKey = {
-  footerBlockTextKey: 'footer',
-};
-
-const footerText = localStorage.getItem(storageKey.footerBlockTextKey);
+const footerText = localStorage.getItem(storage.key);
 
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
