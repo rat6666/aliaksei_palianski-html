@@ -1,11 +1,5 @@
 import { TaskAction } from './taskAction.js';
-
-const button = {
-  done: 'button-done',
-  edit: 'button-edit',
-  add: 'button-add',
-  delete: 'button-delete',
-};
+import { button } from '../config/config.js';
 
 export class EventsHandlerService {
   constructor(rootNode, taskRepository, renderPage) {

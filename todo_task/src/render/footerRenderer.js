@@ -1,15 +1,11 @@
-export class FoterRenderer {
-  constructor() {
-    this.taskPosition = {
-      beforeEnd: 'beforeend',
-    };
-  }
+import { taskPosition } from '../config/config.js';
 
+export class FoterRenderer {
   renderFooter(rootNode, text) {
     const markUp = `
     <div class="footer">${text}</div>
     `;
-    rootNode.insertAdjacentHTML(this.taskPosition.beforeEnd, markUp);
+    rootNode.insertAdjacentHTML(taskPosition.beforeEnd, markUp);
     setTimeout(() => {
       document.querySelector('[class=footer]').remove();
     }, 2000);

@@ -1,10 +1,6 @@
-export class TaskRenderer {
-  constructor() {
-    this.taskPosition = {
-      afterEnd: 'afterend',
-    };
-  }
+import { taskPosition } from '../config/config.js';
 
+export class TaskRenderer {
   renderTask(rootNode, task) {
     const markup = `
     <div class="todo-task ${task.id}">
@@ -16,6 +12,6 @@ export class TaskRenderer {
       </div>
     </div>
     `;
-    rootNode.insertAdjacentHTML(this.taskPosition.afterEnd, markup);
+    rootNode.insertAdjacentHTML(taskPosition.afterEnd, markup);
   }
 }

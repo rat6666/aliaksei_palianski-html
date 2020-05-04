@@ -1,3 +1,5 @@
+import { storage } from '../config/config.js';
+
 export class PageService {
   constructor(tasksRepository, rootNode, contentRenderer, headerRenderer, footerRenderer) {
     this.tasksRepository = tasksRepository;
@@ -5,16 +7,12 @@ export class PageService {
     this.contentRenderer = contentRenderer;
     this.headerRenderer = headerRenderer;
     this.footerRenderer = footerRenderer;
-    this.storage = {
-      key: 'footer',
-      value: 'Loaded',
-    };
   }
 
   async renderPage(footerText) {
     await this.tasksRepository.getTasks().then((tasks) => {
       this.taskList = tasks;
-      localStorage.setItem(this.storage.key, this.storage.value);
+      localStorage.setItem(storage.key, storage.value);
       this.renderFooter(this.rootNode, footerText);
       this.renderContent(this.rootNode);
       this.renderHeader(this.rootNode);

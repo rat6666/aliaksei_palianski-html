@@ -1,10 +1,6 @@
-export class HeaderRenderer {
-  constructor() {
-    this.taskPosition = {
-      afterBegin: 'afterbegin',
-    };
-  }
+import { taskPosition } from '../config/config.js';
 
+export class HeaderRenderer {
   renderHeader(tasksInProgressCount, doneTasksCount, rootNode) {
     const markUp = `
     <div class="header">
@@ -12,6 +8,6 @@ export class HeaderRenderer {
       <p>To Do: ${tasksInProgressCount} Items Done: ${doneTasksCount} Items</p>
     </div>
     `;
-    rootNode.insertAdjacentHTML(this.taskPosition.afterBegin, markUp);
+    rootNode.insertAdjacentHTML(taskPosition.afterBegin, markUp);
   }
 }
