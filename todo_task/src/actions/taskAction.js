@@ -1,9 +1,9 @@
 import { storage, selector } from '../config/config.js';
 
 export class TaskAction {
-  constructor(tasksRepository, onChange) {
+  constructor(tasksRepository, renderPage) {
     this.tasksRepository = tasksRepository;
-    this.onChange = onChange;
+    this.renderPage = renderPage;
   }
 
   onTaskDone(taskId) {
@@ -42,6 +42,6 @@ export class TaskAction {
   onDone(footerText) {
     location.reload();
     localStorage.setItem(storage.key, footerText);
-    this.onChange();
+    this.renderPage();
   }
 }
