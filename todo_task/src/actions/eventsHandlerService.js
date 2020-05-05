@@ -1,5 +1,5 @@
 import { TaskAction } from './taskAction.js';
-import { button } from '../config/config.js';
+import { button, event } from '../config/config.js';
 
 export class EventsHandlerService {
   constructor(rootNode, taskRepository, renderPage) {
@@ -8,8 +8,7 @@ export class EventsHandlerService {
   }
 
   onAction() {
-    this.rootNode.addEventListener('click', () => {
-      console.log(event.target.classList);
+    this.rootNode.addEventListener(event.click, () => {
       switch (event.target.classList[0]) {
         case button.delete:
           this.taskAction.onTaskRemove(event.target.classList[1]);

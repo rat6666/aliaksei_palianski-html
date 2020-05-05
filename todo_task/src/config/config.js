@@ -1,3 +1,26 @@
+export const apiHost = 'https://5e9162352810f4001648b889.mockapi.io/api/v1/tasks';
+
+export const keyValue = {
+  enter: 'Enter',
+};
+
+export const event = {
+  click: 'click',
+  keyDown: 'keydown',
+};
+
+export const method = {
+  post: 'POST',
+  delete: 'DELETE',
+  put: 'PUT',
+  get: 'GET',
+};
+
+export const taskStatus = {
+  done: 'true',
+  inProgress: 'false',
+};
+
 export const button = {
   done: 'button-done',
   edit: 'button-edit',

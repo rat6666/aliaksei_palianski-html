@@ -1,13 +1,15 @@
+import { method } from '../config/config.js';
+
 export class HTTPService {
-  async request(url, params, method = 'GET') {
+  async request(url, params, requestMethod = method.get) {
     const options = {
-      method,
+      requestMethod,
       headers: {
         'Content-Type': 'application/json',
       },
     };
     if (params) {
-      if (method !== 'GET') {
+      if (requestMethod !== method.get) {
         options.body = JSON.stringify(params);
       }
     }
