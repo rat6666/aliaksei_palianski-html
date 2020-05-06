@@ -9,7 +9,6 @@ export class EventsHandlerService {
 
   onAction() {
     this.rootNode.addEventListener('click', () => {
-      console.log(event.target.classList);
       switch (event.target.classList[0]) {
         case button.delete:
           this.taskAction.onTaskRemove(event.target.classList[1]);
