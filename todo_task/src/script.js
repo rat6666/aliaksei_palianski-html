@@ -12,7 +12,6 @@ const classNames = {
   body: 'body',
 };
 
-const footerText = localStorage.getItem(storage.key);
 
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
@@ -27,12 +26,15 @@ const pageService = new PageService(
   contentRenderer,
   headerRenderer,
   footerRenderer
-);
+  );
+
 const eventsHandlerService = new EventsHandlerService(
   rootNode,
   taskRepository,
   pageService.renderPage
-);
+  );
+
+const footerText = localStorage.getItem(storage.key);
 
 pageService.renderPage(footerText).then(() => {
   eventsHandlerService.onAction();
