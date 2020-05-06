@@ -26,7 +26,7 @@ export class TaskAction {
   }
 
   onTaskEdit(taskId) {
-    const inputTask = document.querySelector(selector.inputTodo + taskId);
+    const inputTask = document.querySelector(selector.inputTodo);
     inputTask.disabled = false;
     inputTask.value = inputTask.placeholder;
     inputTask.addEventListener('keydown', (e) => {

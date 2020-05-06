@@ -9,16 +9,15 @@ export class EventsHandlerService {
 
   onAction() {
     this.rootNode.addEventListener('click', () => {
-      switch (event.target.classList[0]) {
-        
+      switch (event.target.classList.value) {
         case button.delete:
-          this.taskAction.onTaskRemove(event.target.classList[1]);
+          this.taskAction.onTaskRemove(event.target.dataset.id);
           break;
         case button.done:
-          this.taskAction.onTaskDone(event.target.classList[1]);
+          this.taskAction.onTaskDone(event.target.dataset.id);
           break;
         case button.edit:
-          this.taskAction.onTaskEdit(event.target.classList[1]);
+          this.taskAction.onTaskEdit(event.target.dataset.id);
           break;
         case button.add:
           this.taskAction.onTaskPosting();

@@ -41,7 +41,7 @@ export class ContentRenderer {
     task.forEach((element) => {
       if (element.done) {
         this.taskRenderer.renderTask(taskNode, element);
-        document.getElementsByClassName(`${button.done} ${element.id}`)[0].remove();
+        document.getElementsByClassName(button.done)[0].remove();
       }
     });
   }
