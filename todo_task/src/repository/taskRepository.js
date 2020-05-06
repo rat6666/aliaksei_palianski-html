@@ -3,6 +3,20 @@ import { apiHost, taskStatus, method } from '../config/config.js';
 export class TasksRepository {
   constructor(httpService) {
     this.httpSerivce = httpService;
+<<<<<<< HEAD
+=======
+    this.apiHost = 'https://5e9162352810f4001648b889.mockapi.io/api/v1/tasks';
+    this.method = {
+      post: 'POST',
+      delete: 'DELETE',
+      put: 'PUT',
+    };
+    
+    this.taskStatus = {
+      done: 'true',
+      inProgress: 'false',
+    };
+>>>>>>> ref: something went wrong
   }
 
   async getTasks() {
