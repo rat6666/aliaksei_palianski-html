@@ -1,4 +1,4 @@
-import { taskPosition, selector } from '../config/config.js';
+import { taskPosition, selector } from "../config/config.js";
 
 export class FoterRenderer {
   renderFooter(rootNode, text) {

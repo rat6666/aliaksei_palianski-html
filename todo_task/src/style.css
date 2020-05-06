@@ -40,7 +40,7 @@ body {
   font-size: large;
 }
 
-input[class|='input-todo'] {
+input[class|="input-todo"] {
   display: flex;
   width: 80%;
   padding: 10px;
@@ -48,7 +48,7 @@ input[class|='input-todo'] {
   background-color: #fff;
 }
 
-input[class|='input-todo']:disabled {
+input[class|="input-todo"]:disabled {
   border: none;
 }
 

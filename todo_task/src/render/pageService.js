@@ -1,7 +1,13 @@
-import { storage } from '../config/config.js';
+import { storage } from "../config/config.js";
 
 export class PageService {
-  constructor(tasksRepository, rootNode, contentRenderer, headerRenderer, footerRenderer) {
+  constructor(
+    tasksRepository,
+    rootNode,
+    contentRenderer,
+    headerRenderer,
+    footerRenderer,
+  ) {
     this.tasksRepository = tasksRepository;
     this.rootNode = rootNode;
     this.contentRenderer = contentRenderer;
@@ -12,7 +18,7 @@ export class PageService {
   async renderPage(footerText) {
     await this.tasksRepository.getTasks().then((tasks) => {
       this.taskList = tasks;
-      localStorage.setItem(storage.key, storage.value);
+      localStorage.setItem(storage.key, storage.valueLoad);
       this.renderFooter(this.rootNode, footerText);
       this.renderContent(this.rootNode);
       this.renderHeader(this.rootNode);
@@ -31,12 +37,19 @@ export class PageService {
       }
     });
     const inProgressTasksCount = this.taskList.length - doneTasksCount;
-    this.headerRenderer.renderHeader(doneTasksCount, inProgressTasksCount, headerRootNode);
+    this.headerRenderer.renderHeader(
+      doneTasksCount,
+      inProgressTasksCount,
+      headerRootNode,
+    );
   }
 
   renderContent(contentRootNode) {
     this.contentRenderer.renderTaskDoneSection(contentRootNode, this.taskList);
-    this.contentRenderer.renderTaskInprogressSection(contentRootNode, this.taskList);
+    this.contentRenderer.renderTaskInprogressSection(
+      contentRootNode,
+      this.taskList,
+    );
     this.contentRenderer.renderAddSection(contentRootNode);
   }
 }

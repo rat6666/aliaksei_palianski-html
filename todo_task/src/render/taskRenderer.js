@@ -1,4 +1,4 @@
-import { taskPosition } from '../config/config.js';
+import { taskPosition } from "../config/config.js";
 
 export class TaskRenderer {
   renderTask(rootNode, task) {

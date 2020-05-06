@@ -1,5 +1,5 @@
-import { TaskAction } from './taskAction.js';
-import { button } from '../config/config.js';
+import { TaskAction } from "./taskAction.js";
+import { button } from "../config/config.js";
 
 export class EventsHandlerService {
   constructor(rootNode, taskRepository, renderPage) {
@@ -8,7 +8,7 @@ export class EventsHandlerService {
   }
 
   onAction() {
-    this.rootNode.addEventListener('click', () => {
+    this.rootNode.addEventListener("click", () => {
       switch (event.target.classList.value) {
         case button.delete:
           this.taskAction.onTaskRemove(event.target.dataset.id);
@@ -21,6 +21,8 @@ export class EventsHandlerService {
           break;
         case button.add:
           this.taskAction.onTaskPosting();
+          break;
+        default:
           break;
       }
     });

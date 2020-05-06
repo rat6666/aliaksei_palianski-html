@@ -1,17 +1,17 @@
-import { TasksRepository } from './repository/taskRepository.js';
-import { EventsHandlerService } from './actions/eventsHandlerService.js';
-import { HTTPService } from './repository/httpService.js';
-import { PageService } from './render/pageService.js';
-import { ContentRenderer } from './render/contentRenderer.js';
-import { HeaderRenderer } from './render/headerRenderer.js';
-import { FoterRenderer } from './render/footerRenderer.js';
-import { TaskRenderer } from './render/taskRenderer.js';
-import { storage } from './config/config.js';
+/* eslint-disable import/extensions */
+import { TasksRepository } from "./repository/taskRepository.js";
+import { EventsHandlerService } from "./actions/eventsHandlerService.js";
+import { HTTPService } from "./repository/httpService.js";
+import { PageService } from "./render/pageService.js";
+import { ContentRenderer } from "./render/contentRenderer.js";
+import { HeaderRenderer } from "./render/headerRenderer.js";
+import { FoterRenderer } from "./render/footerRenderer.js";
+import { TaskRenderer } from "./render/taskRenderer.js";
+import { storage } from "./config/config.js";
 
 const classNames = {
-  body: 'body',
+  body: "body",
 };
-
 
 const httpService = new HTTPService();
 const taskRepository = new TasksRepository(httpService);
@@ -25,14 +25,14 @@ const pageService = new PageService(
   rootNode,
   contentRenderer,
   headerRenderer,
-  footerRenderer
-  );
+  footerRenderer,
+);
 
 const eventsHandlerService = new EventsHandlerService(
   rootNode,
   taskRepository,
-  pageService.renderPage
-  );
+  pageService.renderPage,
+);
 
 const footerText = localStorage.getItem(storage.key);
 

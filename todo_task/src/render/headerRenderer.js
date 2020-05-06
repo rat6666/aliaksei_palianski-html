@@ -1,4 +1,4 @@
-import { taskPosition } from '../config/config.js';
+import { taskPosition } from "../config/config.js";
 
 export class HeaderRenderer {
   renderHeader(tasksInProgressCount, doneTasksCount, rootNode) {
