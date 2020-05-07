@@ -1,0 +1,13 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Launch localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://127.0.0.1:5500/todo_task/index.html",
+            "webRoot": "${workspaceFolder}/todo_task"
+        },
+
+    ]
+}
