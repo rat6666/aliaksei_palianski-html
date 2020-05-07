@@ -1,72 +1,72 @@
 body {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
 }
 
 .add-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 40px;
 }
 
 .input-add {
-  width: 90%;
+    width: 90%;
 }
 
 .todo-task {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid rgb(0, 0, 0);
-  padding: 10px;
-  margin: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+    margin: 10px 20px 10px 20px;
 }
 
 .button-block {
-  display: flex;
+    display: flex;
 }
 
-.button-block > * {
-  margin: 0 5px 0 5px;
+.button-block>* {
+    margin: 0 5px 0 5px;
 }
 
 .done-section,
 .todo-section {
-  padding-left: 20px;
-  font-weight: 900;
-  font-size: large;
+    padding-left: 20px;
+    font-weight: 900;
+    font-size: large;
 }
 
 input[class|="input-todo"] {
-  display: flex;
-  width: 80%;
-  padding: 10px;
-  margin: 0 10px 0 10px;
-  background-color: #fff;
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    background-color: #fff;
 }
 
 input[class|="input-todo"]:disabled {
-  border: none;
+    border: none;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  padding: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 0 10px 0 10px;
 }
 
 .section {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .footer {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 70%;
-  background: red;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 70%;
+    background: red;
 }

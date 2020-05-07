@@ -1,4 +1,4 @@
-import {apiHost, method, taskStatus} from '../config/config.js';
+import { apiHost, method, taskStatus } from '../config/config.js';
 
 export class TasksRepository {
   constructor(httpService) {
@@ -17,7 +17,7 @@ export class TasksRepository {
     return await this.httpSerivce.request(
       `${apiHost}/${id}`,
       { done: taskStatus.done },
-      method.put
+      method.put,
     );
   }
 

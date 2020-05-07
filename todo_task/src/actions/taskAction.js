@@ -1,4 +1,7 @@
-import { storage, selector } from "../config/config.js";
+import {
+  storage,
+  selector,
+} from "../config/config.js";
 
 export class TaskAction {
   constructor(tasksRepository, renderPage) {
@@ -20,7 +23,9 @@ export class TaskAction {
 
   onTaskPosting() {
     const newTask = document.querySelector(selector.inputAdd).value;
-    this.tasksRepository.postTasks({ task: newTask }).then(() => {
+    this.tasksRepository.postTasks({
+      task: newTask,
+    }).then(() => {
       this.onDone(storage.valuePost);
     });
   }
@@ -32,7 +37,9 @@ export class TaskAction {
     inputTask.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         this.tasksRepository
-          .editTasks(taskId, { task: inputTask.value })
+          .editTasks(taskId, {
+            task: inputTask.value,
+          })
           .then(() => {
             inputTask.disabled = true;
             this.onDone(storage.valueEdit);

@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { TasksRepository } from "./repository/taskRepository.js";
 import { EventsHandlerService } from "./actions/eventsHandlerService.js";
 import { HTTPService } from "./repository/httpService.js";

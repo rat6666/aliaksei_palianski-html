@@ -1,5 +1,9 @@
-import { TaskAction } from "./taskAction.js";
-import { button } from "../config/config.js";
+import {
+  TaskAction,
+} from "./taskAction.js";
+import {
+  button,
+} from "../config/config.js";
 
 export class EventsHandlerService {
   constructor(rootNode, taskRepository, renderPage) {

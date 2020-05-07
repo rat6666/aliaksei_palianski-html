@@ -1,4 +1,8 @@
-import { section, taskPosition, button } from "../config/config.js";
+import {
+  section,
+  taskPosition,
+  button,
+} from "../config/config.js";
 
 export class ContentRenderer {
   constructor(taskRenderer) {
