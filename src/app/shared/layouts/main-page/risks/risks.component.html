@@ -1,0 +1,20 @@
+<p-card class="sort-panel">
+  <p-scrollPanel [style]="{ height: '300px' }">
+    <div>
+      <p-card
+        *ngFor="let item of risks"
+        (click)="sendMessage(item)"
+        [style]="background"
+      >
+        {{ item.riskName }} | {{ item.time }} hrs | {{ item.prob }}%
+      </p-card>
+      <p-card
+        *ngFor="let item of risks"
+        (click)="sendMessage(item)"
+        [style]="background"
+      >
+        {{ item.riskName }} | {{ item.time }} hrs | {{ item.prob }}%
+      </p-card>
+    </div>
+  </p-scrollPanel>
+</p-card>

@@ -1,0 +1,11 @@
+<p-card>
+  <h3>{{ riskd.riskName }}</h3>
+  <h5>Description:</h5>
+  <textarea
+    pInputTextarea
+    [(ngModel)]="riskd.description"
+    #riskDescriprion="ngModel"
+    (ngModelChange)="onriskDescriprionChange()"
+    autoResize="autoResize"
+  ></textarea>
+</p-card>

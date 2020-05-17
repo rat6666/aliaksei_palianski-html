@@ -1,0 +1,44 @@
+<p-card>
+  <div class="calc">
+    <div class="calc-block">
+      <h4 class="risk-name">Probability</h4>
+      <div class="probability-input-block">
+        <div class="input-field">
+          <h4>Min</h4>
+          <input type="number" pInputText />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Likely</h4>
+          <input type="number" pInputText value="{{ childMessage.prob }}" />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Max</h4>
+          <input type="number" pInputText />
+        </div>
+        <h4>%</h4>
+      </div>
+    </div>
+    <div class="calc-block">
+      <h4 class="risk-name">Impact Time</h4>
+      <div class="probability-input-block">
+        <div class="input-field">
+          <h4>Min</h4>
+          <input type="number" pInputText />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Likely</h4>
+          <input type="number" pInputText value="{{ childMessage.time }}" />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Max</h4>
+          <input type="number" pInputText />
+        </div>
+        <h4>%</h4>
+      </div>
+    </div>
+  </div>
+</p-card>

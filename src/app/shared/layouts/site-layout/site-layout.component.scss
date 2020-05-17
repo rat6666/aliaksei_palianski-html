@@ -1,0 +1,16 @@
+.mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.header-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
