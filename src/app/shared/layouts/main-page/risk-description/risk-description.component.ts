@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Risk } from 'src/app/shared/interfaces';
+import { Risk } from '../../../interfaces';
 
 @Component({
   selector: 'app-risk-description',

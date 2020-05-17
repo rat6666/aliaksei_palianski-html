@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Risk } from 'src/app/shared/interfaces';
-import { configAPI, sessionStorageKey } from 'src/app/shared/enums';
 import { HttpClient } from '@angular/common/http';
+import { configAPI, sessionStorageKey } from '../../../enums';
+import { Risk } from '../../../interfaces';
 
 @Component({
   selector: 'app-main-page-risks',

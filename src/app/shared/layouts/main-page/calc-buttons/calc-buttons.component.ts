@@ -6,8 +6,8 @@ import {
   SimpleChanges,
   OnChanges,
 } from '@angular/core';
-import { Risk } from 'src/app/shared/interfaces';
-import { defaultRisk } from 'src/app/shared/enums';
+import { Risk } from '../../../interfaces';
+import { defaultRisk } from '../../../enums';
 
 @Component({
   selector: 'app-calc-buttons',
