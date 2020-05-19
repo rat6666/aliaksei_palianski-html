@@ -1,72 +1,81 @@
-<mat-card>
-  <mat-card-content>
-    <form class="form">
-      <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-      </mat-card-header>
-      <table class="example-full-width" cellspacing="10">
-        <tr>
-          <td>
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Username"
-                [(ngModel)]="user"
-                name="name"
-                #name="ngModel"
-                required
-                minlength="6"
-              />
-              <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-                <mat-error *ngIf="name.errors.required">
-                  Name is required.
-                </mat-error>
-                <mat-error *ngIf="name.errors.minlength">
-                  Name must be at least 6 characters long.
-                </mat-error>
-              </mat-error>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Password"
-                [(ngModel)]="password"
-                type="password"
-                name="pass"
-                #pass="ngModel"
-                required
-                minlength="6"
-              />
-              <mat-error *ngIf="pass.invalid && (pass.dirty || pass.touched)">
-                <mat-error *ngIf="pass.errors.required">
-                  Password is required.
-                </mat-error>
-                <mat-error *ngIf="pass.errors.minlength">
-                  Password must be at least 6 characters long.
-                </mat-error>
-              </mat-error>
-            </mat-form-field>
-          </td>
-        </tr>
-        <mat-card-actions>
-          <button
-            mat-raised-button
-            class="buttol-login"
-            [disabled]="!name.valid || !pass.valid"
-            color="primary"
-            (click)="onSubmit()"
-          >
-            Login
-          </button>
-        </mat-card-actions>
-        <mat-error *ngIf="wrongPassword">
-          Wrong password or user name!
-        </mat-error>
-      </table>
-    </form>
-  </mat-card-content>
-</mat-card>
+<p-card [style]="{ height: '450px' }">
+  <div class="input--block">
+    <h3>Login</h3>
+    <div>
+      <span class="ui-float-label">
+        <input
+          class="ng-dirty ng-invalid"
+          id="float-input"
+          type="text"
+          size="40"
+          pInputText
+          [(ngModel)]="user"
+          #name="ngModel"
+          required
+          minlength="6"
+        />
+        <label for="float-input">Username</label>
+      </span>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <p-message
+          style="margin-top: 30px;"
+          *ngIf="name.errors.required"
+          severity="error"
+          text="Name is required"
+        ></p-message>
+        <p-message
+          style="margin-top: 30px;"
+          *ngIf="name.errors.minlength"
+          severity="error"
+          text="Name must be at least 6 characters long."
+        ></p-message>
+      </div>
+    </div>
+    <div>
+      <span class="ui-float-label">
+        <input
+          class="ng-dirty ng-invalid"
+          id="float-input"
+          type="text"
+          size="40"
+          pInputText
+          [(ngModel)]="password"
+          #pass="ngModel"
+          required
+          minlength="6"
+        />
+        <label for="float-input">Password</label>
+      </span>
+      <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+        <p-message
+          style="margin-top: 30px;"
+          *ngIf="pass.errors.required"
+          severity="error"
+          text="Password is required"
+        ></p-message>
+        <p-message
+          style="margin-top: 30px;"
+          *ngIf="pass.errors.minlength"
+          severity="error"
+          text="Password must be at least 6 characters long."
+        ></p-message>
+      </div>
+    </div>
+    <div class="button--block">
+      <button
+        pButton
+        type="button"
+        label="Log in"
+        (click)="logIn()"
+        [disabled]="!name.valid || !pass.valid"
+      ></button>
+      <button
+        pButton
+        type="button"
+        label="Sign in"
+        (click)="signIn()"
+        [disabled]="!name.valid || !pass.valid"
+      ></button>
+    </div>
+  </div>
+</p-card>

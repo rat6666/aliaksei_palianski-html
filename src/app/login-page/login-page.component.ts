@@ -3,6 +3,7 @@ import { Subscription, timer, Observable } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { User } from '../shared/interfaces';
+import { sessionStorageKey } from '../shared/enums';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,9 @@ import { User } from '../shared/interfaces';
 export class LoginPageComponent implements OnInit, OnDestroy {
   wrongPassword = false;
 
-  wrongPasswordTimer: Observable<number> = timer(3000);
+  registerFailed = false;
+
+  wrongInputTimer: Observable<number> = timer(3000);
 
   user: string;
 
@@ -42,7 +45,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit(): void {
+  logIn(): void {
     const user: User = {
       id: null,
       username: this.user,
@@ -53,6 +56,26 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       () => this.router.navigate(['/risk']),
       () => (this.wrongPassword = true)
     );
-    this.wrongPasswordTimer.subscribe(() => (this.wrongPassword = false));
+    this.wrongInputTimer.subscribe(() => (this.wrongPassword = false));
+  }
+
+  signIn(): void {
+    const user: User = {
+      id: null,
+      username: this.user,
+      password: this.password,
+      risks: [],
+    };
+    this.auth.register(user).subscribe(
+      (data: User) => {
+        sessionStorage.setItem(sessionStorageKey.id, data.id);
+        this.router.navigate(['/risk']);
+      },
+      () => {
+        sessionStorage.clear();
+        this.registerFailed = true;
+        this.wrongInputTimer.subscribe(() => (this.registerFailed = false));
+      }
+    );
   }
 }

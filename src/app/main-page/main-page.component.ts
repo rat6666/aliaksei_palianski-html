@@ -10,7 +10,13 @@ import { defaultRisk } from '../shared/enums';
 export class MainPageComponent {
   risk: Risk = defaultRisk;
 
+  resetRisk: Risk = defaultRisk;
+
   receiveMessage($event: Risk): void {
     this.risk = $event;
+  }
+
+  recieveUnchangeRisk($event: Risk): void {
+    this.resetRisk = $event;
   }
 }

@@ -1,13 +1,8 @@
-<div class="p-grid">
-  <div class="p-grid p-dir-col">
-    <app-main-page-sorter></app-main-page-sorter>
-    <app-main-page-risks (messageEvent)="receiveMessage($event)">
-      ></app-main-page-risks
-    >
+<div class="main-page--content">
+  <div class="risks--list">
+    <app-risks-list></app-risks-list>
   </div>
-  <div class="p-grid p-dir-col">
-    <app-risk-description [childMessage]="risk"></app-risk-description>
-    <app-calculator [childMessage]="risk"></app-calculator>
-    <app-calc-buttons [childMessage]="risk"></app-calc-buttons>
+  <div class="risks--edit">
+    <app-risk-edit></app-risk-edit>
   </div>
 </div>

@@ -12,6 +12,6 @@ export class SiteLayoutComponent {
 
   onSubmit(): void {
     this.auth.logOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 }

@@ -1,16 +1,15 @@
-.mat-toolbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex: 1 1 auto;
-}
-
-button {
-  margin-right: 10px;
-}
-
-.header-block {
+.main-page--header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.button--block {
+  display: flex;
+  height: 35px;
+  width: 250px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }

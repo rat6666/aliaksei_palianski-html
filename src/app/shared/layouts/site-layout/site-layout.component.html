@@ -1,15 +1,18 @@
 <nav>
-  <mat-toolbar class="mat-toolbar">
-    <span>Risk Application</span>
-    <div class="header-block">
-      <div class="button-block">
-        <button mat-raised-button color="primary">Manage Risks</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()">
-          Logout
-        </button>
+  <p-card [style]="{ width: '100%' }">
+    <div class="main-page--header">
+      <h2>Risk Application</h2>
+      <div class="button--block">
+        <button pButton type="button" label="Manage Risk"></button>
+        <button
+          pButton
+          type="button"
+          label="Logout"
+          (click)="onSubmit()"
+        ></button>
+        <h2>asasd</h2>
       </div>
-      <h2>asasd</h2>
     </div>
-  </mat-toolbar>
+  </p-card>
 </nav>
 <router-outlet></router-outlet>

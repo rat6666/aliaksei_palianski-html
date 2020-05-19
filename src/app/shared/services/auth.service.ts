@@ -8,6 +8,8 @@ import { configAPI, sessionStorageKey } from '../enums';
   providedIn: 'root',
 })
 export class AuthService {
+  router: any;
+
   constructor(private httpClient: HttpClient) {}
 
   headers: HttpHeaders = new HttpHeaders({

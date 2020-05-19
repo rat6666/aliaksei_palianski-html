@@ -30,5 +30,6 @@ module.exports = {
     'prettier/prettier': 0,
     'class-methods-use-this': 0,
     'no-plusplus': 0,
+    'no-console': 0,
   },
 };

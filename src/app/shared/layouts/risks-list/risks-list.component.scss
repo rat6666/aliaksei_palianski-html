@@ -1,0 +1,32 @@
+.ui-button-secondary {
+  margin-left: 5px;
+}
+.button-block {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+span {
+  margin-top: 6px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.risks--list div {
+  cursor: pointer;
+}
+.risks--list div:hover {
+  color: white;
+  background-color: #73c2ff;
+  left: 0.1em;
+}
+.risks--list div.selected {
+  background-color: #007ad9;
+  color: white;
+}
+.risks--list div.selected:hover {
+  background-color: #00345c;
+  color: white;
+}

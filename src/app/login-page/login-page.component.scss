@@ -1,11 +1,28 @@
-mat-card {
+p-card {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  min-width: 150px;
+  width: 100vw;
+  height: 100vh;
 }
 
-mat-card-actions {
-  padding-left: 10px;
+.input--block {
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.button--block {
+  margin: 20px 0;
+  padding: 0;
+  display: flex;
+  width: 312px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  width: 100%;
 }
