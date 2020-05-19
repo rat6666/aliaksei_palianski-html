@@ -13,6 +13,10 @@ export class RiskEditComponent implements OnInit {
 
   @ViewChild('descriptionInput') descriptionInput: ElementRef;
 
+  @ViewChild('probInput') probInput: ElementRef;
+
+  @ViewChild('timeInput') timeInput: ElementRef;
+
   constructor(private dataService: RisksDataService) {}
 
   ngOnInit(): void {
@@ -27,5 +31,7 @@ export class RiskEditComponent implements OnInit {
 
   resetRisk(): void {
     this.descriptionInput.nativeElement.value = this.childMessage.description;
+    this.probInput.nativeElement.value = this.childMessage.prob;
+    this.timeInput.nativeElement.value = this.childMessage.time;
   }
 }
