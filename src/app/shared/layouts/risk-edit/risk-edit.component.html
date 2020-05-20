@@ -1,9 +1,8 @@
 <p-card>
-  <h3>{{ childMessage.riskName }}</h3>
+  <h3>{{ risk.riskName }}</h3>
   <h5>Description:</h5>
   <textarea
-    [ngModel]="childMessage.description"
-    #descriptionInput
+    [(ngModel)]="risk.description"
     pInputTextarea
     autoResize="autoResize"
   ></textarea>
@@ -21,7 +20,7 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input type="number" pInputText value="{{ childMessage.prob }}" />
+          <input type="number" #probInput pInputText [(ngModel)]="risk.prob" />
         </div>
         <h4>%</h4>
         <div class="input-field">
@@ -41,7 +40,7 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input type="number" pInputText value="{{ childMessage.time }}" />
+          <input type="number" pInputText #timeInput [(ngModel)]="risk.time" />
         </div>
         <h4>%</h4>
         <div class="input-field">
@@ -56,7 +55,17 @@
 
 <p-card>
   <div class="button-block">
-    <button pButton (click)="updateRisk()" type="button" label="Apply"></button>
-    <button pButton (click)="resetRisk()" type="button" label="Reset"></button>
+    <button
+      pButton
+      (click)="updateEditedRisk()"
+      type="button"
+      label="Apply"
+    ></button>
+    <button
+      pButton
+      (click)="resetEditedRisk()"
+      type="button"
+      label="Reset"
+    ></button>
   </div>
 </p-card>

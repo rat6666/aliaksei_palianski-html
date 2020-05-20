@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from '../interfaces';
 import { configAPI, sessionStorageKey } from '../enums';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class CrudService {
   constructor(private httpClient: HttpClient) {}
 
   headers: HttpHeaders = new HttpHeaders({
@@ -40,13 +40,5 @@ export class AuthService {
         observer.error('error');
       });
     });
-  }
-
-  get isAuthenticate(): boolean {
-    return !!sessionStorage.getItem(sessionStorageKey.id);
-  }
-
-  logOut(): void {
-    sessionStorage.clear();
   }
 }

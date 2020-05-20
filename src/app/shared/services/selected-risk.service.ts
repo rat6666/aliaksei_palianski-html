@@ -6,14 +6,18 @@ import { defaultRisk } from '../enums';
 @Injectable({
   providedIn: 'root',
 })
-export class RisksDataService {
+export class SelectedRiskService {
   private risk = new BehaviorSubject<Risk>(defaultRisk);
 
-  getRisk(): Observable<Risk> {
+  get selectedRisk$(): Observable<Risk> {
     return this.risk.asObservable();
   }
 
-  setRisk(data: Risk): void {
+  updateRisk(risk: Risk): void {
+    console.log(risk);
+  }
+
+  selectRisk(data: Risk): void {
     this.risk.next(data);
   }
 }

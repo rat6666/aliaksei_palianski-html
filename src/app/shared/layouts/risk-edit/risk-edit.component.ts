@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Risk } from '../../interfaces';
-import { defaultRisk } from '../../enums';
-import { RisksDataService } from '../../services/risks-data.service';
+import { SelectedRiskService } from '../../services/selected-risk.service';
 
 @Component({
   selector: 'app-risk-edit',
@@ -9,29 +8,24 @@ import { RisksDataService } from '../../services/risks-data.service';
   styleUrls: ['./risk-edit.component.scss'],
 })
 export class RiskEditComponent implements OnInit {
-  childMessage: Risk = defaultRisk;
+  constructor(private selectedRiskService: SelectedRiskService) {}
 
-  @ViewChild('descriptionInput') descriptionInput: ElementRef;
+  public risk: Risk;
 
-  @ViewChild('probInput') probInput: ElementRef;
-
-  @ViewChild('timeInput') timeInput: ElementRef;
-
-  constructor(private dataService: RisksDataService) {}
+  private initialRiskData: Risk;
 
   ngOnInit(): void {
-    this.dataService.getRisk().subscribe((data: Risk) => {
-      this.childMessage = data;
+    this.selectedRiskService.selectedRisk$.subscribe((data: Risk) => {
+      this.risk = JSON.parse(JSON.stringify(data));
+      this.initialRiskData = data;
     });
   }
 
-  updateRisk(): void {
-    console.log(this.descriptionInput.nativeElement.value);
+  updateEditedRisk(): void {
+    this.selectedRiskService.updateRisk(this.risk);
   }
 
-  resetRisk(): void {
-    this.descriptionInput.nativeElement.value = this.childMessage.description;
-    this.probInput.nativeElement.value = this.childMessage.prob;
-    this.timeInput.nativeElement.value = this.childMessage.time;
+  resetEditedRisk(): void {
+    this.selectedRiskService.selectRisk(this.initialRiskData);
   }
 }

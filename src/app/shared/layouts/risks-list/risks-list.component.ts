@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { configAPI, sessionStorageKey } from '../../enums';
 import { Risk } from '../../interfaces';
-import { RisksDataService } from '../../services/risks-data.service';
+import { SelectedRiskService } from '../../services/selected-risk.service';
+import { RisksSorterService } from '../../services/risks-sorter.service';
 
 @Component({
   selector: 'app-risks-list',
@@ -14,11 +15,10 @@ export class RisksListComponent implements OnInit {
 
   selectedRisk: Risk;
 
-  background = { background: 'white' };
-
   constructor(
     private httpClient: HttpClient,
-    private dataService: RisksDataService
+    private dataService: SelectedRiskService,
+    private risksSorter: RisksSorterService
   ) {}
 
   ngOnInit(): void {
@@ -33,8 +33,12 @@ export class RisksListComponent implements OnInit {
       });
   }
 
-  sendMessage(item: Risk): void {
+  public sort(type: string): void {
+    this.risks = this.risksSorter.sort(this.risks, type);
+  }
+
+  public sendMessage(item: Risk): void {
     this.selectedRisk = item;
-    this.dataService.setRisk(item);
+    this.dataService.selectRisk(item);
   }
 }
