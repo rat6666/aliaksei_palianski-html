@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable default-case */
 import { Injectable } from '@angular/core';
 import { Risk } from '../interfaces';
@@ -16,24 +17,31 @@ export class RisksSorterService {
     this.isRiskSortedByIncrease = !this.isRiskSortedByIncrease;
     return riskList.sort((risk, otherRisk) => {
       let riskType: string;
-      let otherRisType: string;
+      let otherRiskType: string;
+      let result: boolean;
       switch (type) {
         case 'name':
           riskType = toSaveLowerCase(risk.riskName);
-          otherRisType = toSaveLowerCase(otherRisk.riskName);
+          otherRiskType = toSaveLowerCase(otherRisk.riskName);
+          result = this.isRiskSortedByIncrease
+            ? riskType < otherRiskType
+            : riskType > otherRiskType;
           break;
         case 'time':
-          riskType = toSaveLowerCase(risk.time);
-          otherRisType = toSaveLowerCase(otherRisk.time);
+          riskType = risk.time;
+          otherRiskType = otherRisk.time;
+          result = this.isRiskSortedByIncrease
+            ? +riskType > +otherRiskType
+            : false;
           break;
         case 'probability':
-          riskType = toSaveLowerCase(risk.prob);
-          otherRisType = toSaveLowerCase(otherRisk.prob);
+          riskType = risk.prob;
+          otherRiskType = otherRisk.prob;
+          result = this.isRiskSortedByIncrease
+            ? +riskType > +otherRiskType
+            : false;
           break;
       }
-      const result: boolean = this.isRiskSortedByIncrease
-        ? riskType < otherRisType
-        : riskType > otherRisType;
       return result ? 1 : -1;
     });
   }
