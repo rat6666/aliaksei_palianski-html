@@ -2,17 +2,18 @@ export interface User {
   id: string;
   username: string;
   password: string;
-  risks: any;
 }
 
 export interface Risk {
+  id: string;
+  userID: string;
   riskName: string;
-  time: string;
-  prob: string;
+  time: number;
+  probability: number;
   description: string;
 }
 
-export interface Cals {
+export interface Calc {
   minProb: number;
   maxProb: number;
   likeProb: number;

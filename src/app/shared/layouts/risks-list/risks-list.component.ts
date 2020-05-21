@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { configAPI, sessionStorageKey } from '../../enums';
 import { Risk } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { RisksSorterService } from '../../services/risks-sorter.service';
+import { DataBaseService } from '../../services/data-base.service';
 
 @Component({
   selector: 'app-risks-list',
@@ -11,34 +10,28 @@ import { RisksSorterService } from '../../services/risks-sorter.service';
   styleUrls: ['./risks-list.component.scss'],
 })
 export class RisksListComponent implements OnInit {
-  risks: Risk[];
+  public risks: Risk[];
 
-  selectedRisk: Risk;
+  public selectedRisk: Risk;
 
   constructor(
-    private httpClient: HttpClient,
-    private dataService: SelectedRiskService,
-    private risksSorter: RisksSorterService
+    private selectedRiskService: SelectedRiskService,
+    private risksSorter: RisksSorterService,
+    private dataBaseService: DataBaseService
   ) {}
 
   ngOnInit(): void {
-    this.httpClient
-      .get(
-        `${configAPI.urlDatabase}${sessionStorage.getItem(
-          sessionStorageKey.id
-        )}`
-      )
-      .subscribe((data: Record<string, any>) => {
-        this.risks = Object.values(data.risks);
-      });
+    this.dataBaseService.streamRiskList$.subscribe((data: Risk[]) => {
+      this.risks = data;
+    });
   }
 
   public sort(type: string): void {
     this.risks = this.risksSorter.sort(this.risks, type);
   }
 
-  public sendMessage(item: Risk): void {
+  public selectRisk(item: Risk): void {
     this.selectedRisk = item;
-    this.dataService.selectRisk(item);
+    this.selectedRiskService.selectRisk(item);
   }
 }

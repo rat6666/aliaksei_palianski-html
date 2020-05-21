@@ -16,30 +16,24 @@ export class RisksSorterService {
   public sort(riskList: Risk[], type: string): Risk[] {
     this.isRiskSortedByIncrease = !this.isRiskSortedByIncrease;
     return riskList.sort((risk, otherRisk) => {
-      let riskType: string;
-      let otherRiskType: string;
       let result: boolean;
       switch (type) {
         case 'name':
-          riskType = toSaveLowerCase(risk.riskName);
-          otherRiskType = toSaveLowerCase(otherRisk.riskName);
           result = this.isRiskSortedByIncrease
-            ? riskType < otherRiskType
-            : riskType > otherRiskType;
+            ? toSaveLowerCase(risk.riskName) <
+              toSaveLowerCase(otherRisk.riskName)
+            : toSaveLowerCase(risk.riskName) >
+              toSaveLowerCase(otherRisk.riskName);
           break;
         case 'time':
-          riskType = risk.time;
-          otherRiskType = otherRisk.time;
           result = this.isRiskSortedByIncrease
-            ? +riskType > +otherRiskType
-            : false;
+            ? risk.time > otherRisk.time
+            : risk.time < otherRisk.time;
           break;
         case 'probability':
-          riskType = risk.prob;
-          otherRiskType = otherRisk.prob;
           result = this.isRiskSortedByIncrease
-            ? +riskType > +otherRiskType
-            : false;
+            ? risk.probability > otherRisk.probability
+            : risk.probability < otherRisk.probability;
           break;
       }
       return result ? 1 : -1;

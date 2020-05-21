@@ -15,9 +15,9 @@ const routes: Routes = [
     component: SiteLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'risk', redirectTo: '/main', pathMatch: 'full' },
       { path: 'main', component: MainPageComponent },
-      { path: '**', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'risk', redirectTo: '/main' },
+      { path: '**', redirectTo: '' },
     ],
   },
 ];

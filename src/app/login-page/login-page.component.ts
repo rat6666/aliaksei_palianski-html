@@ -50,7 +50,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       id: null,
       username: this.user,
       password: this.password,
-      risks: [],
     };
     this.aSub = this.auth.login(user).subscribe(
       () => this.router.navigate(['/risk']),
@@ -64,11 +63,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       id: null,
       username: this.user,
       password: this.password,
-      risks: [],
     };
     this.auth.register(user).subscribe(
-      (data: User) => {
-        sessionStorage.setItem(sessionStorageKey.id, data.id);
+      (userID: User) => {
+        sessionStorage.setItem(sessionStorageKey.id, userID.id);
         this.router.navigate(['/risk']);
       },
       () => {

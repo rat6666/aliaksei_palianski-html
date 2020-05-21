@@ -9,15 +9,11 @@ import { defaultRisk } from '../enums';
 export class SelectedRiskService {
   private risk = new BehaviorSubject<Risk>(defaultRisk);
 
-  get selectedRisk$(): Observable<Risk> {
+  public get selectedRisk$(): Observable<Risk> {
     return this.risk.asObservable();
   }
 
-  updateRisk(risk: Risk): void {
-    console.log(risk);
-  }
-
-  selectRisk(data: Risk): void {
+  public selectRisk(data: Risk): void {
     this.risk.next(data);
   }
 }

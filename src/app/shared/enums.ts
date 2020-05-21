@@ -1,5 +1,6 @@
 export const configAPI = {
-  urlDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/users/',
+  urlUsersDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/users/',
+  urlRisksDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/risks/',
 };
 
 export const sessionStorageKey = {
@@ -16,9 +17,11 @@ export const calc = {
 };
 
 export const defaultRisk = {
+  id: '',
+  userID: '',
   riskName: 'Chose or create risk.',
-  time: '0',
-  prob: '0',
+  time: null,
+  probability: null,
   description: `
   You will see a description after selecting an risk.
   `,
