@@ -10,6 +10,18 @@ import { AuthService } from '../../services/auth.service';
 export class SiteLayoutComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
+  public isMainPage = true;
+
+  onManagePage(): void {
+    this.router.navigate(['manage']);
+    this.isMainPage = !this.isMainPage;
+  }
+
+  onMainPage(): void {
+    this.router.navigate(['main']);
+    this.isMainPage = !this.isMainPage;
+  }
+
   onSubmit(): void {
     this.auth.logOut();
     this.router.navigate(['']);

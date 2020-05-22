@@ -3,7 +3,20 @@
     <div class="main-page--header">
       <h2>Risk Application</h2>
       <div class="button--block">
-        <button pButton type="button" label="Manage Risk"></button>
+        <button
+          *ngIf="isMainPage"
+          pButton
+          type="button"
+          label="Manage Risk"
+          (click)="onManagePage()"
+        ></button>
+        <button
+          *ngIf="!isMainPage"
+          pButton
+          type="button"
+          label="Main page"
+          (click)="onMainPage()"
+        ></button>
         <button
           pButton
           type="button"

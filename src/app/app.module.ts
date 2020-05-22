@@ -19,6 +19,7 @@ import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.co
 import { MainPageComponent } from './main-page/main-page.component';
 import { RisksListComponent } from './shared/layouts/risks-list/risks-list.component';
 import { RiskEditComponent } from './shared/layouts/risk-edit/risk-edit.component';
+import { ManagePageComponent } from './manage-page/manage-page.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RiskEditComponent } from './shared/layouts/risk-edit/risk-edit.componen
     MainPageComponent,
     RisksListComponent,
     RiskEditComponent,
+    ManagePageComponent,
   ],
   imports: [
     FormsModule,

@@ -32,13 +32,15 @@
   <p-scrollPanel [style]="{ height: '300px' }">
     <p-card
       class="risks--list"
-      *ngFor="let item of risks; index as i"
+      *ngFor="let item of risks"
       (click)="selectRisk(item)"
     >
       <div [class.selected]="item === selectedRisk">
-        {{ i + 1 }}. {{ item.riskName }} | {{ item.time }} hrs |
-        {{ item.probability }}%
+        {{ item.riskName }} | {{ item.time }} hrs | {{ item.probability }}%
       </div>
     </p-card>
   </p-scrollPanel>
+  <p-card *ngIf="!isMainPage">
+    <button pButton type="button" label="Add Risk" (click)="addRisk()"></button>
+  </p-card>
 </p-card>

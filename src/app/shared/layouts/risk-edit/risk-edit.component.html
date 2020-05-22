@@ -1,71 +1,87 @@
-<p-card>
-  <h3>{{ risk.riskName }}</h3>
-  <h5>Description:</h5>
-  <textarea
-    [(ngModel)]="risk.description"
-    pInputTextarea
-    autoResize="autoResize"
-  ></textarea>
-</p-card>
+<div *ngIf="risk.id !== null">
+  <p-card>
+    <h5 *ngIf="!isMainPage">Name:</h5>
+    <h3 *ngIf="isMainPage">{{ risk.riskName }}</h3>
+    <input
+      *ngIf="!isMainPage"
+      type="text"
+      pInputText
+      [(ngModel)]="risk.riskName"
+    />
+    <h5>Description:</h5>
+    <textarea
+      [(ngModel)]="risk.description"
+      pInputTextarea
+      autoResize="autoResize"
+    ></textarea>
+  </p-card>
 
-<p-card>
-  <div class="calc">
-    <div class="calc-block">
-      <h4 class="risk-name">Probability</h4>
-      <div class="probability-input-block">
-        <div class="input-field">
-          <h4>Min</h4>
-          <input type="number" pInputText [(ngModel)]="calc.minProb" />
+  <p-card>
+    <div class="calc">
+      <div class="calc-block">
+        <h4 class="risk-name">Probability</h4>
+        <div class="probability-input-block">
+          <div class="input-field">
+            <h4>Min</h4>
+            <input type="number" pInputText [(ngModel)]="calc.minProb" />
+          </div>
+          <h4>%</h4>
+          <div class="input-field">
+            <h4>Likely</h4>
+            <input type="number" pInputText [(ngModel)]="risk.probability" />
+          </div>
+          <h4>%</h4>
+          <div class="input-field">
+            <h4>Max</h4>
+            <input type="number" pInputText [(ngModel)]="calc.maxProb" />
+          </div>
+          <h4>%</h4>
         </div>
-        <h4>%</h4>
-        <div class="input-field">
-          <h4>Likely</h4>
-          <input type="number" pInputText [(ngModel)]="risk.probability" />
+      </div>
+      <div class="calc-block">
+        <h4 class="risk-name">Impact Time</h4>
+        <div class="probability-input-block">
+          <div class="input-field">
+            <h4>Min</h4>
+            <input type="number" pInputText [(ngModel)]="calc.minTime" />
+          </div>
+          <h4>%</h4>
+          <div class="input-field">
+            <h4>Likely</h4>
+            <input type="number" pInputText [(ngModel)]="risk.time" />
+          </div>
+          <h4>%</h4>
+          <div class="input-field">
+            <h4>Max</h4>
+            <input type="number" pInputText [(ngModel)]="calc.maxTime" />
+          </div>
+          <h4>%</h4>
         </div>
-        <h4>%</h4>
-        <div class="input-field">
-          <h4>Max</h4>
-          <input type="number" pInputText [(ngModel)]="calc.maxProb" />
-        </div>
-        <h4>%</h4>
       </div>
     </div>
-    <div class="calc-block">
-      <h4 class="risk-name">Impact Time</h4>
-      <div class="probability-input-block">
-        <div class="input-field">
-          <h4>Min</h4>
-          <input type="number" pInputText [(ngModel)]="calc.minTime" />
-        </div>
-        <h4>%</h4>
-        <div class="input-field">
-          <h4>Likely</h4>
-          <input type="number" pInputText [(ngModel)]="risk.time" />
-        </div>
-        <h4>%</h4>
-        <div class="input-field">
-          <h4>Max</h4>
-          <input type="number" pInputText [(ngModel)]="calc.maxTime" />
-        </div>
-        <h4>%</h4>
-      </div>
-    </div>
-  </div>
-</p-card>
+  </p-card>
 
-<p-card>
-  <div class="button-block">
-    <button
-      pButton
-      (click)="updateEditedRisk()"
-      type="button"
-      label="Apply"
-    ></button>
-    <button
-      pButton
-      (click)="resetEditedRisk()"
-      type="button"
-      label="Reset"
-    ></button>
-  </div>
-</p-card>
+  <p-card>
+    <div class="button-block">
+      <button
+        pButton
+        (click)="updateEditedRisk()"
+        type="button"
+        label="Apply"
+      ></button>
+      <button
+        *ngIf="!isMainPage"
+        pButton
+        (click)="deleteRisk()"
+        type="button"
+        label="Delete"
+      ></button>
+      <button
+        pButton
+        (click)="resetEditedRisk()"
+        type="button"
+        label="Reset"
+      ></button>
+    </div>
+  </p-card>
+</div>

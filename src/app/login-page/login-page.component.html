@@ -61,6 +61,10 @@
         ></p-message>
       </div>
     </div>
+    <div *ngIf="wrongPassword">
+      <h5>Wrong Password!</h5>
+    </div>
+
     <div class="button--block">
       <button
         pButton

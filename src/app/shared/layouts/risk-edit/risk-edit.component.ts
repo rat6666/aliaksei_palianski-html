@@ -1,4 +1,6 @@
+/* eslint-disable default-case */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Risk, Calc } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
@@ -11,12 +13,15 @@ import { DataBaseService } from '../../services/data-base.service';
 export class RiskEditComponent implements OnInit {
   constructor(
     private selectedRiskService: SelectedRiskService,
-    private dataBaseService: DataBaseService
+    private dataBaseService: DataBaseService,
+    private router: Router
   ) {}
 
   public risk: Risk;
 
   private initialRiskData: Risk;
+
+  public isMainPage = true;
 
   public calc: Calc = {
     minProb: null,
@@ -28,12 +33,18 @@ export class RiskEditComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    if (this.router.url === '/manage') {
+      this.isMainPage = !this.isMainPage;
+    }
     this.selectedRiskService.selectedRisk$.subscribe((data: Risk) => {
       this.risk = JSON.parse(JSON.stringify(data));
       this.initialRiskData = data;
-      this.calc.likeProb = +this.risk.probability;
-      this.calc.likeTime = +this.risk.time;
     });
+  }
+
+  deleteRisk(): void {
+    console.log(this.risk.id);
+    this.dataBaseService.deleteRisk(this.risk.id);
   }
 
   updateEditedRisk(): void {

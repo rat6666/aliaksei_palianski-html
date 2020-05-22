@@ -22,7 +22,7 @@ export class DataBaseService {
 
   private userID = sessionStorage.getItem(sessionStorageKey.id);
 
-  public getUserRiskList(): void {
+  public getRiskList(): void {
     this.httpClient
       .get(configAPI.urlRisksDatabase)
       .subscribe((data: Record<string, any>) => {
@@ -37,15 +37,31 @@ export class DataBaseService {
   }
 
   public get streamRiskList$(): Observable<Record<string, any>> {
-    this.getUserRiskList();
+    this.getRiskList();
     return this.riskList.asObservable();
   }
 
-  public updateRiskList(risk: Risk): void {
+  public deleteRisk(riskID: string): void {
     this.httpClient
-      .put(`${configAPI.urlRisksDatabase}${risk.id}`, risk, this.options)
+      .delete(`${configAPI.urlRisksDatabase}${riskID}`)
       .subscribe(() => {
-        this.getUserRiskList();
+        this.getRiskList();
       });
+  }
+
+  public updateRiskList(risk: Risk): void {
+    if (risk.id === 'newRisk') {
+      this.httpClient
+        .post(`${configAPI.urlRisksDatabase}`, risk, this.options)
+        .subscribe(() => {
+          this.getRiskList();
+        });
+    } else {
+      this.httpClient
+        .put(`${configAPI.urlRisksDatabase}${risk.id}`, risk, this.options)
+        .subscribe(() => {
+          this.getRiskList();
+        });
+    }
   }
 }

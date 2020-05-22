@@ -17,14 +17,21 @@ export const calc = {
 };
 
 export const defaultRisk = {
-  id: '',
-  userID: '',
-  riskName: 'Chose or create risk.',
+  id: null,
+  userID: null,
+  riskName: null,
   time: null,
   probability: null,
-  description: `
-  You will see a description after selecting an risk.
-  `,
+  description: null,
+};
+
+export const defaultAddRisk = {
+  id: 'newRisk',
+  userID: null,
+  riskName: null,
+  time: null,
+  probability: null,
+  description: null,
 };
 
 export const MOCK = `[
