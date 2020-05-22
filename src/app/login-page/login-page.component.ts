@@ -52,7 +52,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       password: this.password,
     };
     this.aSub = this.auth.login(user).subscribe(
-      () => this.router.navigate(['/risk']),
+      () => this.router.navigate(['main']),
       () => (this.wrongPassword = true)
     );
     this.wrongInputTimer.subscribe(() => (this.wrongPassword = false));

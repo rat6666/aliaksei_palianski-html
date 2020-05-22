@@ -18,8 +18,7 @@ const routes: Routes = [
     children: [
       { path: 'main', component: MainPageComponent },
       { path: 'manage', component: ManagePageComponent },
-      { path: 'risk', redirectTo: '/main' },
-      { path: '**', redirectTo: '' },
+      { path: '**', redirectTo: 'main' },
     ],
   },
 ];

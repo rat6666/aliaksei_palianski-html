@@ -23,41 +23,60 @@
         <div class="probability-input-block">
           <div class="input-field">
             <h4>Min</h4>
-            <input type="number" pInputText [(ngModel)]="calc.minProb" />
+            <input
+              type="number"
+              pInputText
+              [(ngModel)]="calc.minProb"
+              (ngModelChange)="onChange()"
+            />
           </div>
           <h4>%</h4>
           <div class="input-field">
             <h4>Likely</h4>
-            <input type="number" pInputText [(ngModel)]="risk.probability" />
+            <input
+              type="number"
+              pInputText
+              [(ngModel)]="risk.probability"
+              (change)="onChange()"
+            />
           </div>
           <h4>%</h4>
           <div class="input-field">
             <h4>Max</h4>
-            <input type="number" pInputText [(ngModel)]="calc.maxProb" />
+            <input
+              type="number"
+              pInputText
+              [(ngModel)]="calc.maxProb"
+              (ngModelChange)="onChange()"
+            />
           </div>
           <h4>%</h4>
         </div>
       </div>
-      <div class="calc-block">
-        <h4 class="risk-name">Impact Time</h4>
-        <div class="probability-input-block">
-          <div class="input-field">
-            <h4>Min</h4>
-            <input type="number" pInputText [(ngModel)]="calc.minTime" />
+      <!-- <div class="calc-block">
+          <h4 class="risk-name">Impact Time</h4>
+          <div class="probability-input-block">
+            <div class="input-field">
+              <h4>Min</h4>
+              <input type="number" pInputText [(ngModel)]="calc.minTime" />
+            </div>
+            <h4>%</h4>
+            <div class="input-field">
+              <h4>Likely</h4>
+              <input
+                pInputText
+                [(ngModel)]="risk.time"
+                formControlName="riskTime"
+              />
+            </div>
+            <h4>%</h4>
+            <div class="input-field">
+              <h4>Max</h4>
+              <input type="number" pInputText [(ngModel)]="calc.maxTime" />
+            </div>
+            <h4>%</h4>
           </div>
-          <h4>%</h4>
-          <div class="input-field">
-            <h4>Likely</h4>
-            <input type="number" pInputText [(ngModel)]="risk.time" />
-          </div>
-          <h4>%</h4>
-          <div class="input-field">
-            <h4>Max</h4>
-            <input type="number" pInputText [(ngModel)]="calc.maxTime" />
-          </div>
-          <h4>%</h4>
-        </div>
-      </div>
+        </div> -->
     </div>
   </p-card>
 

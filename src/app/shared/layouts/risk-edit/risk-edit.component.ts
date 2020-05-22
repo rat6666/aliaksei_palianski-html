@@ -42,6 +42,13 @@ export class RiskEditComponent implements OnInit {
     });
   }
 
+  public onChange(): void {
+    if (this.risk.probability) {
+      this.calc.minProb = null;
+      this.calc.maxProb = null;
+    }
+  }
+
   deleteRisk(): void {
     console.log(this.risk.id);
     this.dataBaseService.deleteRisk(this.risk.id);
