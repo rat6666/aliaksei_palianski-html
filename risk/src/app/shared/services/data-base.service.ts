@@ -2,7 +2,7 @@
 /* eslint-disable consistent-return */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { configAPI, sessionStorageKey, defaultRisk } from '../enums';
 import { Risk } from '../interfaces';
 
@@ -20,19 +20,11 @@ export class DataBaseService {
 
   private riskList = new BehaviorSubject<Risk[]>([defaultRisk]);
 
-  private userID = sessionStorage.getItem(sessionStorageKey.id);
-
-  public getRiskList(): void {
-    this.httpClient
+  public getRiskList() {
+    return this.httpClient
       .get(configAPI.urlRisksDatabase)
-      .subscribe((data: Record<string, any>) => {
-        this.riskList.next(
-          Object.values(data).filter((el) => {
-            if (el.userID === this.userID) {
-              return el;
-            }
-          })
-        );
+      .subscribe((data: Risk[]) => {
+        this.riskList.next(data);
       });
   }
 

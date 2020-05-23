@@ -18,6 +18,8 @@ export class RisksListComponent implements OnInit {
 
   public isMainPage = true;
 
+  private userID = sessionStorage.getItem(sessionStorageKey.id);
+
   constructor(
     private selectedRiskService: SelectedRiskService,
     private risksSorter: RisksSorterService,
@@ -30,7 +32,7 @@ export class RisksListComponent implements OnInit {
       this.isMainPage = !this.isMainPage;
     }
     this.dataBaseService.streamRiskList$.subscribe((data: Risk[]) => {
-      this.risks = data;
+      this.risks = data.filter((el) => el.userID === this.userID);
     });
   }
 
