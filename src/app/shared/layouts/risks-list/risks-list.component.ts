@@ -4,7 +4,7 @@ import { Risk } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { RisksSorterService } from '../../services/risks-sorter.service';
 import { DataBaseService } from '../../services/data-base.service';
-import { defaultRisk, sessionStorageKey, defaultAddRisk } from '../../enums';
+import { sessionStorageKey, defaultAddRisk } from '../../enums';
 
 @Component({
   selector: 'app-risks-list',

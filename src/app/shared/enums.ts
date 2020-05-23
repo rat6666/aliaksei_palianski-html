@@ -5,6 +5,23 @@ export const configAPI = {
 
 export const sessionStorageKey = {
   id: 'id',
+  userName: 'userName',
+};
+
+export const defaultUser = {
+  id: null,
+  username: null,
+  password: null,
+};
+
+export const typeSwitchs = {
+  name: 'name',
+  time: 'time',
+  probability: 'probability',
+  minProb: 'minProb',
+  maxProb: 'maxProb',
+  minTime: 'minTime',
+  maxTime: 'maxTime',
 };
 
 export const calc = {

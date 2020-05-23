@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Risk, Calc } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
+import { typeSwitchs } from '../../enums';
 
 @Component({
   selector: 'app-risk-edit',
@@ -42,23 +43,41 @@ export class RiskEditComponent implements OnInit {
     });
   }
 
-  public onChange(): void {
-    if (this.risk.probability) {
-      this.calc.minProb = null;
-      this.calc.maxProb = null;
+  public onChange(type: string): void {
+    switch (type) {
+      case typeSwitchs.probability:
+        this.calc.minProb = null;
+        this.calc.maxProb = null;
+        break;
+      case typeSwitchs.minProb:
+        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
+        break;
+      case typeSwitchs.maxProb:
+        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
+        break;
+      case typeSwitchs.time:
+        this.calc.minTime = null;
+        this.calc.maxTime = null;
+        break;
+      case typeSwitchs.minTime:
+        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
+        break;
+      case typeSwitchs.maxTime:
+        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
+        break;
     }
   }
 
-  deleteRisk(): void {
+  public deleteRisk(): void {
     console.log(this.risk.id);
     this.dataBaseService.deleteRisk(this.risk.id);
   }
 
-  updateEditedRisk(): void {
+  public updateEditedRisk(): void {
     this.dataBaseService.updateRiskList(this.risk);
   }
 
-  resetEditedRisk(): void {
+  public resetEditedRisk(): void {
     this.selectedRiskService.selectRisk(this.initialRiskData);
   }
 }

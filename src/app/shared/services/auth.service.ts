@@ -10,17 +10,17 @@ import { configAPI, sessionStorageKey } from '../enums';
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  headers: HttpHeaders = new HttpHeaders({
+  private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
   });
 
-  options: Record<string, any> = { headers: this.headers };
+  private options: Record<string, any> = { headers: this.headers };
 
-  register(user: User): Observable<Record<string, any>> {
+  public register(user: User): Observable<Record<string, any>> {
     return this.httpClient.post(configAPI.urlUsersDatabase, user, this.options);
   }
 
-  login(user: User): Observable<string> {
+  public login(user: User): Observable<string> {
     return new Observable((observer) => {
       this.httpClient
         .get(configAPI.urlUsersDatabase)
@@ -31,6 +31,7 @@ export class AuthService {
                 user.username === el.username &&
                 user.password === el.password
               ) {
+                sessionStorage.setItem(sessionStorageKey.userName, el.username);
                 sessionStorage.setItem(sessionStorageKey.id, el.id);
                 return true;
               }
@@ -39,16 +40,16 @@ export class AuthService {
           ) {
             observer.next(user.username);
           }
-          observer.error('error');
+          observer.error(Error);
         });
     });
   }
 
-  get isAuthenticate(): boolean {
+  public get isAuthenticate(): boolean {
     return !!sessionStorage.getItem(sessionStorageKey.id);
   }
 
-  logOut(): void {
+  public logOut(): void {
     sessionStorage.clear();
   }
 }

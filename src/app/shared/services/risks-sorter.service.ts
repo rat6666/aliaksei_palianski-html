@@ -2,6 +2,7 @@
 /* eslint-disable default-case */
 import { Injectable } from '@angular/core';
 import { Risk } from '../interfaces';
+import { typeSwitchs } from '../enums';
 
 export function toSaveLowerCase(value: string): string {
   return value ? String(value).toLowerCase() : '';
@@ -18,19 +19,19 @@ export class RisksSorterService {
     return riskList.sort((risk, otherRisk) => {
       let result: boolean;
       switch (type) {
-        case 'name':
+        case typeSwitchs.name:
           result = this.isRiskSortedByIncrease
             ? toSaveLowerCase(risk.riskName) <
               toSaveLowerCase(otherRisk.riskName)
             : toSaveLowerCase(risk.riskName) >
               toSaveLowerCase(otherRisk.riskName);
           break;
-        case 'time':
+        case typeSwitchs.time:
           result = this.isRiskSortedByIncrease
             ? risk.time > otherRisk.time
             : risk.time < otherRisk.time;
           break;
-        case 'probability':
+        case typeSwitchs.probability:
           result = this.isRiskSortedByIncrease
             ? risk.probability > otherRisk.probability
             : risk.probability < otherRisk.probability;

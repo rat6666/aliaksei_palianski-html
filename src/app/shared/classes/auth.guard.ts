@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -23,7 +24,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return of(true);
     }
     this.router.navigate(['']);
-
     return of(false);
   }
 

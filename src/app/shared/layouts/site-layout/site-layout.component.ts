@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { sessionStorageKey } from '../../enums';
 
 @Component({
   selector: 'app-site-layout',
@@ -10,19 +11,21 @@ import { AuthService } from '../../services/auth.service';
 export class SiteLayoutComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
+  public userName: string = sessionStorage.getItem(sessionStorageKey.userName);
+
   public isMainPage = true;
 
-  onManagePage(): void {
+  public onManagePage(): void {
     this.router.navigate(['manage']);
     this.isMainPage = !this.isMainPage;
   }
 
-  onMainPage(): void {
+  public onMainPage(): void {
     this.router.navigate(['main']);
     this.isMainPage = !this.isMainPage;
   }
 
-  onSubmit(): void {
+  public onLogout(): void {
     this.auth.logOut();
     this.router.navigate(['']);
   }
