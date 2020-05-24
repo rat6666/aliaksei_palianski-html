@@ -11,6 +11,7 @@ import { sessionStorageKey } from '../../enums';
 export class SiteLayoutComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
+  images: any[];
   public userName: string = sessionStorage.getItem(sessionStorageKey.userName);
 
   public isMainPage = true;

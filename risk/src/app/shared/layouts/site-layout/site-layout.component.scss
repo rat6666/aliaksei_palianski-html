@@ -8,8 +8,17 @@
 .button--block {
   display: flex;
   height: 35px;
-  width: 300px;
+  width: 350px;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+.user--image {
+  border-radius: 50%;
+  border: 1px solid rgb(83, 83, 83);
+}
+
+.user--image:hover {
+  cursor: pointer;
 }
