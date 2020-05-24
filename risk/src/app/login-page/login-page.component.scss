@@ -31,3 +31,9 @@ p-message {
   height: 0px;
   font-size: smaller;
 }
+
+:host ::ng-deep .ui-message {
+  padding: 0;
+  font-size: smaller;
+  width: 20%;
+}

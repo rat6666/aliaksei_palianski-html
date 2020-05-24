@@ -27,7 +27,7 @@
               type="number"
               pInputText
               [(ngModel)]="calc.minProb"
-              (ngModelChange)="onChange('minProb')"
+              (ngModelChange)="calcRisk('minProb')"
             />
             <p-message
               *ngIf="errorMinProb"
@@ -42,7 +42,7 @@
               type="number"
               pInputText
               [(ngModel)]="risk.probability"
-              (change)="onChange('probability')"
+              (change)="calcRisk('probability')"
             />
           </div>
           <h4>%</h4>
@@ -52,7 +52,7 @@
               type="number"
               pInputText
               [(ngModel)]="calc.maxProb"
-              (ngModelChange)="onChange('maxProb')"
+              (ngModelChange)="calcRisk('maxProb')"
             />
             <p-message
               *ngIf="errorMaxProb"
@@ -72,7 +72,7 @@
               type="number"
               pInputText
               [(ngModel)]="calc.minTime"
-              (ngModelChange)="onChange('minTime')"
+              (ngModelChange)="calcRisk('minTime')"
             />
             <p-message
               *ngIf="errorMinTime"
@@ -87,7 +87,7 @@
               type="number"
               pInputText
               [(ngModel)]="risk.time"
-              (ngModelChange)="onChange('time')"
+              (ngModelChange)="calcRisk('time')"
             />
           </div>
           <h4>%</h4>
@@ -97,7 +97,7 @@
               type="number"
               pInputText
               [(ngModel)]="calc.maxTime"
-              (ngModelChange)="onChange('maxTime')"
+              (ngModelChange)="calcRisk('maxTime')"
             />
             <p-message
               *ngIf="errorMaxTime"

@@ -63,3 +63,7 @@ input {
 p-message {
   height: 0px;
 }
+
+:host ::ng-deep .ui-message {
+  padding: 0;
+}

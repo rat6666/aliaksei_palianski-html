@@ -62,7 +62,7 @@ export class RiskEditComponent implements OnInit {
     this.selectedRiskService.selectRisk(this.initialRiskData);
   }
 
-  public onChange(type: string): void {
+  public calcRisk(type: string): void {
     switch (type) {
       case typeSwitchs.probability:
         this.calc.minProb = null;
