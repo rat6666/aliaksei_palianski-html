@@ -5,7 +5,7 @@
       <span class="ui-float-label">
         <input
           class="ng-dirty ng-invalid"
-          id="float-input"
+          id="float-input--name"
           type="text"
           size="40"
           pInputText
@@ -14,7 +14,7 @@
           required
           minlength="6"
         />
-        <label for="float-input">Username</label>
+        <label for="float-input--name">Username</label>
       </span>
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <p-message
@@ -33,7 +33,7 @@
       <span class="ui-float-label">
         <input
           class="ng-dirty ng-invalid"
-          id="float-input"
+          id="float-input--password"
           type="text"
           size="40"
           pInputText
@@ -42,7 +42,7 @@
           required
           minlength="6"
         />
-        <label for="float-input">Password</label>
+        <label for="float-input--password">Password</label>
       </span>
       <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
         <p-message
