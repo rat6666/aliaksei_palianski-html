@@ -29,6 +29,11 @@
               [(ngModel)]="calc.minProb"
               (ngModelChange)="onChange('minProb')"
             />
+            <p-message
+              *ngIf="errorMinProb"
+              severity="error"
+              text="Min > Max."
+            ></p-message>
           </div>
           <h4>%</h4>
           <div class="input-field">
@@ -49,6 +54,11 @@
               [(ngModel)]="calc.maxProb"
               (ngModelChange)="onChange('maxProb')"
             />
+            <p-message
+              *ngIf="errorMaxProb"
+              severity="error"
+              text="Max < Min."
+            ></p-message>
           </div>
           <h4>%</h4>
         </div>
@@ -64,6 +74,11 @@
               [(ngModel)]="calc.minTime"
               (ngModelChange)="onChange('minTime')"
             />
+            <p-message
+              *ngIf="errorMinTime"
+              severity="error"
+              text="Min > Max."
+            ></p-message>
           </div>
           <h4>%</h4>
           <div class="input-field">
@@ -84,6 +99,12 @@
               [(ngModel)]="calc.maxTime"
               (ngModelChange)="onChange('maxTime')"
             />
+            <p-message
+              *ngIf="errorMaxTime"
+              severity="error"
+              text="Min > Max."
+              closable="false"
+            ></p-message>
           </div>
           <h4>%</h4>
         </div>

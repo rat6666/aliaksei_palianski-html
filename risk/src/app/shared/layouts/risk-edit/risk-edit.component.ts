@@ -24,6 +24,12 @@ export class RiskEditComponent implements OnInit {
 
   public isMainPage = true;
 
+  public errorMaxTime = false;
+  public errorMaxProb = false;
+
+  public errorMinTime = false;
+  public errorMinProb = false;
+
   public calc: Calc = {
     minProb: null,
     maxProb: null,
@@ -43,31 +49,6 @@ export class RiskEditComponent implements OnInit {
     });
   }
 
-  public onChange(type: string): void {
-    switch (type) {
-      case typeSwitchs.probability:
-        this.calc.minProb = null;
-        this.calc.maxProb = null;
-        break;
-      case typeSwitchs.minProb:
-        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
-        break;
-      case typeSwitchs.maxProb:
-        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
-        break;
-      case typeSwitchs.time:
-        this.calc.minTime = null;
-        this.calc.maxTime = null;
-        break;
-      case typeSwitchs.minTime:
-        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
-        break;
-      case typeSwitchs.maxTime:
-        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
-        break;
-    }
-  }
-
   public deleteRisk(): void {
     console.log(this.risk.id);
     this.dataBaseService.deleteRisk(this.risk.id);
@@ -79,5 +60,62 @@ export class RiskEditComponent implements OnInit {
 
   public resetEditedRisk(): void {
     this.selectedRiskService.selectRisk(this.initialRiskData);
+  }
+
+  public onChange(type: string): void {
+    switch (type) {
+      case typeSwitchs.probability:
+        this.calc.minProb = null;
+        this.calc.maxProb = null;
+        this.errorMinProb = false;
+        this.errorMaxProb = false;
+        break;
+      case typeSwitchs.minProb:
+        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
+        if (this.calc.minProb > this.calc.maxProb) {
+          this.errorMinProb = true;
+          this.errorMaxProb = false;
+        } else {
+          this.errorMinProb = false;
+          this.errorMaxProb = false;
+        }
+        break;
+      case typeSwitchs.maxProb:
+        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
+        if (this.calc.maxProb < this.calc.minProb) {
+          this.errorMaxProb = true;
+          this.errorMinProb = false;
+        } else {
+          this.errorMinProb = false;
+          this.errorMaxProb = false;
+        }
+        break;
+      case typeSwitchs.time:
+        this.calc.minTime = null;
+        this.calc.maxTime = null;
+        this.errorMinTime = false;
+        this.errorMaxTime = false;
+        break;
+      case typeSwitchs.minTime:
+        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
+        if (this.calc.minTime > this.calc.maxTime) {
+          this.errorMinTime = true;
+          this.errorMaxTime = false;
+        } else {
+          this.errorMinTime = false;
+          this.errorMaxTime = false;
+        }
+        break;
+      case typeSwitchs.maxTime:
+        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
+        if (this.calc.maxTime < this.calc.minTime) {
+          this.errorMaxTime = true;
+          this.errorMinTime = false;
+        } else {
+          this.errorMinTime = false;
+          this.errorMaxTime = false;
+        }
+        break;
+    }
   }
 }

@@ -18,13 +18,11 @@
       </span>
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <p-message
-          style="margin-top: 30px;"
           *ngIf="name.errors.required"
           severity="error"
           text="Name is required"
         ></p-message>
         <p-message
-          style="margin-top: 30px;"
           *ngIf="name.errors.minlength"
           severity="error"
           text="Name must be at least 6 characters long."
@@ -48,22 +46,22 @@
       </span>
       <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
         <p-message
-          style="margin-top: 30px;"
           *ngIf="pass.errors.required"
           severity="error"
           text="Password is required"
         ></p-message>
         <p-message
-          style="margin-top: 30px;"
           *ngIf="pass.errors.minlength"
           severity="error"
           text="Password must be at least 6 characters long."
         ></p-message>
       </div>
     </div>
-    <div *ngIf="wrongPassword">
-      <h5>Wrong Password!</h5>
-    </div>
+    <p-message
+      *ngIf="wrongPassword"
+      severity="error"
+      text="Wrong Password!"
+    ></p-message>
 
     <div class="button--block">
       <button

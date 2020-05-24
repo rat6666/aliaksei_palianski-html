@@ -20,8 +20,8 @@ h5 {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
-  height: 160px;
-  padding: 0 1em 0 0em;
+  height: 200px;
+  padding: 0 1em 2em 0em;
 }
 
 .risk-name {
@@ -58,4 +58,8 @@ input {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+p-message {
+  height: 0px;
 }
