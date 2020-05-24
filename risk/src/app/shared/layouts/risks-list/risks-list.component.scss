@@ -30,3 +30,13 @@ h3 {
   background-color: #00345c;
   color: white;
 }
+
+:host ::ng-deep .ui-scrollpanel {
+  height: 250px;
+}
+
+@media (max-width: 850px) {
+  .manage-page--content {
+    flex-wrap: wrap;
+  }
+}
