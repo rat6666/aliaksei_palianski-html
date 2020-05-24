@@ -66,4 +66,6 @@ p-message {
 
 :host ::ng-deep .ui-message {
   padding: 0;
+  font-weight: lighter;
+  font-size: small;
 }

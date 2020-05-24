@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: LoginPageComponent,
+    children: [{ path: '**', redirectTo: 'main' }],
   },
   {
     path: '',
