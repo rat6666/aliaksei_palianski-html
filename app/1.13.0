@@ -1,0 +1,8 @@
++ prettier@2.0.5
+added 1 package from 1 contributor and audited 1503 packages in 11.35s
+
+56 packages are looking for funding
+  run `npm fund` for details
+
+found 2 low severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
