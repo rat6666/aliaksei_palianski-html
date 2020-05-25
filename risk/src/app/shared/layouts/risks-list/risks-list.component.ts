@@ -46,7 +46,7 @@ export class RisksListComponent implements OnInit {
   }
 
   public selectRisk(item: Risk): void {
-    if (this.selectedRisk === defaultRisk) {
+    if (this.selectedRisk === defaultRisk || this.selectedRisk !== item) {
       this.selectedRisk = item;
       this.selectedRiskService.selectRisk(item);
     } else {

@@ -2,8 +2,8 @@
 /* eslint-disable consistent-return */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject, Subscription } from 'rxjs';
-import { configAPI, sessionStorageKey, defaultRisk } from '../enums';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { configAPI, defaultRisk } from '../enums';
 import { Risk } from '../interfaces';
 
 @Injectable({
