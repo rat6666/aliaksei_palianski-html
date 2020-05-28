@@ -1,23 +1,23 @@
 export interface User {
   id: string;
-  username: string;
   password: string;
+  username: string;
 }
 
 export interface Risk {
+  description: string;
   id: string;
-  userID: string;
+  probability: number;
   riskName: string;
   time: number;
-  probability: number;
-  description: string;
+  userID: string;
 }
 
 export interface Calc {
-  minProb: number;
-  maxProb: number;
   likeProb: number;
-  minTime: number;
-  maxTime: number;
   likeTime: number;
+  maxProb: number;
+  maxTime: number;
+  minProb: number;
+  minTime: number;
 }

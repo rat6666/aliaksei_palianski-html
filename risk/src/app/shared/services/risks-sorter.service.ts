@@ -1,5 +1,3 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable default-case */
 import { Injectable } from '@angular/core';
 import { Risk } from '../interfaces';
 import { typeSwitchs } from '../enums';
@@ -21,20 +19,14 @@ export class RisksSorterService {
       switch (type) {
         case typeSwitchs.name:
           result = this.isRiskSortedByIncrease
-            ? toSaveLowerCase(risk.riskName) <
-              toSaveLowerCase(otherRisk.riskName)
-            : toSaveLowerCase(risk.riskName) >
-              toSaveLowerCase(otherRisk.riskName);
+            ? toSaveLowerCase(risk.riskName) < toSaveLowerCase(otherRisk.riskName)
+            : toSaveLowerCase(risk.riskName) > toSaveLowerCase(otherRisk.riskName);
           break;
         case typeSwitchs.time:
-          result = this.isRiskSortedByIncrease
-            ? risk.time > otherRisk.time
-            : risk.time < otherRisk.time;
+          result = this.isRiskSortedByIncrease ? risk.time > otherRisk.time : risk.time < otherRisk.time;
           break;
         case typeSwitchs.probability:
-          result = this.isRiskSortedByIncrease
-            ? risk.probability > otherRisk.probability
-            : risk.probability < otherRisk.probability;
+          result = this.isRiskSortedByIncrease ? risk.probability > otherRisk.probability : risk.probability < otherRisk.probability;
           break;
       }
       return result ? 1 : -1;

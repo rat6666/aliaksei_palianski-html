@@ -2,7 +2,7 @@
 /* eslint-disable consistent-return */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { configAPI, defaultRisk } from '../enums';
 import { Risk } from '../interfaces';
 
@@ -10,8 +10,6 @@ import { Risk } from '../interfaces';
   providedIn: 'root',
 })
 export class DataBaseService {
-  constructor(private httpClient: HttpClient) {}
-
   private headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
   });
@@ -20,12 +18,12 @@ export class DataBaseService {
 
   private riskList = new BehaviorSubject<Risk[]>([defaultRisk]);
 
-  public getRiskList() {
-    return this.httpClient
-      .get(configAPI.urlRisksDatabase)
-      .subscribe((data: Risk[]) => {
-        this.riskList.next(data);
-      });
+  public constructor(private httpClient: HttpClient) {}
+
+  public getRiskList(): Subscription {
+    return this.httpClient.get(configAPI.urlRisksDatabase).subscribe((data: Risk[]) => {
+      this.riskList.next(data);
+    });
   }
 
   public get streamRiskList$(): Observable<Record<string, any>> {
@@ -34,26 +32,20 @@ export class DataBaseService {
   }
 
   public deleteRisk(riskID: string): void {
-    this.httpClient
-      .delete(`${configAPI.urlRisksDatabase}${riskID}`)
-      .subscribe(() => {
-        this.getRiskList();
-      });
+    this.httpClient.delete(`${configAPI.urlRisksDatabase}${riskID}`).subscribe(() => {
+      this.getRiskList();
+    });
   }
 
   public updateRiskList(risk: Risk): void {
     if (risk.id === 'newRisk') {
-      this.httpClient
-        .post(`${configAPI.urlRisksDatabase}`, risk, this.options)
-        .subscribe(() => {
-          this.getRiskList();
-        });
+      this.httpClient.post(`${configAPI.urlRisksDatabase}`, risk, this.options).subscribe(() => {
+        this.getRiskList();
+      });
     } else {
-      this.httpClient
-        .put(`${configAPI.urlRisksDatabase}${risk.id}`, risk, this.options)
-        .subscribe(() => {
-          this.getRiskList();
-        });
+      this.httpClient.put(`${configAPI.urlRisksDatabase}${risk.id}`, risk, this.options).subscribe(() => {
+        this.getRiskList();
+      });
     }
   }
 }

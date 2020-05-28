@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  CanActivateChild,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router,
-} from '@angular/router';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
@@ -14,12 +8,9 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private auth: AuthService, private router: Router) {}
+  public constructor(private auth: AuthService, private router: Router) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     if (this.auth.isAuthenticate) {
       return of(true);
     }
@@ -27,10 +18,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return of(false);
   }
 
-  canActivateChild(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  public canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.canActivate(next, state);
   }
 }

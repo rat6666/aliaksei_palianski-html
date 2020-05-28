@@ -15,15 +15,15 @@ export class LoginPageComponent {
 
   public registerFailed = false;
 
-  private wrongActionMessageTimer: Observable<number> = timer(3000);
-
   public userName: string;
 
   public password: string;
 
+  private wrongActionMessageTimer: Observable<number> = timer(3000);
+
   private user: User = defaultUser;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  public constructor(private auth: AuthService, private router: Router) {}
 
   public logIn(): void {
     this.user.username = this.userName;
@@ -47,9 +47,7 @@ export class LoginPageComponent {
       () => {
         sessionStorage.clear();
         this.registerFailed = true;
-        this.wrongActionMessageTimer.subscribe(
-          () => (this.registerFailed = false)
-        );
+        this.wrongActionMessageTimer.subscribe(() => (this.registerFailed = false));
       }
     );
   }

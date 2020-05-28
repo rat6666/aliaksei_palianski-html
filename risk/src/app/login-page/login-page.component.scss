@@ -1,3 +1,8 @@
+p-message {
+  height: 0px;
+  font-size: smaller;
+}
+
 p-card {
   display: flex;
   justify-content: space-evenly;
@@ -6,7 +11,7 @@ p-card {
   height: 100vh;
 }
 
-.input--block {
+.input-block {
   display: flex;
   height: 400px;
   flex-direction: column;
@@ -14,22 +19,18 @@ p-card {
   align-items: flex-start;
 }
 
-.button--block {
-  margin: 20px 0;
-  padding: 0;
-  display: flex;
-  width: 312px;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-input {
+.input-block--name,
+.input-block--password {
   width: 100%;
 }
 
-p-message {
-  height: 0px;
-  font-size: smaller;
+.button-block {
+  margin: 20px 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 :host ::ng-deep .ui-message {

@@ -1,0 +1,10 @@
+{
+  "singleQuote": true,
+  "jsxBracketSameLine": true,
+  "bracketSpacing": true,
+  "printWidth": 140,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "lines-between-class-methods": "true"
+}

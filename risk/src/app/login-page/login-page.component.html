@@ -1,39 +1,20 @@
 <p-card [style]="{ height: '450px' }">
-  <div class="input--block">
+  <div class="input-block">
     <h3>Login</h3>
     <div>
-      <span class="ui-float-label">
-        <input
-          class="ng-dirty ng-invalid"
-          id="float-input--name"
-          type="text"
-          size="40"
-          pInputText
-          [(ngModel)]="userName"
-          #name="ngModel"
-          required
-          minlength="6"
-        />
-        <label for="float-input--name">Username</label>
+      <span class="input-label">
+        <input class="input-block--name" type="text" size="40" pInputText [(ngModel)]="userName" #name="ngModel" required minlength="6" />
+        <label for="input-block--name">Username</label>
       </span>
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
-        <p-message
-          *ngIf="name.errors.required"
-          severity="error"
-          text="Name is required"
-        ></p-message>
-        <p-message
-          *ngIf="name.errors.minlength"
-          severity="error"
-          text="Name must be at least 6 characters long."
-        ></p-message>
+        <p-message *ngIf="name.errors.required" severity="error" text="Name is required"></p-message>
+        <p-message *ngIf="name.errors.minlength" severity="error" text="Name must be at least 6 characters long."></p-message>
       </div>
     </div>
     <div>
-      <span class="ui-float-label">
+      <span class="input-label">
         <input
-          class="ng-dirty ng-invalid"
-          id="float-input--password"
+          class="input-block--password"
           type="text"
           size="40"
           pInputText
@@ -42,42 +23,18 @@
           required
           minlength="6"
         />
-        <label for="float-input--password">Password</label>
+        <label for="input-block--password">Password</label>
       </span>
       <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
-        <p-message
-          *ngIf="pass.errors.required"
-          severity="error"
-          text="Password is required"
-        ></p-message>
-        <p-message
-          *ngIf="pass.errors.minlength"
-          severity="error"
-          text="Password must be at least 6 characters long."
-        ></p-message>
+        <p-message *ngIf="pass.errors.required" severity="error" text="Password is required"></p-message>
+        <p-message *ngIf="pass.errors.minlength" severity="error" text="Password must be at least 6 characters long."></p-message>
       </div>
     </div>
-    <p-message
-      *ngIf="wrongPassword"
-      severity="error"
-      text="Wrong Password!"
-    ></p-message>
+    <p-message *ngIf="wrongPassword" severity="error" text="Wrong Password!"></p-message>
 
-    <div class="button--block">
-      <button
-        pButton
-        type="button"
-        label="Log in"
-        (click)="logIn()"
-        [disabled]="!name.valid || !pass.valid"
-      ></button>
-      <button
-        pButton
-        type="button"
-        label="Sign in"
-        (click)="signIn()"
-        [disabled]="!name.valid || !pass.valid"
-      ></button>
+    <div class="button-block">
+      <button pButton type="button" label="Log in" (click)="logIn()" [disabled]="!name.valid || !pass.valid"></button>
+      <button pButton type="button" label="Sign in" (click)="signIn()" [disabled]="!name.valid || !pass.valid"></button>
     </div>
   </div>
 </p-card>

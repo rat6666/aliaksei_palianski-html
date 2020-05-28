@@ -12,15 +12,7 @@ import { typeSwitchs } from '../../enums';
   styleUrls: ['./risk-edit.component.scss'],
 })
 export class RiskEditComponent implements OnInit {
-  constructor(
-    private selectedRiskService: SelectedRiskService,
-    private dataBaseService: DataBaseService,
-    private router: Router
-  ) {}
-
   public risk: Risk;
-
-  private initialRiskData: Risk;
 
   public isMainPage = true;
 
@@ -38,8 +30,11 @@ export class RiskEditComponent implements OnInit {
     maxTime: null,
     likeTime: null,
   };
+  private initialRiskData: Risk;
 
-  ngOnInit(): void {
+  public constructor(private selectedRiskService: SelectedRiskService, private dataBaseService: DataBaseService, private router: Router) {}
+
+  public ngOnInit(): void {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }
@@ -50,14 +45,12 @@ export class RiskEditComponent implements OnInit {
   }
 
   public deleteRisk(): void {
-    console.log(this.risk.id);
     this.dataBaseService.deleteRisk(this.risk.id);
   }
 
   public updateEditedRisk(): void {
     this.dataBaseService.updateRiskList(this.risk);
   }
-
   public resetEditedRisk(): void {
     this.selectedRiskService.selectRisk(this.initialRiskData);
   }

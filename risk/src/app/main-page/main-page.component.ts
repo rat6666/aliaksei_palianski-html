@@ -9,10 +9,11 @@ import { defaultRisk } from '../shared/enums';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-  constructor(private getSelectedRisk: SelectedRiskService) {}
+  public risk: Risk = defaultRisk;
 
-  risk: Risk = defaultRisk;
-  ngOnInit() {
+  public constructor(private getSelectedRisk: SelectedRiskService) {}
+
+  public ngOnInit(): void {
     this.getSelectedRisk.selectedRisk$.subscribe((data) => {
       this.risk = data;
     });

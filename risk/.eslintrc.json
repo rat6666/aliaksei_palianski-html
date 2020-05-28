@@ -1,0 +1,44 @@
+{
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "typescript-sort-keys"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:typescript-sort-keys/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module" // Allows for the use of imports
+  },
+  "rules": {
+    "@typescript-eslint/explicit-member-accessibility": "warn",
+    "@typescript-eslint/member-ordering": [
+      "warn",
+      {
+        "default": [
+          "public-static-field",
+          "protected-static-field",
+          "private-static-field",
+          "public-instance-field",
+          "protected-instance-field",
+          "private-instance-field",
+          "constructor",
+          "public-static-method",
+          "protected-static-method",
+          "private-static-method",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ]
+  }
+}

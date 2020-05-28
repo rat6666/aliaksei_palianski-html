@@ -10,16 +10,11 @@ import { SelectedRiskService } from '../../services/selected-risk.service';
   styleUrls: ['./site-layout.component.scss'],
 })
 export class SiteLayoutComponent {
-  constructor(
-    private auth: AuthService,
-    private router: Router,
-    private selectedRiskService: SelectedRiskService
-  ) {}
-
-  images: any[];
   public userName: string = sessionStorage.getItem(sessionStorageKey.userName);
 
   public isMainPage = true;
+
+  public constructor(private auth: AuthService, private router: Router, private selectedRiskService: SelectedRiskService) {}
 
   public onManagePage(): void {
     this.router.navigate(['manage']);

@@ -20,14 +20,14 @@ export class RisksListComponent implements OnInit {
 
   private userID = sessionStorage.getItem(sessionStorageKey.id);
 
-  constructor(
+  public constructor(
     private selectedRiskService: SelectedRiskService,
     private risksSorter: RisksSorterService,
     private dataBaseService: DataBaseService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }

@@ -9,10 +9,11 @@ import { Risk } from '../shared/interfaces';
   styleUrls: ['./manage-page.component.scss'],
 })
 export class ManagePageComponent implements OnInit {
-  constructor(private getSelectedRisk: SelectedRiskService) {}
+  public risk: Risk = defaultRisk;
 
-  risk: Risk = defaultRisk;
-  ngOnInit() {
+  public constructor(private getSelectedRisk: SelectedRiskService) {}
+
+  public ngOnInit(): void {
     this.getSelectedRisk.selectedRisk$.subscribe((data) => {
       this.risk = data;
     });
