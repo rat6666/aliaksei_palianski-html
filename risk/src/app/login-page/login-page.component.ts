@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { timer, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { User } from '../shared/interfaces';
@@ -19,8 +18,6 @@ export class LoginPageComponent {
 
   public password: string;
 
-  private wrongActionMessageTimer: Observable<number> = timer(3000);
-
   private user: User = defaultUser;
 
   public constructor(private auth: AuthService, private router: Router) {}
@@ -32,7 +29,6 @@ export class LoginPageComponent {
       () => this.router.navigate(['main']),
       () => (this.wrongPassword = true)
     );
-    this.wrongActionMessageTimer.subscribe(() => (this.wrongPassword = false));
   }
 
   public signIn(): void {
@@ -47,7 +43,6 @@ export class LoginPageComponent {
       () => {
         sessionStorage.clear();
         this.registerFailed = true;
-        this.wrongActionMessageTimer.subscribe(() => (this.registerFailed = false));
       }
     );
   }

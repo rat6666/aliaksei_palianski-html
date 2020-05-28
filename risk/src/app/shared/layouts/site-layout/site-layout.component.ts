@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { sessionStorageKey, defaultRisk } from '../../enums';
-import { SelectedRiskService } from '../../services/selected-risk.service';
+import { sessionStorageKey } from '../../enums';
 
 @Component({
   selector: 'app-site-layout',
@@ -14,21 +13,19 @@ export class SiteLayoutComponent {
 
   public isMainPage = true;
 
-  public constructor(private auth: AuthService, private router: Router, private selectedRiskService: SelectedRiskService) {}
+  public constructor(private auth: AuthService, private router: Router) {}
 
   public onManagePage(): void {
     this.router.navigate(['manage']);
-    this.selectedRiskService.selectRisk(defaultRisk);
     this.isMainPage = !this.isMainPage;
   }
 
   public onMainPage(): void {
     this.router.navigate(['main']);
-    this.selectedRiskService.selectRisk(defaultRisk);
     this.isMainPage = !this.isMainPage;
   }
 
-  public onLogout(): void {
+  public logOut(): void {
     this.auth.logOut();
     this.router.navigate(['']);
   }

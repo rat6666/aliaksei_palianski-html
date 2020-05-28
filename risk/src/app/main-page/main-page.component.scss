@@ -1,4 +1,4 @@
-.main-page--content {
+.main-page {
   margin: 2px 2px 0 2px;
   display: flex;
   flex-direction: row;
@@ -7,13 +7,13 @@
   align-items: flex-start;
 }
 
-.risks--list,
-.risks--edit {
+.risks-list,
+.risks-edit {
   width: 100%;
 }
 
 @media (max-width: 850px) {
-  .main-page--content {
+  .main-page {
     flex-wrap: wrap;
   }
 }

@@ -10,11 +10,14 @@ import { Risk } from '../shared/interfaces';
 })
 export class ManagePageComponent implements OnInit {
   public risk: Risk = defaultRisk;
+  public selectedRisk: Risk;
 
-  public constructor(private getSelectedRisk: SelectedRiskService) {}
+  public constructor(private selectedRiskService: SelectedRiskService) {}
 
   public ngOnInit(): void {
-    this.getSelectedRisk.selectedRisk$.subscribe((data) => {
+    this.selectedRisk = defaultRisk;
+    this.selectedRiskService.selectRisk(defaultRisk);
+    this.selectedRiskService.selectedRisk$.subscribe((data) => {
       this.risk = data;
     });
   }

@@ -40,7 +40,7 @@ export class AuthService {
     });
   }
 
-  public get isAuthenticate(): boolean {
+  public get isAuthentificated(): boolean {
     return !!sessionStorage.getItem(sessionStorageKey.id);
   }
 

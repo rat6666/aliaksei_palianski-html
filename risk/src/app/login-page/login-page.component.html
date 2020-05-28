@@ -1,4 +1,4 @@
-<p-card [style]="{ height: '450px' }">
+<p-card class="login-form" [style]="{ height: '450px' }">
   <div class="input-block">
     <h3>Login</h3>
     <div>
@@ -7,8 +7,13 @@
         <label for="input-block--name">Username</label>
       </span>
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
-        <p-message *ngIf="name.errors.required" severity="error" text="Name is required"></p-message>
-        <p-message *ngIf="name.errors.minlength" severity="error" text="Name must be at least 6 characters long."></p-message>
+        <p-message class="input-validate-error" *ngIf="name.errors.required" severity="error" text="Name is required"></p-message>
+        <p-message
+          class="input-validate-error"
+          *ngIf="name.errors.minlength"
+          severity="error"
+          text="Name must be at least 6 characters long."
+        ></p-message>
       </div>
     </div>
     <div>
@@ -26,11 +31,16 @@
         <label for="input-block--password">Password</label>
       </span>
       <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
-        <p-message *ngIf="pass.errors.required" severity="error" text="Password is required"></p-message>
-        <p-message *ngIf="pass.errors.minlength" severity="error" text="Password must be at least 6 characters long."></p-message>
+        <p-message class="input-validate-error" *ngIf="pass.errors.required" severity="error" text="Password is required"></p-message>
+        <p-message
+          class="input-validate-error"
+          *ngIf="pass.errors.minlength"
+          severity="error"
+          text="Password must be at least 6 characters long."
+        ></p-message>
       </div>
     </div>
-    <p-message *ngIf="wrongPassword" severity="error" text="Wrong Password!"></p-message>
+    <p-message class="input-validate-error" *ngIf="wrongPassword" severity="error" text="Wrong Password!"></p-message>
 
     <div class="button-block">
       <button pButton type="button" label="Log in" (click)="logIn()" [disabled]="!name.valid || !pass.valid"></button>

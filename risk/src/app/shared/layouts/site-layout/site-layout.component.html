@@ -5,12 +5,12 @@
       <div class="button--block">
         <button *ngIf="isMainPage" pButton type="button" label="Manage Risk" (click)="onManagePage()"></button>
         <button *ngIf="!isMainPage" pButton type="button" label="Main page" (click)="onMainPage()"></button>
-        <button pButton type="button" label="Logout" (click)="onLogout()"></button>
+        <button pButton type="button" label="Logout" (click)="logOut()"></button>
         <h2>{{ userName }}</h2>
         <img
           class="user--image"
           src="https://raw.githubusercontent.com/rat6666/aliaksei_palianski-html/Angular/risk/src/assets/pictures/tumbnails/images.jpg"
-          (click)="onLogout()"
+          (click)="logOut()"
           title="Log Out"
         />
       </div>

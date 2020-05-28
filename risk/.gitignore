@@ -23,8 +23,6 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
-.eslintrc.js
-.prettierrc
 debug.log
 
 # IDE - VSCode

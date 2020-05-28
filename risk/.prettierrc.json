@@ -5,6 +5,5 @@
   "printWidth": 140,
   "semi": true,
   "tabWidth": 2,
-  "useTabs": false,
-  "lines-between-class-methods": "true"
+  "useTabs": false
 }
