@@ -1,10 +1,10 @@
 /* eslint-disable default-case */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Risk, Calc } from '../../interfaces';
+import { Risk, RiskCalculator, CalculatorErrors } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
-import { typeSwitchs } from '../../enums';
+import { typeSwitchs, defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
 
 @Component({
   selector: 'app-risk-edit',
@@ -16,21 +16,13 @@ export class RiskEditComponent implements OnInit {
 
   public isMainPage = true;
 
-  public errorMaxTime = false;
-  public errorMaxProb = false;
+  public calculatorErrors: CalculatorErrors = defaultCalculatorErrors;
 
-  public errorMinTime = false;
-  public errorMinProb = false;
+  public calculator: RiskCalculator = defaultRiskCalculator;
 
-  public calc: Calc = {
-    minProb: null,
-    maxProb: null,
-    likeProb: null,
-    minTime: null,
-    maxTime: null,
-    likeTime: null,
-  };
   private initialRiskData: Risk;
+
+  private inputTypeEvent: string;
 
   public constructor(private selectedRiskService: SelectedRiskService, private dataBaseService: DataBaseService, private router: Router) {}
 
@@ -51,64 +43,58 @@ export class RiskEditComponent implements OnInit {
   public updateEditedRisk(): void {
     this.dataBaseService.updateRiskList(this.risk);
   }
+
+  public postRisk(): void {
+    this.dataBaseService.postRisk(this.risk);
+  }
+
   public resetEditedRisk(): void {
     this.selectedRiskService.selectRisk(this.initialRiskData);
   }
 
-  public calcRisk(type: string): void {
+  public riskCalculator(type: string): void {
+    this.inputTypeEvent = type;
     switch (type) {
       case typeSwitchs.probability:
-        this.calc.minProb = null;
-        this.calc.maxProb = null;
-        this.errorMinProb = false;
-        this.errorMaxProb = false;
+        this.calculator.setProbNull();
         break;
       case typeSwitchs.minProb:
-        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
-        if (this.calc.minProb > this.calc.maxProb) {
-          this.errorMinProb = true;
-          this.errorMaxProb = false;
-        } else {
-          this.errorMinProb = false;
-          this.errorMaxProb = false;
+      case typeSwitchs.maxProb:
+        this.risk.probability = this.calculator.sumProb();
+        break;
+      case typeSwitchs.time:
+        this.calculator.setTimeNull();
+        break;
+      case typeSwitchs.minTime:
+      case typeSwitchs.maxTime:
+        this.risk.time = this.calculator.sumTime();
+        break;
+    }
+    this.riskCalculatorErrorsHandler(this.inputTypeEvent);
+  }
+
+  private riskCalculatorErrorsHandler(type: string): void {
+    this.calculatorErrors.setFalse();
+    switch (type) {
+      case typeSwitchs.minProb:
+        if (this.calculator.minProb > this.calculator.maxProb) {
+          this.calculatorErrors.minProb = true;
         }
         break;
       case typeSwitchs.maxProb:
-        this.risk.probability = (this.calc.minProb + this.calc.maxProb) / 2;
-        if (this.calc.maxProb < this.calc.minProb) {
-          this.errorMaxProb = true;
-          this.errorMinProb = false;
-        } else {
-          this.errorMinProb = false;
-          this.errorMaxProb = false;
+        if (this.calculator.maxProb < this.calculator.minProb) {
+          this.calculatorErrors.maxProb = true;
         }
         break;
-      case typeSwitchs.time:
-        this.calc.minTime = null;
-        this.calc.maxTime = null;
-        this.errorMinTime = false;
-        this.errorMaxTime = false;
-        break;
       case typeSwitchs.minTime:
-        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
-        if (this.calc.minTime > this.calc.maxTime) {
-          this.errorMinTime = true;
-          this.errorMaxTime = false;
-        } else {
-          this.errorMinTime = false;
-          this.errorMaxTime = false;
+        if (this.calculator.minTime > this.calculator.maxTime) {
+          this.calculatorErrors.minTime = true;
         }
         break;
       case typeSwitchs.maxTime:
-        this.risk.time = (this.calc.minTime + this.calc.maxTime) / 2;
-        if (this.calc.maxTime < this.calc.minTime) {
-          this.errorMaxTime = true;
-          this.errorMinTime = false;
-        } else {
-          this.errorMinTime = false;
-          this.errorMaxTime = false;
+        if (this.calculator.maxTime < this.calculator.minTime) {
+          this.calculatorErrors.maxTime = true;
         }
-        break;
     }
   }
 }

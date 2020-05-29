@@ -40,8 +40,6 @@
         ></p-message>
       </div>
     </div>
-    <p-message class="input-validate-error" *ngIf="wrongPassword" severity="error" text="Wrong Password!"></p-message>
-
     <div class="button-block">
       <button pButton type="button" label="Log in" (click)="logIn()" [disabled]="!name.valid || !pass.valid"></button>
       <button pButton type="button" label="Sign in" (click)="signIn()" [disabled]="!name.valid || !pass.valid"></button>
