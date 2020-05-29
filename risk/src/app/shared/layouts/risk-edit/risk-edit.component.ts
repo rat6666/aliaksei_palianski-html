@@ -5,6 +5,7 @@ import { Risk, RiskCalculator, CalculatorErrors } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
 import { typeSwitchs, defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
+import { RiskCalculatorService } from '../../services/risk-calculator.service';
 
 @Component({
   selector: 'app-risk-edit',
@@ -24,7 +25,12 @@ export class RiskEditComponent implements OnInit {
 
   private inputTypeEvent: string;
 
-  public constructor(private selectedRiskService: SelectedRiskService, private dataBaseService: DataBaseService, private router: Router) {}
+  public constructor(
+    private selectedRiskService: SelectedRiskService,
+    private dataBaseService: DataBaseService,
+    private router: Router,
+    private riskCalculatorService: RiskCalculatorService
+  ) {}
 
   public ngOnInit(): void {
     if (this.router.url === '/manage') {
@@ -54,22 +60,7 @@ export class RiskEditComponent implements OnInit {
 
   public riskCalculator(type: string): void {
     this.inputTypeEvent = type;
-    switch (type) {
-      case typeSwitchs.probability:
-        this.calculator.setProbNull();
-        break;
-      case typeSwitchs.minProb:
-      case typeSwitchs.maxProb:
-        this.risk.probability = this.calculator.sumProb();
-        break;
-      case typeSwitchs.time:
-        this.calculator.setTimeNull();
-        break;
-      case typeSwitchs.minTime:
-      case typeSwitchs.maxTime:
-        this.risk.time = this.calculator.sumTime();
-        break;
-    }
+    this.riskCalculatorService.riskCalculator(type, this.calculator, this.risk);
     this.riskCalculatorErrorsHandler(this.inputTypeEvent);
   }
 
