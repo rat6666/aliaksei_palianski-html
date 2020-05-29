@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Risk, RiskCalculator, CalculatorErrors } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
-import { typeSwitchs, defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
+import { defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
 import { RiskCalculatorService } from '../../services/risk-calculator.service';
 import { RiskCalculatorErrorService } from '../../services/risk-calculator-error.service';
 
@@ -23,8 +23,6 @@ export class RiskEditComponent implements OnInit {
   public calculator: RiskCalculator = defaultRiskCalculator;
 
   private initialRiskData: Risk;
-
-  private inputTypeEvent: string;
 
   public constructor(
     private selectedRiskService: SelectedRiskService,
@@ -61,7 +59,6 @@ export class RiskEditComponent implements OnInit {
   }
 
   public riskCalculator(type: string): void {
-    this.inputTypeEvent = type;
     this.riskCalculatorService.riskCalculator(type, this.calculator, this.risk);
     this.riskCalculatorErrorService.riskCalculatorErrorsHandler(type, this.calculatorErrors, this.calculator);
   }
