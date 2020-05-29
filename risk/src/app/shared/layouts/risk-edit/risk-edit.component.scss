@@ -1,10 +1,21 @@
-textarea {
-  width: 100%;
-}
-
 h3,
+h4,
 h5 {
   margin: 0;
+}
+
+input {
+  width: 70%;
+  height: 30px;
+}
+
+h4 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.edit--description {
+  width: 100%;
 }
 
 .calc-block {
@@ -28,17 +39,6 @@ h5 {
   min-width: 80px;
 }
 
-h4 {
-  margin: 0;
-  display: flex;
-  align-items: flex-end;
-}
-
-input {
-  width: 70%;
-  height: 30px;
-}
-
 .probability-input-block {
   display: flex;
   flex-direction: row;
@@ -60,7 +60,7 @@ input {
   justify-content: space-between;
 }
 
-p-message {
+.error-mesage {
   height: 0px;
 }
 
