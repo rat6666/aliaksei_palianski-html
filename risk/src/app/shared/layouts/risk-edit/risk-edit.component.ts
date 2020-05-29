@@ -6,6 +6,7 @@ import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
 import { typeSwitchs, defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
 import { RiskCalculatorService } from '../../services/risk-calculator.service';
+import { RiskCalculatorErrorService } from '../../services/risk-calculator-error.service';
 
 @Component({
   selector: 'app-risk-edit',
@@ -29,7 +30,8 @@ export class RiskEditComponent implements OnInit {
     private selectedRiskService: SelectedRiskService,
     private dataBaseService: DataBaseService,
     private router: Router,
-    private riskCalculatorService: RiskCalculatorService
+    private riskCalculatorService: RiskCalculatorService,
+    private riskCalculatorErrorService: RiskCalculatorErrorService
   ) {}
 
   public ngOnInit(): void {
@@ -61,31 +63,6 @@ export class RiskEditComponent implements OnInit {
   public riskCalculator(type: string): void {
     this.inputTypeEvent = type;
     this.riskCalculatorService.riskCalculator(type, this.calculator, this.risk);
-    this.riskCalculatorErrorsHandler(this.inputTypeEvent);
-  }
-
-  private riskCalculatorErrorsHandler(type: string): void {
-    this.calculatorErrors.setFalse();
-    switch (type) {
-      case typeSwitchs.minProb:
-        if (this.calculator.minProb > this.calculator.maxProb) {
-          this.calculatorErrors.minProb = true;
-        }
-        break;
-      case typeSwitchs.maxProb:
-        if (this.calculator.maxProb < this.calculator.minProb) {
-          this.calculatorErrors.maxProb = true;
-        }
-        break;
-      case typeSwitchs.minTime:
-        if (this.calculator.minTime > this.calculator.maxTime) {
-          this.calculatorErrors.minTime = true;
-        }
-        break;
-      case typeSwitchs.maxTime:
-        if (this.calculator.maxTime < this.calculator.minTime) {
-          this.calculatorErrors.maxTime = true;
-        }
-    }
+    this.riskCalculatorErrorService.riskCalculatorErrorsHandler(type, this.calculatorErrors, this.calculator);
   }
 }
