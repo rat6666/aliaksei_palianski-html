@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SelectedRiskService } from '../shared/services/selected-risk.service';
 import { defaultRisk } from '../shared/enums';
 import { Risk } from '../shared/interfaces';
@@ -6,10 +7,11 @@ import { Risk } from '../shared/interfaces';
 @Component({
   selector: 'app-manage-page',
   templateUrl: './manage-page.component.html',
-  styleUrls: ['./manage-page.component.scss'],
+  styleUrls: ['./manage-page.component.scss']
 })
 export class ManagePageComponent implements OnInit {
-  public risk: Risk = defaultRisk;
+  public risk$ = new Observable<Risk>();
+
   public selectedRisk: Risk;
 
   public constructor(private selectedRiskService: SelectedRiskService) {}
@@ -17,8 +19,6 @@ export class ManagePageComponent implements OnInit {
   public ngOnInit(): void {
     this.selectedRisk = defaultRisk;
     this.selectedRiskService.selectRisk(defaultRisk);
-    this.selectedRiskService.selectedRisk$.subscribe((data) => {
-      this.risk = data;
-    });
+    this.risk$ = this.selectedRiskService.selectedRisk$;
   }
 }

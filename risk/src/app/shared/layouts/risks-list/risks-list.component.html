@@ -4,16 +4,40 @@
 <p-card [style]="{ height: '60px' }">
   <div class="button-block">
     <span>Sort by: </span>
-    <button pButton type="button" label="Name" (click)="sort('name')" class="ui-button-secondary"></button>
-    <button pButton type="button" label="Impact Time" (click)="sort('time')" class="ui-button-secondary"></button>
-    <button pButton type="button" label="Probability" (click)="sort('probability')" class="ui-button-secondary"></button>
+    <button
+      pButton
+      type="button"
+      label="Name"
+      (click)="sort('name')"
+      class="ui-button-secondary"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Impact Time"
+      (click)="sort('time')"
+      class="ui-button-secondary"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Probability"
+      (click)="sort('probability')"
+      class="ui-button-secondary"
+    ></button>
   </div>
 </p-card>
 
 <p-card class="sort-panel">
   <p-scrollPanel>
-    <p-card class="risks--list" *ngFor="let item of risks" (click)="selectRisk(item)">
-      <div [class.selected]="item === selectedRisk">{{ item.riskName }} | {{ item.time }} hrs | {{ item.probability }}%</div>
+    <p-card
+      class="risks--list"
+      *ngFor="let item of risks"
+      (click)="selectRisk(item)"
+    >
+      <div [class.selected]="item === selectedRisk">
+        {{ item.riskName }} | {{ item.time }} hrs | {{ item.probability }}%
+      </div>
     </p-card>
   </p-scrollPanel>
   <p-card *ngIf="!isMainPage">

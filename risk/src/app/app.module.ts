@@ -29,7 +29,7 @@ import { ManagePageComponent } from './manage-page/manage-page.component';
     MainPageComponent,
     RisksListComponent,
     RiskEditComponent,
-    ManagePageComponent,
+    ManagePageComponent
   ],
   imports: [
     FormsModule,
@@ -44,10 +44,10 @@ import { ManagePageComponent } from './manage-page/manage-page.component';
     InputTextModule,
     InputTextareaModule,
     MessagesModule,
-    MessageModule,
+    MessageModule
   ],
 
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

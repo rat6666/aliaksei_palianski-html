@@ -1,6 +1,6 @@
-/* eslint-disable default-case */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
 import { Risk, RiskCalculator, CalculatorErrors } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
@@ -11,9 +11,9 @@ import { RiskCalculatorErrorService } from '../../services/risk-calculator-error
 @Component({
   selector: 'app-risk-edit',
   templateUrl: './risk-edit.component.html',
-  styleUrls: ['./risk-edit.component.scss'],
+  styleUrls: ['./risk-edit.component.scss']
 })
-export class RiskEditComponent implements OnInit {
+export class RiskEditComponent implements OnInit, OnDestroy {
   public risk: Risk;
 
   public isMainPage = true;
@@ -23,6 +23,8 @@ export class RiskEditComponent implements OnInit {
   public calculator: RiskCalculator = defaultRiskCalculator;
 
   private initialRiskData: Risk;
+
+  private subscription: SubscriptionLike;
 
   public constructor(
     private selectedRiskService: SelectedRiskService,
@@ -40,6 +42,13 @@ export class RiskEditComponent implements OnInit {
       this.risk = JSON.parse(JSON.stringify(data));
       this.initialRiskData = data;
     });
+  }
+
+  public ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
   public deleteRisk(): void {
@@ -60,6 +69,10 @@ export class RiskEditComponent implements OnInit {
 
   public riskCalculator(type: string): void {
     this.riskCalculatorService.riskCalculator(type, this.calculator, this.risk);
-    this.riskCalculatorErrorService.riskCalculatorErrorsHandler(type, this.calculatorErrors, this.calculator);
+    this.riskCalculatorErrorService.riskCalculatorErrorsHandler(
+      type,
+      this.calculatorErrors,
+      this.calculator
+    );
   }
 }

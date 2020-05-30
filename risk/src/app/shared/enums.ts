@@ -2,22 +2,22 @@ import { User } from './interfaces';
 
 export const configAPI = {
   urlUsersDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/users/',
-  urlRisksDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/risks/',
+  urlRisksDatabase: 'https://5e9162352810f4001648b889.mockapi.io/api/v1/risks/'
 };
 
 export const sessionStorageKey = {
   id: 'id',
-  userName: 'userName',
+  userName: 'userName'
 };
 
 export const defaultUser: User = {
   id: null,
   username: null,
   password: null,
-  setUser: function (password: string, name: string): void {
+  setUser(password: string, name: string): void {
     this.username = name;
     this.password = password;
-  },
+  }
 };
 
 export const typeSwitchs = {
@@ -27,7 +27,7 @@ export const typeSwitchs = {
   minProb: 'minProb',
   maxProb: 'maxProb',
   minTime: 'minTime',
-  maxTime: 'maxTime',
+  maxTime: 'maxTime'
 };
 
 export const defaultRiskCalculator = {
@@ -37,22 +37,22 @@ export const defaultRiskCalculator = {
   minTime: null,
   maxTime: null,
   likeTime: null,
-  sumTime: function (): number {
+  sumTime(): number {
     this.likeTime = (this.minTime + this.maxTime) / 2;
     return this.likeTime;
   },
-  sumProb: function (): number {
+  sumProb(): number {
     this.likeProb = (this.minProb + this.maxProb) / 2;
     return this.likeProb;
   },
-  setTimeNull: function (): void {
+  setTimeNull(): void {
     this.minTime = null;
     this.maxTime = null;
   },
-  setProbNull: function (): void {
+  setProbNull(): void {
     this.minProb = null;
     this.maxProb = null;
-  },
+  }
 };
 
 export const defaultRisk = {
@@ -61,7 +61,7 @@ export const defaultRisk = {
   riskName: null,
   time: null,
   probability: null,
-  description: null,
+  description: null
 };
 
 export const defaultAddRisk = {
@@ -70,7 +70,7 @@ export const defaultAddRisk = {
   riskName: null,
   time: null,
   probability: null,
-  description: null,
+  description: null
 };
 
 export const defaultCalculatorErrors = {
@@ -78,10 +78,10 @@ export const defaultCalculatorErrors = {
   maxTime: false,
   minProb: false,
   minTime: false,
-  setFalse: function (): void {
+  setFalse(): void {
     this.maxProb = false;
     this.maxTime = false;
     this.minProb = false;
     this.minTime = false;
-  },
+  }
 };

@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: LoginPageComponent,
-    children: [{ path: '**', redirectTo: 'main' }],
+    children: [{ path: '**', redirectTo: 'main' }]
   },
   {
     path: '',
@@ -19,13 +19,13 @@ const routes: Routes = [
     children: [
       { path: 'main', component: MainPageComponent },
       { path: 'manage', component: ManagePageComponent },
-      { path: '**', redirectTo: 'main' },
-    ],
-  },
+      { path: '**', redirectTo: 'main' }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

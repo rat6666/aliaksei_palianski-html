@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "e2e": "ng e2e",
-    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
+    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "private": true,
   "dependencies": {

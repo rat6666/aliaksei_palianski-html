@@ -3,11 +3,16 @@ import { CalculatorErrors, RiskCalculator } from '../interfaces';
 import { typeSwitchs } from '../enums';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class RiskCalculatorErrorService {
-  public riskCalculatorErrorsHandler(type: string, calculatorErrors: CalculatorErrors, calculator: RiskCalculator): void {
+  public riskCalculatorErrorsHandler(
+    type: string,
+    calculatorErrors: CalculatorErrors,
+    calculator: RiskCalculator
+  ): void {
     calculatorErrors.setFalse();
+    // eslint-disable-next-line default-case
     switch (type) {
       case typeSwitchs.minProb:
         if (calculator.minProb > calculator.maxProb) {

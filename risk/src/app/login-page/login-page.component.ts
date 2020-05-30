@@ -5,7 +5,7 @@ import { defaultUser } from '../shared/enums';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
+  styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
   public userName: string;

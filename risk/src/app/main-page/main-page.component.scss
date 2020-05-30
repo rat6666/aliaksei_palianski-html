@@ -7,9 +7,13 @@
   align-items: flex-start;
 }
 
-.risks-list,
-.risks-edit {
-  width: 100%;
+.risks {
+  &-list {
+    width: 100%;
+  }
+  &-edit {
+    width: 100%;
+  }
 }
 
 @media (max-width: 850px) {

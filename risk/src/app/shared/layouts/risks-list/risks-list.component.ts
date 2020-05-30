@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
 import { Risk } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { RisksSorterService } from '../../services/risks-sorter.service';
@@ -9,9 +10,9 @@ import { sessionStorageKey, defaultAddRisk, defaultRisk } from '../../enums';
 @Component({
   selector: 'app-risks-list',
   templateUrl: './risks-list.component.html',
-  styleUrls: ['./risks-list.component.scss'],
+  styleUrls: ['./risks-list.component.scss']
 })
-export class RisksListComponent implements OnInit {
+export class RisksListComponent implements OnInit, OnDestroy {
   public risks: Risk[];
 
   public selectedRisk: Risk;
@@ -19,6 +20,8 @@ export class RisksListComponent implements OnInit {
   public isMainPage = true;
 
   private userID = sessionStorage.getItem(sessionStorageKey.id);
+
+  private subscription: SubscriptionLike;
 
   public constructor(
     private selectedRiskService: SelectedRiskService,
@@ -31,9 +34,18 @@ export class RisksListComponent implements OnInit {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }
-    this.dataBaseService.streamRiskList$.subscribe((data: Risk[]) => {
-      this.risks = data.filter((el) => el.userID === this.userID);
-    });
+    this.subscription = this.dataBaseService.streamRiskList$.subscribe(
+      (data: Risk[]) => {
+        this.risks = data.filter(el => el.userID === this.userID);
+      }
+    );
+  }
+
+  public ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
   public sort(type: string): void {

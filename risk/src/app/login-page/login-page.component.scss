@@ -17,11 +17,12 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-}
-
-.input-block--name,
-.input-block--password {
-  width: 100%;
+  &--name {
+    width: 100%;
+  }
+  &--password {
+    width: 100%;
+  }
 }
 
 .button-block {

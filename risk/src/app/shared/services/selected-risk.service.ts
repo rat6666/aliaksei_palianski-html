@@ -4,7 +4,7 @@ import { Risk } from '../interfaces';
 import { defaultRisk } from '../enums';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class SelectedRiskService {
   private risk = new BehaviorSubject<Risk>(defaultRisk);
