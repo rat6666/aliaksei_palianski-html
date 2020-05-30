@@ -68,9 +68,9 @@ export const defaultAddRisk = {
   id: 'newRisk',
   userID: null,
   riskName: null,
+  description: null,
   time: null,
-  probability: null,
-  description: null
+  probability: null
 };
 
 export const defaultCalculatorErrors = {
@@ -85,3 +85,9 @@ export const defaultCalculatorErrors = {
     this.minTime = false;
   }
 };
+
+export enum SortType {
+  name,
+  time,
+  probability
+}

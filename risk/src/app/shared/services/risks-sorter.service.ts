@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Risk } from '../interfaces';
-import { typeSwitchs } from '../enums';
 
 export function toSaveLowerCase(value: string): string {
   return value ? String(value).toLowerCase() : '';
@@ -12,24 +11,24 @@ export function toSaveLowerCase(value: string): string {
 export class RisksSorterService {
   public isRiskSortedByIncrease = false;
 
-  public sort(riskList: Risk[], type: string): Risk[] {
+  public sort(riskList: Risk[], sortType: number): Risk[] {
     this.isRiskSortedByIncrease = !this.isRiskSortedByIncrease;
     return riskList.sort((risk, otherRisk) => {
       let result: boolean;
-      switch (type) {
-        case typeSwitchs.name:
+      switch (sortType) {
+        case 0:
           result = this.isRiskSortedByIncrease
             ? toSaveLowerCase(risk.riskName) <
               toSaveLowerCase(otherRisk.riskName)
             : toSaveLowerCase(risk.riskName) >
               toSaveLowerCase(otherRisk.riskName);
           break;
-        case typeSwitchs.time:
+        case 1:
           result = this.isRiskSortedByIncrease
             ? risk.time > otherRisk.time
             : risk.time < otherRisk.time;
           break;
-        case typeSwitchs.probability:
+        case 2:
           result = this.isRiskSortedByIncrease
             ? risk.probability > otherRisk.probability
             : risk.probability < otherRisk.probability;

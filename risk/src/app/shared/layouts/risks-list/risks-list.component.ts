@@ -5,7 +5,12 @@ import { Risk } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { RisksSorterService } from '../../services/risks-sorter.service';
 import { DataBaseService } from '../../services/data-base.service';
-import { sessionStorageKey, defaultAddRisk, defaultRisk } from '../../enums';
+import {
+  sessionStorageKey,
+  defaultAddRisk,
+  defaultRisk,
+  SortType
+} from '../../enums';
 
 @Component({
   selector: 'app-risks-list',
@@ -14,6 +19,8 @@ import { sessionStorageKey, defaultAddRisk, defaultRisk } from '../../enums';
 })
 export class RisksListComponent implements OnInit, OnDestroy {
   public risks: Risk[];
+
+  public sortType = SortType;
 
   public selectedRisk: Risk;
 
@@ -48,8 +55,8 @@ export class RisksListComponent implements OnInit, OnDestroy {
     }
   }
 
-  public sort(type: string): void {
-    this.risks = this.risksSorter.sort(this.risks, type);
+  public sort(sortType: number): void {
+    this.risks = this.risksSorter.sort(this.risks, sortType);
   }
 
   public addRisk(): void {

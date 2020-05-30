@@ -38,10 +38,12 @@ export class RiskEditComponent implements OnInit, OnDestroy {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }
-    this.selectedRiskService.selectedRisk$.subscribe((data: Risk) => {
-      this.risk = JSON.parse(JSON.stringify(data));
-      this.initialRiskData = data;
-    });
+    this.subscription = this.selectedRiskService.selectedRisk$.subscribe(
+      (data: Risk) => {
+        this.risk = JSON.parse(JSON.stringify(data));
+        this.initialRiskData = data;
+      }
+    );
   }
 
   public ngOnDestroy(): void {
