@@ -12,15 +12,15 @@ export class LoginPageComponent {
 
   public password: string;
 
-  public constructor(private auth: AuthService) {}
+  public constructor(private authentificateService: AuthService) {}
 
   public logIn(): void {
     defaultUser.setUser(this.password, this.userName);
-    this.auth.login(defaultUser);
+    this.authentificateService.login(defaultUser);
   }
 
   public signIn(): void {
     defaultUser.setUser(this.password, this.userName);
-    this.auth.register(defaultUser);
+    this.authentificateService.register(defaultUser);
   }
 }

@@ -12,7 +12,6 @@ export class RiskCalculatorErrorService {
     calculator: RiskCalculator
   ): void {
     calculatorErrors.setFalse();
-    // eslint-disable-next-line default-case
     switch (type) {
       case typeSwitchs.minProb:
         if (calculator.minProb > calculator.maxProb) {
