@@ -4,7 +4,7 @@ import { SubscriptionLike } from 'rxjs';
 import { Risk, RiskCalculator, CalculatorErrors } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { DataBaseService } from '../../services/data-base.service';
-import { defaultCalculatorErrors, defaultRiskCalculator } from '../../enums';
+import { defaultCalculatorErrors, defaultRiskCalculator, typeSwitchs } from '../../enums';
 import { RiskCalculatorService } from '../../services/risk-calculator.service';
 import { RiskCalculatorErrorService } from '../../services/risk-calculator-error.service';
 
@@ -21,6 +21,8 @@ export class RiskEditComponent implements OnInit, OnDestroy {
   public calculatorErrors: CalculatorErrors = defaultCalculatorErrors;
 
   public calculator: RiskCalculator = defaultRiskCalculator;
+
+  public typeSwitch = typeSwitchs;
 
   private initialRiskData: Risk;
 

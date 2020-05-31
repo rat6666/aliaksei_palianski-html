@@ -17,7 +17,7 @@
             type="number"
             pInputText
             [(ngModel)]="calculator.minProb"
-            (ngModelChange)="riskCalculator('minProb')"
+            (ngModelChange)="riskCalculator(typeSwitch.minProb)"
           />
           <p-message
             class="error-mesage"
@@ -29,7 +29,12 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input type="number" pInputText [(ngModel)]="risk.probability" (change)="riskCalculator('probability')" />
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="risk.probability"
+            (change)="riskCalculator(typeSwitch.probability)"
+          />
         </div>
         <h4>%</h4>
         <div class="input-field">
@@ -38,7 +43,7 @@
             type="number"
             pInputText
             [(ngModel)]="calculator.maxProb"
-            (ngModelChange)="riskCalculator('maxProb')"
+            (ngModelChange)="riskCalculator(typeSwitch.maxProb)"
           />
           <p-message
             class="error-mesage"
@@ -59,7 +64,7 @@
             type="number"
             pInputText
             [(ngModel)]="calculator.minTime"
-            (ngModelChange)="riskCalculator('minTime')"
+            (ngModelChange)="riskCalculator(typeSwitch.minTime)"
           />
           <p-message
             class="error-mesage"
@@ -71,7 +76,7 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input type="number" pInputText [(ngModel)]="risk.time" (ngModelChange)="riskCalculator('time')" />
+          <input type="number" pInputText [(ngModel)]="risk.time" (ngModelChange)="riskCalculator(typeSwitch.time)" />
         </div>
         <h4>%</h4>
         <div class="input-field">
