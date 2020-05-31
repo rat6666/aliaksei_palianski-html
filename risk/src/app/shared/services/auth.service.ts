@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { User } from '../interfaces';
@@ -9,17 +9,11 @@ import { configAPI, sessionStorageKey } from '../enums';
   providedIn: 'root'
 })
 export class AuthService {
-  private headers: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json'
-  });
-
-  private options: Record<string, unknown> = { headers: this.headers };
-
   public constructor(private httpClient: HttpClient, private router: Router) {}
 
   public register(user: User): void {
     this.httpClient
-      .post(configAPI.urlUsersDatabase, user, this.options)
+      .post(configAPI.urlUsersDatabase, user)
       .pipe(take(1))
       .subscribe(
         () => {

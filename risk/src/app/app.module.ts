@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ButtonModule } from 'primeng/button';
@@ -20,6 +20,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { RisksListComponent } from './shared/layouts/risks-list/risks-list.component';
 import { RiskEditComponent } from './shared/layouts/risk-edit/risk-edit.component';
 import { ManagePageComponent } from './manage-page/manage-page.component';
+import { ParamInterceptor } from './shared/interceptors/interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,13 @@ import { ManagePageComponent } from './manage-page/manage-page.component';
     MessageModule
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ParamInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
