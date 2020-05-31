@@ -4,13 +4,7 @@
 <p-card [style]="{ height: '60px' }">
   <div class="button-block">
     <span>Sort by: </span>
-    <button
-      pButton
-      type="button"
-      label="Name"
-      (click)="sort(sortType.name)"
-      class="ui-button-secondary"
-    ></button>
+    <button pButton type="button" label="Name" (click)="sort(sortType.name)" class="ui-button-secondary"></button>
     <button
       pButton
       type="button"
@@ -30,11 +24,7 @@
 
 <p-card class="sort-panel">
   <p-scrollPanel>
-    <p-card
-      class="risks--list"
-      *ngFor="let item of risks"
-      (click)="selectRisk(item)"
-    >
+    <p-card class="risks--list" *ngFor="let item of risks" (click)="selectRisk(item)">
       <div [class.selected]="item === selectedRisk">
         {{ item.riskName }} | {{ item.time }} hrs | {{ item.probability }}%
       </div>

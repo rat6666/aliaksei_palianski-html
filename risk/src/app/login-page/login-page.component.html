@@ -60,20 +60,8 @@
       </div>
     </div>
     <div class="button-block">
-      <button
-        pButton
-        type="button"
-        label="Log in"
-        (click)="logIn()"
-        [disabled]="!name.valid || !pass.valid"
-      ></button>
-      <button
-        pButton
-        type="button"
-        label="Sign in"
-        (click)="signIn()"
-        [disabled]="!name.valid || !pass.valid"
-      ></button>
+      <button pButton type="button" label="Log in" (click)="logIn()" [disabled]="!name.valid || !pass.valid"></button>
+      <button pButton type="button" label="Sign in" (click)="signIn()" [disabled]="!name.valid || !pass.valid"></button>
     </div>
   </div>
 </p-card>

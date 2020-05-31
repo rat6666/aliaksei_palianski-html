@@ -18,15 +18,11 @@ export class RisksSorterService {
       switch (sortType) {
         case 0:
           result = this.isRiskSortedByIncrease
-            ? toSaveLowerCase(risk.riskName) <
-              toSaveLowerCase(otherRisk.riskName)
-            : toSaveLowerCase(risk.riskName) >
-              toSaveLowerCase(otherRisk.riskName);
+            ? toSaveLowerCase(risk.riskName) < toSaveLowerCase(otherRisk.riskName)
+            : toSaveLowerCase(risk.riskName) > toSaveLowerCase(otherRisk.riskName);
           break;
         case 1:
-          result = this.isRiskSortedByIncrease
-            ? risk.time > otherRisk.time
-            : risk.time < otherRisk.time;
+          result = this.isRiskSortedByIncrease ? risk.time > otherRisk.time : risk.time < otherRisk.time;
           break;
         case 2:
           result = this.isRiskSortedByIncrease

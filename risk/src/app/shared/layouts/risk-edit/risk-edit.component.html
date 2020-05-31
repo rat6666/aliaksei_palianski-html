@@ -1,20 +1,9 @@
 <p-card class="edit">
   <h5 *ngIf="!isMainPage">Name:</h5>
   <h3 *ngIf="isMainPage">{{ risk.riskName }}</h3>
-  <input
-    class="edit--input"
-    *ngIf="!isMainPage"
-    type="text"
-    pInputText
-    [(ngModel)]="risk.riskName"
-  />
+  <input class="edit--input" *ngIf="!isMainPage" type="text" pInputText [(ngModel)]="risk.riskName" />
   <h5>Description:</h5>
-  <textarea
-    class="edit--description"
-    [(ngModel)]="risk.description"
-    pInputTextarea
-    autoResize="autoResize"
-  ></textarea>
+  <textarea class="edit--description" [(ngModel)]="risk.description" pInputTextarea autoResize="autoResize"></textarea>
 </p-card>
 
 <p-card>
@@ -40,12 +29,7 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input
-            type="number"
-            pInputText
-            [(ngModel)]="risk.probability"
-            (change)="riskCalculator('probability')"
-          />
+          <input type="number" pInputText [(ngModel)]="risk.probability" (change)="riskCalculator('probability')" />
         </div>
         <h4>%</h4>
         <div class="input-field">
@@ -87,12 +71,7 @@
         <h4>%</h4>
         <div class="input-field">
           <h4>Likely</h4>
-          <input
-            type="number"
-            pInputText
-            [(ngModel)]="risk.time"
-            (ngModelChange)="riskCalculator('time')"
-          />
+          <input type="number" pInputText [(ngModel)]="risk.time" (ngModelChange)="riskCalculator('time')" />
         </div>
         <h4>%</h4>
         <div class="input-field">
@@ -124,26 +103,10 @@
       <button pButton (click)="postRisk()" type="button" label="Apply"></button>
     </ng-template>
     <ng-template #updateBlock>
-      <button
-        pButton
-        (click)="updateEditedRisk()"
-        type="button"
-        label="Apply"
-      ></button>
+      <button pButton (click)="updateEditedRisk()" type="button" label="Apply"></button>
     </ng-template>
 
-    <button
-      *ngIf="!isMainPage"
-      pButton
-      (click)="deleteRisk()"
-      type="button"
-      label="Delete"
-    ></button>
-    <button
-      pButton
-      (click)="resetEditedRisk()"
-      type="button"
-      label="Reset"
-    ></button>
+    <button *ngIf="!isMainPage" pButton (click)="deleteRisk()" type="button" label="Delete"></button>
+    <button pButton (click)="resetEditedRisk()" type="button" label="Reset"></button>
   </div>
 </p-card>

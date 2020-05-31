@@ -38,12 +38,10 @@ export class RiskEditComponent implements OnInit, OnDestroy {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }
-    this.subscription = this.selectedRiskService.selectedRisk$.subscribe(
-      (data: Risk) => {
-        this.risk = JSON.parse(JSON.stringify(data));
-        this.initialRiskData = data;
-      }
-    );
+    this.subscription = this.selectedRiskService.selectedRisk$.subscribe((data: Risk) => {
+      this.risk = JSON.parse(JSON.stringify(data));
+      this.initialRiskData = data;
+    });
   }
 
   public ngOnDestroy(): void {
@@ -71,10 +69,6 @@ export class RiskEditComponent implements OnInit, OnDestroy {
 
   public riskCalculator(type: string): void {
     this.riskCalculatorService.riskCalculator(type, this.calculator, this.risk);
-    this.riskCalculatorErrorService.riskCalculatorErrorsHandler(
-      type,
-      this.calculatorErrors,
-      this.calculator
-    );
+    this.riskCalculatorErrorService.riskCalculatorErrorsHandler(type, this.calculatorErrors, this.calculator);
   }
 }

@@ -5,12 +5,7 @@ import { Risk } from '../../interfaces';
 import { SelectedRiskService } from '../../services/selected-risk.service';
 import { RisksSorterService } from '../../services/risks-sorter.service';
 import { DataBaseService } from '../../services/data-base.service';
-import {
-  sessionStorageKey,
-  defaultAddRisk,
-  defaultRisk,
-  SortType
-} from '../../enums';
+import { sessionStorageKey, defaultAddRisk, defaultRisk, SortType } from '../../enums';
 
 @Component({
   selector: 'app-risks-list',
@@ -41,11 +36,9 @@ export class RisksListComponent implements OnInit, OnDestroy {
     if (this.router.url === '/manage') {
       this.isMainPage = !this.isMainPage;
     }
-    this.subscription = this.dataBaseService.streamRiskList$.subscribe(
-      (data: Risk[]) => {
-        this.risks = data.filter(el => el.userID === this.userID);
-      }
-    );
+    this.subscription = this.dataBaseService.streamRiskList$.subscribe((data: Risk[]) => {
+      this.risks = data.filter(el => el.userID === this.userID);
+    });
   }
 
   public ngOnDestroy(): void {

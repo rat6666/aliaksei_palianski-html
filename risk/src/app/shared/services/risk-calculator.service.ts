@@ -6,11 +6,7 @@ import { RiskCalculator, Risk } from '../interfaces';
   providedIn: 'root'
 })
 export class RiskCalculatorService {
-  public riskCalculator(
-    type: string,
-    calculator: RiskCalculator,
-    risk: Risk
-  ): void {
+  public riskCalculator(type: string, calculator: RiskCalculator, risk: Risk): void {
     switch (type) {
       case typeSwitchs.probability:
         calculator.setProbNull();
