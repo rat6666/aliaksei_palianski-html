@@ -1,0 +1,75 @@
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+input {
+  width: 70%;
+  height: 30px;
+}
+
+h4 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.edit--description {
+  width: 100%;
+}
+
+.calc-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  height: 200px;
+  padding: 0 1em 2em 0em;
+}
+
+.risk-name {
+  min-width: 80px;
+}
+
+.probability-input-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.error-mesage {
+  height: 0px;
+}
+
+:host ::ng-deep .ui-message {
+  padding: 0;
+  font-weight: lighter;
+  font-size: small;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,23 @@
+.main-page {
+  margin: 2px 2px 0 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.risks {
+  &-list {
+    width: 100%;
+  }
+  &-edit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-page {
+    flex-wrap: wrap;
+  }
+}

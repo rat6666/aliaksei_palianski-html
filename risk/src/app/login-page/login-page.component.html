@@ -1,0 +1,67 @@
+<p-card class="login-form" [style]="{ height: '450px' }">
+  <div class="input-block">
+    <h3>Login</h3>
+    <div>
+      <span class="input-label">
+        <input
+          class="input-block--name"
+          type="text"
+          size="40"
+          pInputText
+          [(ngModel)]="userName"
+          #name="ngModel"
+          required
+          minlength="6"
+        />
+        <label for="input-block--name">Username</label>
+      </span>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <p-message
+          class="input-validate-error"
+          *ngIf="name.errors.required"
+          severity="error"
+          text="Name is required"
+        ></p-message>
+        <p-message
+          class="input-validate-error"
+          *ngIf="name.errors.minlength"
+          severity="error"
+          text="Name must be at least 6 characters long."
+        ></p-message>
+      </div>
+    </div>
+    <div>
+      <span class="input-label">
+        <input
+          class="input-block--password"
+          type="text"
+          size="40"
+          pInputText
+          [(ngModel)]="password"
+          #pass="ngModel"
+          required
+          minlength="6"
+        />
+        <label for="input-block--password">Password</label>
+      </span>
+      <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+        <p-message
+          class="input-validate-error"
+          *ngIf="pass.errors.required"
+          severity="error"
+          text="Password is required"
+        ></p-message>
+        <p-message
+          class="input-validate-error"
+          *ngIf="pass.errors.minlength"
+          severity="error"
+          text="Password must be at least 6 characters long."
+        ></p-message>
+      </div>
+    </div>
+    <div class="button-block">
+      <button pButton type="button" label="Log in" (click)="logIn()" [disabled]="!name.valid || !pass.valid"></button>
+      <button pButton type="button" label="Sign in" (click)="signIn()" [disabled]="!name.valid || !pass.valid"></button>
+    </div>
+  </div>
+</p-card>

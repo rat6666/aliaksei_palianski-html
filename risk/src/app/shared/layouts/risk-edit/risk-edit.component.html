@@ -1,0 +1,117 @@
+<p-card class="edit">
+  <h5 *ngIf="!isMainPage">Name:</h5>
+  <h3 *ngIf="isMainPage">{{ risk.riskName }}</h3>
+  <input class="edit--input" *ngIf="!isMainPage" type="text" pInputText [(ngModel)]="risk.riskName" />
+  <h5>Description:</h5>
+  <textarea class="edit--description" [(ngModel)]="risk.description" pInputTextarea autoResize="autoResize"></textarea>
+</p-card>
+
+<p-card>
+  <div class="calc">
+    <div class="calc-block">
+      <h4 class="risk-name">Probability</h4>
+      <div class="probability-input-block">
+        <div class="input-field">
+          <h4>Min</h4>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="calculator.minProb"
+            (ngModelChange)="riskCalculator(typeSwitch.minProb)"
+          />
+          <p-message
+            class="error-mesage"
+            *ngIf="calculatorErrors.minProb"
+            severity="error"
+            text="Min > Max."
+          ></p-message>
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Likely</h4>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="risk.probability"
+            (change)="riskCalculator(typeSwitch.probability)"
+          />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Max</h4>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="calculator.maxProb"
+            (ngModelChange)="riskCalculator(typeSwitch.maxProb)"
+          />
+          <p-message
+            class="error-mesage"
+            *ngIf="calculatorErrors.maxProb"
+            severity="error"
+            text="Max < Min."
+          ></p-message>
+        </div>
+        <h4>%</h4>
+      </div>
+    </div>
+    <div class="calc-block">
+      <h4 class="risk-name">Impact Time</h4>
+      <div class="probability-input-block">
+        <div class="input-field">
+          <h4>Min</h4>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="calculator.minTime"
+            (ngModelChange)="riskCalculator(typeSwitch.minTime)"
+          />
+          <p-message
+            class="error-mesage"
+            *ngIf="calculatorErrors.minTime"
+            severity="error"
+            text="Min > Max."
+          ></p-message>
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Likely</h4>
+          <input type="number" pInputText [(ngModel)]="risk.time" (ngModelChange)="riskCalculator(typeSwitch.time)" />
+        </div>
+        <h4>%</h4>
+        <div class="input-field">
+          <h4>Max</h4>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="calculator.maxTime"
+            (ngModelChange)="riskCalculator('maxTime')"
+          />
+          <p-message
+            class="error-mesage"
+            *ngIf="calculatorErrors.maxTime"
+            severity="error"
+            text="Min > Max."
+            closable="false"
+          ></p-message>
+        </div>
+        <h4>%</h4>
+      </div>
+    </div>
+  </div>
+</p-card>
+
+<p-card>
+  <div class="button-block">
+    <div *ngIf="risk.id === 'newRisk'; then postBlock; else updateBlock"></div>
+    <ng-template #postBlock>
+      <button pButton (click)="postRisk()" type="button" label="Apply"></button>
+    </ng-template>
+    <ng-template #updateBlock>
+      <button pButton (click)="updateEditedRisk()" type="button" label="Apply"></button>
+    </ng-template>
+
+    <button *ngIf="!isMainPage" pButton (click)="deleteRisk()" type="button" label="Delete"></button>
+    <button pButton (click)="resetEditedRisk()" type="button" label="Reset"></button>
+  </div>
+</p-card>

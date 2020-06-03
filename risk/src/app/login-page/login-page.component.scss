@@ -1,0 +1,40 @@
+.input-validate-error {
+  height: 0px;
+  font-size: smaller;
+}
+
+.login-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.input-block {
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  &--name {
+    width: 100%;
+  }
+  &--password {
+    width: 100%;
+  }
+}
+
+.button-block {
+  margin: 20px 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .ui-message {
+  padding: 0;
+  font-size: smaller;
+}
